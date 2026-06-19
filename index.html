@@ -2,56 +2,278 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TIENDA VIRTUAL PAOOU FASHION</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background-color:#f6e7f4; text-align:center; font-family:Arial;">
-<header>
-    <h1 style="color:#f675d8;">
-        SISTEMA DE VENTAS PAOOU FASHION
-    </h1>
-    <img src="logo.jpeg" alt="Logo PAOOU" width="200">
-    <h2>
-        <em style="color:#ec89af; text-shadow:2px 2px 4px #e1b8ec;">
-         <span style="text-decoration: underline;"> La moda que reselta tu belleza estilo y elegancia</span> 
-        </em> 
-    </h2>
+<body>
+<header class="hero text-center text-white d-flex align-items-center">
+    <div class="container">
+        <h1 class="fw-bold">
+            SISTEMA DE VENTAS PAOOU FASHION
+        </h1>
+
+        <p class="lead">
+            <em>La moda que resalta tu belleza, estilo y elegancia</em>
+        </p>
+
+    </div>
 </header>
-<nav>
-        <a href="#inicio">Inicio</a> |
-        <a href="#quienes">Quiénes Somos</a> |
-        <a href="#servicios">Servicios o Productos</a> |
-        <a href="#contacto">Contacto</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid px-3">
+    <a class="navbar-brand" href="#">
+        <img src="logo.jpeg" alt="Logo" width="45" class="me-2 rounded">
+        PAOOU FASHION
+    </a>
+<button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#inicio">Inicio</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#quienes">Quiénes Somos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#servicios">Servicios o Productos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+    </div>
+    </div>
 </nav>
 <main>
- <section id="inicio">
-    <h2>Inicio</h2>
-    <p>
-        Bienvenidos a PAOOU FASHION, una tienda virtual dedicada a la venta de ropa femenina moderna y elegante. Nuestro objetivo es ofrecer prendas de calidad que permitan a nuestras clientes lucir a la moda y expresar su estilo en cualquier ocasión.
+ <section id="inicio" class="container-fluid text-center p-5 bg-white rounded shadow">
+
+    <h2 class="display-5 fw-bold titulo-inicio mb-3">
+        Bienvenidos a PAOOU FASHION
+    </h2>
+
+    <p class="lead text-secondary mb-4">
+        Bienvenidos a PAOOU FASHION, una tienda virtual dedicada a la venta de ropa femenina moderna, elegante y de calidad. Descubre un mundo de moda femenina donde el estilo, la comodidad y la elegancia se unen para resaltar tu belleza en cada ocasión. Nuestro objetivo es ofrecer prendas que permitan a nuestras clientas expresar su personalidad, confianza y buen gusto, brindando siempre productos acordes con las tendencias actuales y las necesidades de cada mujer.
     </p>
- </section> 
- <section id="quienes">
-    <h2>Quiénes Somos</h2> 
-    <article> 
-<p style="text-align: justify;">
-    PAOOU FASHION es una tienda virtual enfocada en la comercialización de ropa femenina moderna, elegante y de calidad. Nuestro emprendimiento surge con el objetivo de ofrecer prendas que permitan a las mujeres expresar su estilo y personalidad en cualquier ocasión. A través de nuestro sistema de ventas en línea, las clientas pueden conocer nuestros productos, promociones y novedades de manera rápida y segura. Nos esforzamos por brindar una excelente atención al cliente, garantizando comodidad durante el proceso de compra. Además, trabajamos constantemente para incorporar nuevas tendencias de moda y ofrecer productos atractivos, accesibles y de calidad. Nuestro compromiso es satisfacer las necesidades de nuestras clientas y convertirnos en una marca reconocida por su confianza, innovación y responsabilidad.
-</p>
- 
-<img src="moda.jpeg" alt="Moda femenina PAOOU FASHION" width="300">
-</article> 
-</section> 
- <section id="servicios">
-<h2>Servicios o Productos</h2>
-<ul style="display: inline-block;text-align: left;">
-      <li>Vestidos elegantes para eventos y ocasiones especiales.</li>
-    <li>Blusas y tops modernos de diferentes estilos y colores.</li>
-    <li>Bodys casuales y elegantes para combinar con diversas prendas.</li>
-    <li>Faldas modernas para un look femenino y sofisticado.</li>
-    <li>Jeans de excelente calidad y comodidad para uso diario.</li>
-    <li>Conjuntos femeninos para reuniones, salidas y ocasiones especiales.</li>
-</ul>
- </section>
- <section id="contacto">
+    <p class="fw-semibold">
+        Tu estilo, tu esencia, tu moda.
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+
+        <a href="#servicios" class="btn btn-paoou btn-lg shadow">
+            Explorar Productos
+        </a>
+    </div>
+</section>
+<section id="quienes" class="container my-5 p-4 bg-white rounded shadow">
+
+  
+    <h2 class="text-center mb-4 fw-bold titulo-inicio">
+        Quiénes Somos
+    </h2>
+
+    <div class="row align-items-center mb-5 g-4">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold mb-3">Nuestra Historia</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    PAOOU FASHION es una tienda virtual dedicada a la comercialización de ropa femenina moderna, elegante y de alta calidad. Nuestro emprendimiento nace con el propósito de ofrecer prendas que permitan a las mujeres expresar su personalidad, seguridad y estilo en cada ocasión. A través de nuestro sistema de ventas en línea, las clientas pueden conocer nuestros productos, promociones y novedades de manera rápida y segura. Trabajamos constantemente para incorporar nuevas tendencias de moda y brindar una excelente experiencia de compra, con el compromiso de satisfacer las necesidades de nuestras clientas y consolidarnos como una marca reconocida por su confianza, innovación y responsabilidad. Además, buscamos ofrecer productos accesibles que combinen moda, comodidad y calidad para cada momento de la vida de nuestras clientas.
+                </p>
+
+                <p style="text-align: justify;">
+                    Este emprendimiento fue creado el 26 de mayo de 2026 por MARÍA PAOLA ACOSTA GARCÍA, una joven emprendedora responsable, creativa y trabajadora, quien decidió convertir su pasión por la moda en un proyecto empresarial. Desde su inicio, la marca ha buscado crecer de manera constante, ofreciendo confianza, innovación y compromiso con cada cliente, con la visión de convertirse en una tienda reconocida en el ámbito digital.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="moda1.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
+        </div>
+
+    </div>
+
+    <div class="row align-items-center mb-5 p-4 rounded" style="background:#fce4f1;">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold titulo-inicio mb-3">Misión</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    La misión de PAOOU FASHION es ofrecer prendas de vestir femeninas de alta calidad que permitan a las mujeres expresar su identidad, estilo y personalidad con confianza. Nos enfocamos en brindar productos modernos, elegantes y accesibles, alineados con las tendencias actuales de la moda, garantizando siempre una excelente relación entre calidad y precio.
+                </p>
+
+                <p style="text-align: justify;">
+                    Además, buscamos brindar una experiencia de compra cómoda, segura y satisfactoria, donde cada cliente se sienta valorado. Trabajamos constantemente en mejorar nuestros productos y servicios, con el objetivo de consolidarnos como una marca confiable y preferida en el mercado de la moda femenina.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
+        </div>
+
+    </div>
+
+    <div class="row align-items-center p-4 rounded flex-md-row-reverse" style="background:#f8d7ea;">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold titulo-inicio mb-3">Visión</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    La visión de PAOOU FASHION es convertirse en una marca reconocida a nivel nacional e internacional por su innovación, calidad y compromiso con la moda femenina. Aspiramos a expandir nuestro negocio en el entorno digital, consolidándonos como una empresa líder en la venta de ropa femenina moderna, elegante y accesible.
+                </p>
+
+                <p style="text-align: justify;">
+                    Queremos ser una marca que inspire confianza, seguridad y estilo en cada una de nuestras clientas, destacando siempre por la excelencia en nuestros productos y atención al cliente, logrando así un crecimiento sostenible y una identidad sólida en el mundo de la moda.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
+        </div>
+
+    </div>
+
+</section>
+<section id="servicios" class="container my-5">
+
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Servicios o Productos
+    </h2>
+
+    <p class="text-center mb-5">
+        Descubre nuestras prendas femeninas diseñadas para resaltar tu belleza, elegancia y estilo en cualquier ocasión.
+    </p>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="vestido.jpeg" class="card-img-top" alt="Vestido">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Vestidos Elegantes</h5>
+                    <p class="precio">$35.00</p>
+                    <p class="card-text">
+                        Ideales para eventos y ocasiones especiales.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="blusas.jpeg" class="card-img-top" alt="Blusa">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Blusas y Tops</h5>
+                    <p class="precio">$18.00</p>
+                    <p class="card-text">
+                        Diseños modernos en diferentes estilos y colores.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="body.jpg" class="card-img-top" alt="Body">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Bodys</h5>
+                    <p class="precio">$22.00</p>
+                    <p class="card-text">
+                        Perfectos para combinar con cualquier look.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="faldas.jpg" class="card-img-top" alt="Falda">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Faldas Modernas</h5>
+                    <p class="precio">$20.00</p>
+                    <p class="card-text">
+                        Elegancia y estilo para cualquier ocasión.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="jeans.jpeg" class="card-img-top" alt="Jeans">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Jeans Femeninos</h5>
+                    <p class="precio">$28.00</p>
+                    <p class="card-text">
+                        Comodidad y calidad para el día a día.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="conjuntos.jpg" class="card-img-top" alt="Conjunto">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Conjuntos Femeninos</h5>
+                    <p class="precio">$40.00</p>
+                    <p class="card-text">
+                        Ideales para reuniones y ocasiones especiales.
+                    </p>
+                    <button class="btn btn-paoou">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<h3 class="text-center mt-5 titulo-inicio">
+        Video de Moda y Tendencia
+    </h3>
+
+    <div class="ratio ratio-16x9">
+    <iframe 
+        src="https://www.youtube.com/embed/zZP8s2V12mM?si=rW0Ml7eizGIdZ7s9"
+        title="YouTube video player" allowfullscreen>
+    </iframe>
+    </div>
+    <div class="text-center bg-white p-3 rounded shadow mx-auto" style="max-width:350px;">
+    <h5 class="titulo-inicio">
+    Video Promocional PAOOU FASHION
+    </h5>
+    <video class="w-100 rounded" controls>
+    <source src="promovideo.mp4" type="video/mp4">
+    </video>
+    </div>
+</section>
+
+ <section id="contacto" class="container my-5">
 <h2>Contactos</h2>
 <p><strong>Correo electrónico:</strong>paola2005acosta@gmail.com</p>
 <p><strong>Teléfono:</strong>0968359008</p> 
@@ -66,50 +288,112 @@
 <p><strong>Dirección:</strong>Ecuador, Provincia Sucumbios, Cantón Shushufundi</p>
 <h3>Ubicación</h3>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1184.1202182101767!2d-76.64529611163712!3d-0.18545052545107985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTEnMDUuOSJTIDc2wrAzOCczOS45Ilc!5e0!3m2!1ses!2sec!4v1781223060867!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
-<section>
-    <h2>Video de Moda y Tendencia</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/zZP8s2V12mM?si=rW0Ml7eizGIdZ7s9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-<div style="text-align:center; background:#f8d7ff; padding:15px; width:320px; margin:auto; border-radius:10px;">
-    
-    <video width="280" controls>
-        <source src="promovideo.mp4" type="video/mp4">
-    </video>
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1184.1202182101767!2d-76.64529611163712!3d-0.18545052545107985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTEnMDUuOSJTIDc2wrAzOCczOS45Ilc!5e0!3m2!1ses!2sec!4v1781223060867!5m2!1ses!2sec" class="w-100 rounded shadow" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+<div class="text-center mt-4">
+
+<a href="mailto:paola2005acosta@gmail.com"
+class="btn btn-paoou m-2">
+ Correo
+</a>
+
+<a href="https://wa.me/593968359008?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos."
+target="_blank"
+class="btn btn-success m-2">
+ WhatsApp
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=100058794335886"
+target="_blank"
+class="btn btn-paoou m-2">
+ Facebook
+</a>
+
+<a href="https://www.instagram.com/mp.au_?igsh=c2dyNWU0ajdvMnVy"
+target="_blank"
+class="btn btn-paoou m-2">
+ Instagram
+</a>
+
+<a href="https://maps.google.com"
+target="_blank"
+class="btn btn-paoou m-2">
+ Ver Ubicación
+</a>
 
 </div>
+<h3 class="text-center mt-5 titulo-inicio">
+Envíanos un Mensaje
+</h3>
+
+<form class="container bg-white p-4 rounded shadow mt-4">
+    <div class="row">
+    <div class="col-md-6 mb-3">
+    <label class="form-label">
+        Nombre Completo
+    </label>
+    <input type="text" class="form-control" placeholder="Ingrese su nombre">
+    </div>
+    <div class="col-md-6 mb-3">
+    <label class="form-label">
+    Correo Electrónico
+    </label>
+    <input type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+    </div>
+    </div>
+    <div class="mb-3">
+    <label class="form-label">
+    Asunto
+    </label>
+
+    <input type="text" class="form-control" placeholder="Ingrese el asunto">
+    </div>
+    <div class="mb-3">
+    <label class="form-label">
+    Mensaje
+    </label>
+    <textarea class="form-control" rows="5" placeholder="Escriba su mensaje"></textarea>
+    </div>
+    <button type="submit"
+    class="btn btn-paoou">
+    Enviar Mensaje
+    </button>
+</form>
 </section>
 </main>
+<aside class="container bg-white p-4 rounded shadow my-5">
+    <h2 class="titulo-inicio fw-bold text-center mb-4">
+    Información Adicional
+    </h2>
+    <p>
+    Promoción especial: Obtén un 10% de descuento en tu primera compra.
+    </p>
+    <p>
+    Realizamos envíos a diferentes ciudades del país.
+    </p>
+    <h3 class="mt-4">
+     Horario de Atención
+    </h3>
+    <p>
+     Lunes a Viernes: 09:00 a.m. - 07:00 p.m.
+    </p>
 
-<aside>
-    <h2>Información Adicional</h2>
     <p>
-      Promoción especial: Obtén un 10% de descuento en tu primera compra.  
-    </p>
-    <p>
-        Realizamos envíos a diferentes ciudades del país.
-    </p>
-    <h3>Horario de Atención</h3>
-    <p>
-        Lunes a Viernes: 09:00 a.m. - 07:00 p.m.
+     Sábados: 09:00 a.m. - 03:00 p.m.
     </p>
 
     <p>
-        Sábados: 09:00 a.m. - 03:00 p.m.
-    </p>
-
-    <p>
-        Domingos: Cerrado.
+     Domingos: Cerrado.
     </p>
 </aside>
-
-<footer>
+<footer class="text-center p-4">
+    
     <p>2026 PAOOU FASHION</p>
 
     <p>Desarrollado por ACOSTA GARCIA MARIA PAOLA</p>
-
+    
     <p>Asignatura: Desarrollo de Aplicaciones Web</p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
 </body>
 </html>

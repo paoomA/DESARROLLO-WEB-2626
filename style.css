@@ -1,0 +1,220 @@
+body{
+    background-color:#f6e7f4;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+header{
+    background:linear-gradient(90deg,#e198d0,#ec89af);
+    color:rgb(248, 240, 240);
+    padding:30px;
+}
+
+nav{
+    box-shadow:0px 2px 10px rgba(0,0,0,0.2);
+}
+
+section{
+    margin-top:30px;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+aside{
+    background-color:white;
+    padding:20px;
+    margin-top:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background-color:#ec89af;
+    color:white;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    iframe{
+        width:100%;
+        height:auto;
+    }
+}
+.hero{
+    background-image: url("moda1.jpeg"); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero .container{
+    position: relative;
+    z-index: 2;
+}
+.titulo-inicio{
+    color:#ec89af !important;
+}
+
+#inicio{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    border:2px solid #f8c8dc;
+    transition:0.3s;
+}
+#inicio:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 8px 20px rgba(0,0,0,0.15);
+}
+.btn-paoou{
+    background-color:#ec89af;
+    color:white;
+    border:none;
+    border-radius:10px;
+}
+
+.btn-paoou:hover{
+    background-color:#f675d8;
+    color:white;
+}
+
+
+.navbar-nav .nav-link{
+    color:white;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s ease;
+    margin:2px;
+}
+
+.navbar-nav .nav-link:hover{
+    background-color:#f8c8dc;
+    color:#000;
+    transform:scale(1.05);
+}
+.navbar-nav .nav-link:focus{
+    background-color:#ec89af;
+    color:white;
+}
+
+#quienes .row{
+    transition:0.3s;
+}
+
+#quienes .row:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 10px 25px rgba(0,0,0,0.15);
+}
+.producto-card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.producto-card:hover{
+    transform:translateY(-8px);
+}
+
+.producto-card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.card-title{
+    color:#ec89af;
+    font-weight:bold;
+}
+
+.precio{
+    color:#ec89af;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.producto-card .btn{
+    margin-top:10px;
+}
+#contacto{
+    background-color:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    margin:30px auto;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.form-control:focus{
+    border-color:#ec89af;
+    box-shadow:0px 0px 8px rgba(236,137,175,0.4);
+}
+aside{
+    transition:0.3s;
+}
+
+aside:hover{
+    transform:translateY(-5px);
+}
+
+aside p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+footer{
+    background-color:#ec89af;
+    color:white;
+    font-size:16px;
+    letter-spacing:1px;
+    margin-top:30px;
+}
+
+footer p{
+    margin:5px 0;
+}
+@media(max-width:768px){
+
+.hero{
+height:40vh;
+}
+
+#inicio{
+width:100%;
+}
+
+.producto-card img{
+height:200px;
+}
+
+footer{
+font-size:14px;
+}
+
+}
