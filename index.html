@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TIENDA VIRTUAL PAOOU FASHION</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid px-3">
     <a class="navbar-brand" href="#">
-        <img src="logo.jpeg" alt="Logo" width="45" class="me-2 rounded">
+        <img src="img/logo.jpeg" width="45" class="me-2 rounded">
         PAOOU FASHION
     </a>
 <button class="navbar-toggler" type="button"
@@ -102,7 +102,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="moda1.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
+            <img src="img/moda1.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
         </div>
 
     </div>
@@ -126,7 +126,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
+            <img src="img/mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
         </div>
 
     </div>
@@ -150,7 +150,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
+            <img src="img/vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
         </div>
 
     </div>
@@ -170,7 +170,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="vestido.jpeg" class="card-img-top" alt="Vestido">
+                <img src="img/vestido.jpeg" class="card-img-top" alt="Vestido">
                 <div class="card-body text-center">
                     <h5 class="card-title">Vestidos Elegantes</h5>
                     <p class="precio">$35.00</p>
@@ -184,7 +184,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="blusas.jpeg" class="card-img-top" alt="Blusa">
+                <img src="img/blusas.jpeg" class="card-img-top" alt="Blusa">
                 <div class="card-body text-center">
                     <h5 class="card-title">Blusas y Tops</h5>
                     <p class="precio">$18.00</p>
@@ -198,7 +198,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="body.jpg" class="card-img-top" alt="Body">
+                <img src="img/body.jpg" class="card-img-top" alt="Body">
                 <div class="card-body text-center">
                     <h5 class="card-title">Bodys</h5>
                     <p class="precio">$22.00</p>
@@ -212,7 +212,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="faldas.jpg" class="card-img-top" alt="Falda">
+                <img src="img/faldas.jpg" class="card-img-top" alt="Falda">
                 <div class="card-body text-center">
                     <h5 class="card-title">Faldas Modernas</h5>
                     <p class="precio">$20.00</p>
@@ -226,7 +226,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="jeans.jpeg" class="card-img-top" alt="Jeans">
+                <img src="img/jeans.jpeg" class="card-img-top" alt="Jeans">
                 <div class="card-body text-center">
                     <h5 class="card-title">Jeans Femeninos</h5>
                     <p class="precio">$28.00</p>
@@ -240,7 +240,7 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="conjuntos.jpg" class="card-img-top" alt="Conjunto">
+                <img src="img/conjuntos.jpg" class="card-img-top" alt="Conjunto">
                 <div class="card-body text-center">
                     <h5 class="card-title">Conjuntos Femeninos</h5>
                     <p class="precio">$40.00</p>
@@ -268,11 +268,72 @@
     Video Promocional PAOOU FASHION
     </h5>
     <video class="w-100 rounded" controls>
-    <source src="promovideo.mp4" type="video/mp4">
+    <source src="video/promovideo.mp4" type="video/mp4">
     </video>
     </div>
 </section>
+<section id="registro-productos" class="container my-5 bg-white p-4 rounded shadow">
 
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Registro de Nuevos Productos
+    </h2>
+
+    <p class="text-center mb-4">
+        Agrega nuevas prendas para ampliar el catálogo de PAOOU FASHION.
+    </p>
+
+    <div id="mensaje"></div>
+
+    <form id="formProducto">
+
+        <div class="mb-3">
+            <label class="form-label">
+                Nombre de la Prenda
+            </label>
+            <input
+                type="text"
+                id="nombre"
+                class="form-control"
+                placeholder="Ejemplo: Vestido Elegante">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Descripción
+            </label>
+            <textarea
+                id="descripcion"
+                class="form-control"
+                rows="3"
+                placeholder="Ingrese una descripción de la prenda">
+            </textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">
+                Categoría
+            </label>
+            <input
+                type="text"
+                id="categoria"
+                class="form-control"
+                placeholder="Ejemplo: Vestidos">
+        </div>
+
+        <button type="submit" class="btn btn-paoou">
+            Registrar Producto
+        </button>
+
+    </form>
+
+    <div class="alert alert-light text-center mt-4">
+        Total de productos registrados:
+        <span id="contadorProductos">0</span>
+    </div>
+
+    <div id="listaProductos" class="mt-4"></div>
+
+</section>
  <section id="contacto" class="container my-5">
 <h2>Contactos</h2>
 <p><strong>Correo electrónico:</strong>paola2005acosta@gmail.com</p>
@@ -326,38 +387,48 @@ class="btn btn-paoou m-2">
 Envíanos un Mensaje
 </h3>
 
-<form class="container bg-white p-4 rounded shadow mt-4">
+<form id="formContacto" class="container bg-white p-4 rounded shadow mt-4">
     <div class="row">
     <div class="col-md-6 mb-3">
     <label class="form-label">
         Nombre Completo
     </label>
-    <input type="text" class="form-control" placeholder="Ingrese su nombre">
+    <input type="text" id="nombreContacto" class="form-control" placeholder="Ingrese su nombre">
     </div>
     <div class="col-md-6 mb-3">
     <label class="form-label">
     Correo Electrónico
     </label>
-    <input type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+    <input type="email" id="correoContacto" class="form-control" placeholder="Ingrese su correo electrónico">
     </div>
     </div>
     <div class="mb-3">
     <label class="form-label">
-    Asunto
+        Tipo de Consulta
     </label>
 
-    <input type="text" class="form-control" placeholder="Ingrese el asunto">
-    </div>
+    <select class="form-select" id="tipoConsulta">
+        <option value="">Seleccione una opción</option>
+        <option>Información de productos</option>
+        <option>Consulta de precios</option>
+        <option>Pedidos</option>
+        <option>Sugerencias</option>
+    </select>
+</div>
     <div class="mb-3">
     <label class="form-label">
     Mensaje
     </label>
-    <textarea class="form-control" rows="5" placeholder="Escriba su mensaje"></textarea>
-    </div>
-    <button type="submit"
-    class="btn btn-paoou">
-    Enviar Mensaje
-    </button>
+
+    <textarea id="mensajeContacto" class="form-control" rows="5" placeholder="Escriba su mensaje"></textarea>
+</div>
+
+<div id="respuestaContacto"></div>
+
+<button type="submit"
+class="btn btn-paoou">
+Enviar Mensaje
+</button>
 </form>
 </section>
 </main>
@@ -395,5 +466,6 @@ Envíanos un Mensaje
     <p>Asignatura: Desarrollo de Aplicaciones Web</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
+<script src="resources/js/script.js"></script>
 </body>
 </html>

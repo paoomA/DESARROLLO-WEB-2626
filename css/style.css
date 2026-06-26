@@ -53,7 +53,7 @@ footer{
     }
 }
 .hero{
-    background-image: url("moda1.jpeg"); 
+    background-image: url("../img/moda1.jpeg"); 
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -217,4 +217,11 @@ footer{
 font-size:14px;
 }
 
+}
+#registro-productos{
+    border:2px solid #f8c8dc;
+}
+
+#registro-productos h2{
+    color:#ec89af;
 }
