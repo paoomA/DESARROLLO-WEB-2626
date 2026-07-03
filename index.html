@@ -287,15 +287,19 @@
     <form id="formProducto">
 
         <div class="mb-3">
-            <label class="form-label">
-                Nombre de la Prenda
-            </label>
-            <input
-                type="text"
-                id="nombre"
-                class="form-control"
-                placeholder="Ejemplo: Vestido Elegante">
-        </div>
+    <label class="form-label">
+        Nombre de la Prenda
+    </label>
+
+    <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        placeholder="Ejemplo: Vestido Elegante">
+
+    <div id="errorNombre" class="text-danger small"></div>
+
+</div>
 
         <div class="mb-3">
             <label class="form-label">
@@ -307,18 +311,30 @@
                 rows="3"
                 placeholder="Ingrese una descripción de la prenda">
             </textarea>
+            <div id="errorDescripcion" class="text-danger small"></div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">
-                Categoría
-            </label>
-            <input
-                type="text"
-                id="categoria"
-                class="form-control"
-                placeholder="Ejemplo: Vestidos">
-        </div>
+
+    <label class="form-label">
+        Categoría
+    </label>
+
+    <select id="categoria" class="form-select">
+
+        <option value="">Seleccione una categoría</option>
+
+        <option>Vestidos</option>
+        <option>Blusas</option>
+        <option>Jeans</option>
+        <option>Faldas</option>
+        <option>Bodys</option>
+        <option>Conjuntos</option>
+
+    </select>
+
+    <div id="errorCategoria" class="text-danger small"></div>
+</div>
 
         <button type="submit" class="btn btn-paoou">
             Registrar Producto
@@ -336,15 +352,22 @@
 </section>
  <section id="contacto" class="container my-5">
 <h2>Contactos</h2>
-<p><strong>Correo electrónico:</strong>paola2005acosta@gmail.com</p>
+<p>
+    <strong>Correo electrónico:</strong>
+    <a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion">
+        paooufashion@gmail.com
+    </a>
+</p>
 <p><strong>Teléfono:</strong>0968359008</p> 
 <p>
     <strong>Facebook:</strong>
-    <a href="https://www.facebook.com/profile.php?id=100058794335886" target="_blank">Paoou Acosta</a>
+    <a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links" target="_blank">Paoou Fashion</a>
 </p>
 <p>
-    <strong>Instagram:</strong>
-    <a href="https://www.instagram.com/mp.au_?igsh=c2dyNWU0ajdvMnVy" target="_blank">mp.au_</a>
+   <strong>TikTok:</strong>
+<a href="https://www.tiktok.com/@paoou.fashion_" target="_blank">
+    @paoou.fashion_
+</a>
 </p>
 <p><strong>Dirección:</strong>Ecuador, Provincia Sucumbios, Cantón Shushufundi</p>
 <h3>Ubicación</h3>
@@ -353,9 +376,9 @@
 </iframe>
 <div class="text-center mt-4">
 
-<a href="mailto:paola2005acosta@gmail.com"
+<a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion"
 class="btn btn-paoou m-2">
- Correo
+    Correo
 </a>
 
 <a href="https://wa.me/593968359008?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos."
@@ -364,16 +387,16 @@ class="btn btn-success m-2">
  WhatsApp
 </a>
 
-<a href="https://www.facebook.com/profile.php?id=100058794335886"
+<a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links"
 target="_blank"
 class="btn btn-paoou m-2">
  Facebook
 </a>
 
-<a href="https://www.instagram.com/mp.au_?igsh=c2dyNWU0ajdvMnVy"
+<a href="https://www.tiktok.com/@paoou.fashion_"
 target="_blank"
 class="btn btn-paoou m-2">
- Instagram
+ TikTok
 </a>
 
 <a href="https://maps.google.com"
@@ -394,13 +417,15 @@ Envíanos un Mensaje
         Nombre Completo
     </label>
     <input type="text" id="nombreContacto" class="form-control" placeholder="Ingrese su nombre">
-    </div>
+<div id="errorNombreContacto" class="text-danger small"></div>   
+</div>
     <div class="col-md-6 mb-3">
     <label class="form-label">
     Correo Electrónico
     </label>
     <input type="email" id="correoContacto" class="form-control" placeholder="Ingrese su correo electrónico">
-    </div>
+    <div id="errorCorreo" class="text-danger small"></div>
+</div>
     </div>
     <div class="mb-3">
     <label class="form-label">
@@ -413,7 +438,9 @@ Envíanos un Mensaje
         <option>Consulta de precios</option>
         <option>Pedidos</option>
         <option>Sugerencias</option>
+    
     </select>
+    <div id="errorTipo" class="text-danger small"></div>
 </div>
     <div class="mb-3">
     <label class="form-label">
@@ -421,6 +448,7 @@ Envíanos un Mensaje
     </label>
 
     <textarea id="mensajeContacto" class="form-control" rows="5" placeholder="Escriba su mensaje"></textarea>
+<div id="errorMensajeContacto" class="text-danger small"></div>
 </div>
 
 <div id="respuestaContacto"></div>
