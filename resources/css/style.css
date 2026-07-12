@@ -194,6 +194,8 @@ footer{
     font-size:16px;
     letter-spacing:1px;
     margin-top:30px;
+    width:100%;
+    padding:25px;
 }
 
 footer p{
@@ -224,4 +226,62 @@ font-size:14px;
 
 #registro-productos h2{
     color:#ec89af;
+}
+#catalogo-dinamico{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+/* Botón flotante de WhatsApp */
+
+.whatsapp-float{
+
+position: fixed;
+
+width: 65px;
+
+height: 65px;
+
+right: 25px;
+
+bottom: 25px;
+
+background: #25D366;
+
+color: white;
+
+border-radius: 50%;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+font-size: 35px;
+
+text-decoration: none;
+
+box-shadow: 0 5px 15px rgba(0,0,0,.35);
+
+z-index: 9999;
+
+transition: .3s;
+
+}
+
+.whatsapp-float:hover{
+
+background: #1EBE5D;
+
+color: white;
+
+transform: scale(1.12);
+
 }

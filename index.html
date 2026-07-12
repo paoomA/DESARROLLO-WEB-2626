@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TIENDA VIRTUAL PAOOU FASHION</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <link rel="stylesheet" href="resources/css/style.css">
 </head>
 
 <body>
+<!-- Encabezado: esta sección podrá formar parte de la plantilla base.html -->    
 <header class="hero text-center text-white d-flex align-items-center">
     <div class="container">
         <h1 class="fw-bold">
@@ -21,10 +23,11 @@
 
     </div>
 </header>
+<!-- Menú de navegación: se reutilizará en las demás páginas -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid px-3">
     <a class="navbar-brand" href="#">
-        <img src="img/logo.jpeg" width="45" class="me-2 rounded">
+        <img src="resources/img/logo.jpeg" width="45" class="me-2 rounded">
         PAOOU FASHION
     </a>
 <button class="navbar-toggler" type="button"
@@ -56,7 +59,9 @@
     </div>
     </div>
 </nav>
+<!-- Contenido principal: aquí se mostrará el contenido de cada página -->
 <main>
+<!-- Sección Inicio -->
  <section id="inicio" class="container-fluid text-center p-5 bg-white rounded shadow">
 
     <h2 class="display-5 fw-bold titulo-inicio mb-3">
@@ -69,6 +74,55 @@
     <p class="fw-semibold">
         Tu estilo, tu esencia, tu moda.
     </p>
+    <div class="row mt-5 g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Moda Exclusiva</h4>
+                    <p>
+                        Prendas modernas inspiradas en las últimas tendencias para realzar la elegancia y el estilo femenino.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Calidad Garantizada</h4>
+                    <p>
+                        Seleccionamos cuidadosamente cada prenda para ofrecer comodidad, calidad y excelente presentación.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Atención Personalizada</h4>
+                    <p>
+                        Brindamos una atención cercana y confiable para ofrecer una experiencia de compra satisfactoria.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bg-light rounded shadow p-4 mt-5">
+
+        <h3 class="titulo-inicio">
+            Nuestra Prioridad
+        </h3>
+
+        <p class="mb-0">
+            En PAOOU FASHION trabajamos para ofrecer prendas que reflejen elegancia, calidad y confianza, buscando que cada clienta encuentre el estilo ideal para cada ocasión.
+        </p>
+
+    </div>
+        
     <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
 
         <a href="#servicios" class="btn btn-paoou btn-lg shadow">
@@ -76,6 +130,7 @@
         </a>
     </div>
 </section>
+<!-- Sección Quiénes Somos -->
 <section id="quienes" class="container my-5 p-4 bg-white rounded shadow">
 
   
@@ -91,18 +146,39 @@
 
             <article>
                 <p style="text-align: justify;">
-                    PAOOU FASHION es una tienda virtual dedicada a la comercialización de ropa femenina moderna, elegante y de alta calidad. Nuestro emprendimiento nace con el propósito de ofrecer prendas que permitan a las mujeres expresar su personalidad, seguridad y estilo en cada ocasión. A través de nuestro sistema de ventas en línea, las clientas pueden conocer nuestros productos, promociones y novedades de manera rápida y segura. Trabajamos constantemente para incorporar nuevas tendencias de moda y brindar una excelente experiencia de compra, con el compromiso de satisfacer las necesidades de nuestras clientas y consolidarnos como una marca reconocida por su confianza, innovación y responsabilidad. Además, buscamos ofrecer productos accesibles que combinen moda, comodidad y calidad para cada momento de la vida de nuestras clientas.
+                    PAOOU FASHION es una tienda virtual dedicada a la comercialización de ropa femenina moderna, elegante y de alta calidad. Este emprendimiento nace con el propósito de ofrecer prendas que permitan a las mujeres expresar su personalidad, seguridad y estilo en cada ocasión. A través de su sistema de ventas en línea, las clientas pueden conocer productos, promociones y novedades de manera rápida, segura y accesible. La tienda trabaja constantemente para incorporar nuevas tendencias de moda y brindar una excelente experiencia de compra, con el compromiso de satisfacer las necesidades de sus clientas y consolidarse como una marca reconocida por su confianza, innovación y responsabilidad. Además, busca ofrecer productos que combinen moda, comodidad, calidad y precios accesibles para cada momento de la vida de la mujer.
                 </p>
 
                 <p style="text-align: justify;">
-                    Este emprendimiento fue creado el 26 de mayo de 2026 por MARÍA PAOLA ACOSTA GARCÍA, una joven emprendedora responsable, creativa y trabajadora, quien decidió convertir su pasión por la moda en un proyecto empresarial. Desde su inicio, la marca ha buscado crecer de manera constante, ofreciendo confianza, innovación y compromiso con cada cliente, con la visión de convertirse en una tienda reconocida en el ámbito digital.
-                </p>
-            </article>
+                 Este emprendimiento fue creado el 26 de mayo de 2026 por MARÍA PAOLA ACOSTA GARCÍA, una joven emprendedora responsable, creativa y perseverante, quien decidió convertir su pasión por la moda y la tecnología en un proyecto empresarial. Desde sus años de colegio, mientras cursaba la especialidad de Informática, desarrolló un gran interés por el diseño y desarrollo de páginas web, descubriendo en la tecnología una herramienta para crear soluciones innovadoras. Esa pasión fue creciendo con el paso del tiempo y la motivó a integrar sus conocimientos tecnológicos con el emprendimiento, dando origen a PAOOU FASHION como una tienda virtual moderna, funcional y orientada a brindar una experiencia de compra de calidad.                </p>
+                <p style="text-align: justify;">
+                 PAOOU FASHION representa el esfuerzo, la dedicación y el deseo constante de seguir aprendiendo, demostrando que la combinación entre la creatividad, la innovación y la tecnología puede transformar una idea en un proyecto con visión de futuro. Más que una tienda virtual, este emprendimiento refleja el compromiso de ofrecer un servicio confiable, moderno y cercano, fortaleciendo la relación con cada cliente y buscando crecer de manera responsable dentro del comercio electrónico.   
+                </p>            
+                <p style="text-align: justify;">
+                  Como expresó Steve Jobs:
+</p>
+<p style="text-align: justify;">
+<em>"La única forma de hacer un gran trabajo es amar lo que haces."</em>
+</p>
+<p style="text-align: justify;">
+Esta frase inspira el desarrollo de PAOOU FASHION, ya que refleja la importancia de trabajar con pasión, creatividad y compromiso. Cada avance realizado en este proyecto nace del entusiasmo por aprender, innovar y ofrecer un espacio donde la moda y la tecnología se complementan para brindar una mejor experiencia a cada cliente.  
+                </p>            
+                <p style="text-align: justify;">
+                Asimismo, PAOOU FASHION se guía por el siguiente principio bíblico:
+</p>
+<p style="text-align: justify;">
+<em> "Encomienda al Señor tus obras, y tus proyectos se cumplirán."</em>
+Proverbios 16:3 </p>
+<p style="text-align: justify;">
+Este versículo representa la confianza en Dios como guía para cada paso del emprendimiento, recordando que el esfuerzo, la perseverancia, la honestidad y el trabajo realizado con amor son la base para alcanzar las metas y construir un proyecto sólido que genere confianza, inspiración y valor para todas las personas que forman parte de PAOOU FASHION.    
+                </p>            
+
+</article>
 
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="img/moda1.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
+            <img src="resources/img/moda1.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
         </div>
 
     </div>
@@ -126,7 +202,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="img/mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
+            <img src="resources/img/mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
         </div>
 
     </div>
@@ -150,12 +226,13 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <img src="img/vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
+            <img src="resources/img/vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
         </div>
 
     </div>
 
 </section>
+<!-- Sección Servicios o Productos -->
 <section id="servicios" class="container my-5">
 
     <h2 class="text-center fw-bold titulo-inicio mb-3">
@@ -170,10 +247,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/vestido.jpeg" class="card-img-top" alt="Vestido">
+                <img src="resources/img/vestido.jpeg" class="card-img-top" alt="Vestido">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Vestidos Elegantes</h5>
-                    <p class="precio">$35.00</p>
+                    <h5 class="card-title">Vestidos</h5>
+                    <p class="precio">$25.00</p>
                     <p class="card-text">
                         Ideales para eventos y ocasiones especiales.
                     </p>
@@ -184,10 +261,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/blusas.jpeg" class="card-img-top" alt="Blusa">
+                <img src="resources/img/blusas.jpeg" class="card-img-top" alt="Blusa">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Blusas y Tops</h5>
-                    <p class="precio">$18.00</p>
+                    <h5 class="card-title">Blusas</h5>
+                    <p class="precio">$15.00</p>
                     <p class="card-text">
                         Diseños modernos en diferentes estilos y colores.
                     </p>
@@ -198,10 +275,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/body.jpg" class="card-img-top" alt="Body">
+                <img src="resources/img/body.jpg" class="card-img-top" alt="Body">
                 <div class="card-body text-center">
                     <h5 class="card-title">Bodys</h5>
-                    <p class="precio">$22.00</p>
+                    <p class="precio">$20.00</p>
                     <p class="card-text">
                         Perfectos para combinar con cualquier look.
                     </p>
@@ -212,10 +289,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/faldas.jpg" class="card-img-top" alt="Falda">
+                <img src="resources/img/faldas.jpg" class="card-img-top" alt="Falda">
                 <div class="card-body text-center">
                     <h5 class="card-title">Faldas Modernas</h5>
-                    <p class="precio">$20.00</p>
+                    <p class="precio">$22.00</p>
                     <p class="card-text">
                         Elegancia y estilo para cualquier ocasión.
                     </p>
@@ -226,10 +303,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/jeans.jpeg" class="card-img-top" alt="Jeans">
+                <img src="resources/img/jeans.jpeg" class="card-img-top" alt="Jeans">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Jeans Femeninos</h5>
-                    <p class="precio">$28.00</p>
+                    <h5 class="card-title">Jeans</h5>
+                    <p class="precio">$25.00</p>
                     <p class="card-text">
                         Comodidad y calidad para el día a día.
                     </p>
@@ -240,10 +317,10 @@
 
         <div class="col-md-4">
             <div class="card producto-card h-100">
-                <img src="img/conjuntos.jpg" class="card-img-top" alt="Conjunto">
+                <img src="resources/img/conjuntos.jpg" class="card-img-top" alt="Conjunto">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Conjuntos Femeninos</h5>
-                    <p class="precio">$40.00</p>
+                    <h5 class="card-title">Conjuntos</h5>
+                    <p class="precio">$28.00</p>
                     <p class="card-text">
                         Ideales para reuniones y ocasiones especiales.
                     </p>
@@ -251,7 +328,132 @@
                 </div>
             </div>
         </div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/chaquetas.jpg" class="card-img-top" alt="Chaquetas">
 
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Chaquetas de mezclilla</h5>
+
+            <p class="precio">$27.00</p>
+
+            <p class="card-text">
+                Ideales para complementar cualquier estilo con elegancia.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/blazers.jpeg" class="card-img-top" alt="Blazers">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Blazers</h5>
+
+            <p class="precio">$20.00</p>
+
+            <p class="card-text">
+                Prendas elegantes para un look formal y moderno.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/shorts.jpeg" class="card-img-top" alt="Shorts">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Shorts</h5>
+
+            <p class="precio">$12.00</p>
+
+            <p class="card-text">
+                Cómodos y frescos para los días soleados.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/enterizos.jpg" class="card-img-top" alt="Enterizos">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Enterizos</h5>
+
+            <p class="precio">$20.00</p>
+
+            <p class="card-text">
+                Diseños modernos para lucir un estilo único.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/conj_deportivos.png" class="card-img-top" alt="Conjuntos_Deportivos">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Conjuntos Deportivos</h5>
+
+            <p class="precio">$15.00</p>
+
+            <p class="card-text">
+                Diseñados para brindar comodidad, estilo y libertad de movimiento durante tus actividades deportivas.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resources/img/crop_tops.png" class="card-img-top" alt="Crop Tops">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Crop Tops</h5>
+
+            <p class="precio">$10.00</p>
+
+            <p class="card-text">
+                Diseños modernos que combinan con cualquier outfit.
+            </p>
+
+            <button class="btn btn-paoou">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
     </div>
 <h3 class="text-center mt-5 titulo-inicio">
         Video de Moda y Tendencia
@@ -268,10 +470,11 @@
     Video Promocional PAOOU FASHION
     </h5>
     <video class="w-100 rounded" controls>
-    <source src="video/promovideo.mp4" type="video/mp4">
+    <source src="resources/video/promovideo.mp4" type="video/mp4">
     </video>
     </div>
 </section>
+<!-- Sección Registro de Productos -->
 <section id="registro-productos" class="container my-5 bg-white p-4 rounded shadow">
 
     <h2 class="text-center fw-bold titulo-inicio mb-3">
@@ -330,12 +533,28 @@
         <option>Faldas</option>
         <option>Bodys</option>
         <option>Conjuntos</option>
+        <option>Chaquetas de mezclilla</option>
+        <option>Blazers</option>
+        <option>Shorts</option>
+        <option>Enterizos</option>
+        <option>Conjuntos Deportivos</option>
+        <option>Crop Tops</option>
+        
 
     </select>
 
     <div id="errorCategoria" class="text-danger small"></div>
 </div>
-
+<div class="mb-3">
+    <label for="precio" class="form-label">Precio</label>
+    <input type="number" class="form-control" id="precio" placeholder="Ejemplo: 35" min="0" step="0.01">
+    <div id="errorPrecio" class="text-danger small"></div>
+</div>
+<div class="mb-3">
+    <label for="cantidad" class="form-label">Cantidad</label>
+    <input type="number" class="form-control" id="cantidad" placeholder="Ejemplo: 10" min="1">
+    <div id="errorCantidad" class="text-danger small"></div>
+</div>
         <button type="submit" class="btn btn-paoou">
             Registrar Producto
         </button>
@@ -350,116 +569,194 @@
     <div id="listaProductos" class="mt-4"></div>
 
 </section>
+<!-- Sección Catálogo Dinámico -->
+<section id="catalogo-dinamico" class="container my-5">
+
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Catálogo
+    </h2>
+
+    <p class="text-center mb-4">
+        Los productos registrados mediante el formulario se mostrarán automáticamente en esta sección.
+    </p>
+
+    <div id="catalogoProductos" class="row g-4">
+
+    </div>
+
+</section>
+<!-- Sección Contacto -->
  <section id="contacto" class="container my-5">
-<h2>Contactos</h2>
-<p>
-    <strong>Correo electrónico:</strong>
-    <a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion">
-        paooufashion@gmail.com
+<h2 class="text-center titulo-inicio mb-5">
+    Contacto
+</h2>
+
+<div class="row">
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="bg-white rounded shadow p-4">
+
+            <h4 class="titulo-inicio text-center mb-4">
+                Redes Sociales
+            </h4>
+
+           <div class="d-grid gap-3">
+
+    <a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links"
+    target="_blank"
+    class="btn btn-primary">
+
+        <i class="fab fa-facebook-f me-2"></i>
+        Facebook
+
     </a>
-</p>
-<p><strong>Teléfono:</strong>0968359008</p> 
-<p>
-    <strong>Facebook:</strong>
-    <a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links" target="_blank">Paoou Fashion</a>
-</p>
-<p>
-   <strong>TikTok:</strong>
-<a href="https://www.tiktok.com/@paoou.fashion_" target="_blank">
-    @paoou.fashion_
-</a>
-</p>
-<p><strong>Dirección:</strong>Ecuador, Provincia Sucumbios, Cantón Shushufundi</p>
-<h3>Ubicación</h3>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1184.1202182101767!2d-76.64529611163712!3d-0.18545052545107985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTEnMDUuOSJTIDc2wrAzOCczOS45Ilc!5e0!3m2!1ses!2sec!4v1781223060867!5m2!1ses!2sec" class="w-100 rounded shadow" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-<div class="text-center mt-4">
+    <a href="https://www.tiktok.com/@paoou.fashion_"
+    target="_blank"
+    class="btn btn-dark">
 
-<a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion"
-class="btn btn-paoou m-2">
-    Correo
-</a>
+        <i class="fab fa-tiktok me-2"></i>
+        TikTok
 
-<a href="https://wa.me/593968359008?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos."
-target="_blank"
-class="btn btn-success m-2">
- WhatsApp
-</a>
+    </a>
 
-<a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links"
-target="_blank"
-class="btn btn-paoou m-2">
- Facebook
-</a>
+    <a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion"
+    class="btn btn-paoou">
 
-<a href="https://www.tiktok.com/@paoou.fashion_"
-target="_blank"
-class="btn btn-paoou m-2">
- TikTok
-</a>
+        <i class="fas fa-envelope me-2"></i>
+        Correo Electrónico
 
-<a href="https://maps.google.com"
-target="_blank"
-class="btn btn-paoou m-2">
- Ver Ubicación
-</a>
+    </a>
 
 </div>
-<h3 class="text-center mt-5 titulo-inicio">
-Envíanos un Mensaje
+
+            <hr class="my-4">
+
+            <h4 class="titulo-inicio text-center mb-3">
+                Dirección
+            </h4>
+
+            <p class="text-center text-dark">
+
+                Ecuador, Provincia Sucumbíos, Cantón Shushufindi
+
+            </p>
+
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1184.1202182101767!2d-76.64529611163712!3d-0.18545052545107985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTEnMDUuOSJTIDc2wrAzOCczOS45Ilc!5e0!3m2!1ses!2sec!4v1781223060867!5m2!1ses!2sec"
+            class="w-100 rounded mt-3"
+            height="220"
+            style="border:0;"
+            loading="lazy">
+            </iframe>
+
+            <div class="text-center mt-3">
+
+                <a href="https://maps.google.com/?q=-0.1854505,-76.6444138"
+                target="_blank"
+                class="btn btn-paoou">
+
+                    Ver ubicación
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-8">
+    <h3 class="text-center titulo-inicio mb-4">
+    Formulario de Contacto
 </h3>
 
-<form id="formContacto" class="container bg-white p-4 rounded shadow mt-4">
+<form id="formContacto" class="bg-white p-4 rounded shadow">
+
     <div class="row">
-    <div class="col-md-6 mb-3">
-    <label class="form-label">
-        Nombre Completo
-    </label>
-    <input type="text" id="nombreContacto" class="form-control" placeholder="Ingrese su nombre">
-<div id="errorNombreContacto" class="text-danger small"></div>   
-</div>
-    <div class="col-md-6 mb-3">
-    <label class="form-label">
-    Correo Electrónico
-    </label>
-    <input type="email" id="correoContacto" class="form-control" placeholder="Ingrese su correo electrónico">
-    <div id="errorCorreo" class="text-danger small"></div>
-</div>
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">Nombre Completo</label>
+
+            <input
+            type="text"
+            id="nombreContacto"
+            class="form-control"
+            placeholder="Ingrese su nombre">
+
+            <div id="errorNombreContacto" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">Correo Electrónico</label>
+
+            <input
+            type="email"
+            id="correoContacto"
+            class="form-control"
+            placeholder="Ingrese su correo electrónico">
+
+            <div id="errorCorreo" class="text-danger small"></div>
+
+        </div>
+
     </div>
+
     <div class="mb-3">
-    <label class="form-label">
-        Tipo de Consulta
-    </label>
 
-    <select class="form-select" id="tipoConsulta">
-        <option value="">Seleccione una opción</option>
-        <option>Información de productos</option>
-        <option>Consulta de precios</option>
-        <option>Pedidos</option>
-        <option>Sugerencias</option>
-    
-    </select>
-    <div id="errorTipo" class="text-danger small"></div>
-</div>
+        <label class="form-label">
+            Tipo de Consulta
+        </label>
+
+        <select id="tipoConsulta" class="form-select">
+
+            <option value="">Seleccione una opción</option>
+            <option>Información de productos</option>
+            <option>Consulta de precios</option>
+            <option>Pedidos</option>
+            <option>Sugerencias</option>
+
+        </select>
+
+        <div id="errorTipo" class="text-danger small"></div>
+
+    </div>
+
     <div class="mb-3">
-    <label class="form-label">
-    Mensaje
-    </label>
 
-    <textarea id="mensajeContacto" class="form-control" rows="5" placeholder="Escriba su mensaje"></textarea>
-<div id="errorMensajeContacto" class="text-danger small"></div>
-</div>
+        <label class="form-label">
+            Mensaje
+        </label>
 
-<div id="respuestaContacto"></div>
+        <textarea
+        id="mensajeContacto"
+        rows="6"
+        class="form-control"
+        placeholder="Escriba su mensaje"></textarea>
 
-<button type="submit"
-class="btn btn-paoou">
-Enviar Mensaje
-</button>
+        <div id="errorMensajeContacto" class="text-danger small"></div>
+
+    </div>
+
+    <div id="respuestaContacto"></div>
+
+    <button
+    type="submit"
+    class="btn btn-paoou">
+
+        Enviar Mensaje
+
+    </button>
+
 </form>
-</section>
+</div> 
+</div> 
 </main>
+<!-- Información adicional de la página -->
 <aside class="container bg-white p-4 rounded shadow my-5">
     <h2 class="titulo-inicio fw-bold text-center mb-4">
     Información Adicional
@@ -485,6 +782,8 @@ Enviar Mensaje
      Domingos: Cerrado.
     </p>
 </aside>
+
+<!-- Pie de página: sección común para todo el sitio web -->
 <footer class="text-center p-4">
     
     <p>2026 PAOOU FASHION</p>
@@ -493,6 +792,15 @@ Enviar Mensaje
     
     <p>Asignatura: Desarrollo de Aplicaciones Web</p>
 </footer>
+
+<a href="https://wa.me/593968359008?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos."
+class="whatsapp-float"
+target="_blank"
+title="Contáctanos por WhatsApp">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
 <script src="resources/js/script.js"></script>
 </body>

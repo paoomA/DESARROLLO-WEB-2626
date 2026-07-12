@@ -2,17 +2,77 @@ const formulario = document.getElementById("formProducto");
 const mensaje = document.getElementById("mensaje");
 const listaProductos = document.getElementById("listaProductos");
 const contadorProductos = document.getElementById("contadorProductos");
-
+const catalogoProductos = document.getElementById("catalogoProductos");
 let totalProductos = 0;
 
 const campoNombre = document.getElementById("nombre");
 const campoDescripcion = document.getElementById("descripcion");
 const campoCategoria = document.getElementById("categoria");
+const campoPrecio = document.getElementById("precio");
+const campoCantidad = document.getElementById("cantidad");
 
 const errorNombre = document.getElementById("errorNombre");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorCategoria = document.getElementById("errorCategoria");
 
+const productos = [];
+function renderizarProductos() {
+
+    catalogoProductos.innerHTML = "";
+
+    if (productos.length === 0) {
+
+    catalogoProductos.innerHTML = `
+        <div class="col-12 text-center">
+            <div class="alert alert-warning">
+                No hay productos disponibles en este momento.
+            </div>
+        </div>
+    `;
+
+    return;
+}
+
+    productos.forEach(function(producto){
+
+        catalogoProductos.innerHTML += `
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card producto-card h-100">
+
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">${producto.nombre}</h5>
+
+                    <p class="card-text">
+                        ${producto.descripcion}
+                    </p>
+
+                    <p>
+                        <strong>Categoría:</strong> ${producto.categoria}
+                    </p>
+
+                    <p class="precio">
+                        ${producto.precio}
+                    </p>
+                    <p>
+                    <strong>Cantidad disponible:</strong> ${producto.cantidad}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
 function validarNombre(){
 
     const nombre = campoNombre.value.trim();
@@ -120,7 +180,64 @@ formulario.addEventListener("submit", function(event){
     const nombre = document.getElementById("nombre").value.trim();
     const descripcion = document.getElementById("descripcion").value.trim();
     const categoria = document.getElementById("categoria").value;
+    const precio = campoPrecio.value.trim();
+    const cantidad = campoCantidad.value.trim();
 
+let imagenProducto = "";
+
+switch(categoria){
+
+    case "Vestidos":
+        imagenProducto = "resources/img/vestido.jpeg";
+        break;
+
+    case "Blusas":
+        imagenProducto = "resources/img/blusas.jpeg";
+        break;
+
+    case "Jeans":
+        imagenProducto = "resources/img/jeans.jpeg";
+        break;
+
+    case "Faldas":
+        imagenProducto = "resources/img/faldas.jpg";
+        break;
+
+    case "Bodys":
+        imagenProducto = "resources/img/body.jpg";
+        break;
+
+    case "Conjuntos":
+        imagenProducto = "resources/img/conjuntos.jpg";
+        break;
+
+    case "Chaquetas de mezclilla":
+        imagenProducto = "resources/img/chaquetas.jpg";
+        break;
+
+    case "Blazers":
+        imagenProducto = "resources/img/blazers.jpeg";
+        break;
+
+    case "Shorts":
+        imagenProducto = "resources/img/shorts.jpeg";
+        break;
+
+    case "Enterizos":
+        imagenProducto = "resources/img/enterizos.jpg";
+        break;
+
+    case "Conjuntos Deportivos":
+        imagenProducto = "resources/img/conj_deportivos.png";
+        break;
+
+    case "Crop Tops":
+        imagenProducto = "resources/img/crop_tops.png";
+        break;
+
+    default:
+        imagenProducto = "resources/img/moda1.jpeg";
+}
     if(!validarNombre() || !validarDescripcion() || !validarCategoria()){
 
     mensaje.innerHTML = `
@@ -137,7 +254,18 @@ formulario.addEventListener("submit", function(event){
         Producto registrado correctamente.
     </div>
     `;
+productos.push({
 
+    nombre: nombre,
+    categoria: categoria,
+    precio: "$" + precio,
+    cantidad: cantidad,
+    descripcion: descripcion,
+    imagen: imagenProducto
+
+});
+
+renderizarProductos();
     const tarjeta = document.createElement("div");
 
     tarjeta.className = "card p-3 mt-3 shadow";
@@ -147,30 +275,40 @@ formulario.addEventListener("submit", function(event){
         <p><strong>Descripción:</strong> ${descripcion}</p>
         <p><strong>Categoría:</strong> ${categoria}</p>
     `;
+const botonEliminar = document.createElement("button");
 
-    const botonEliminar = document.createElement("button");
+botonEliminar.textContent = "Eliminar";
 
-    botonEliminar.textContent = "Eliminar";
+botonEliminar.className = "btn btn-danger mt-2";
 
-    botonEliminar.className = "btn btn-danger mt-2";
+botonEliminar.addEventListener("click", function(){
 
-    botonEliminar.addEventListener("click", function(){
+    const indice = productos.findIndex(function(producto){
 
-        tarjeta.remove();
-
-        totalProductos--;
-
-        contadorProductos.textContent = totalProductos;
+        return producto.nombre === nombre &&
+               producto.categoria === categoria;
 
     });
+
+    if(indice !== -1){
+
+        productos.splice(indice, 1);
+
+    }
+
+    renderizarProductos();
+
+    tarjeta.remove();
+
+   contadorProductos.textContent = productos.length;
+
+});
 
     tarjeta.appendChild(botonEliminar);
 
     listaProductos.appendChild(tarjeta);
 
-    totalProductos++;
-
-    contadorProductos.textContent = totalProductos;
+   contadorProductos.textContent = productos.length;
 
     formulario.reset();
 
@@ -396,3 +534,4 @@ setTimeout(function(){
 }, 3000);
 
 }); 
+renderizarProductos();
