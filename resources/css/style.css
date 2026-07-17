@@ -89,17 +89,6 @@ footer{
     transform:translateY(-5px);
     box-shadow:0px 8px 20px rgba(0,0,0,0.15);
 }
-.btn-paoou{
-    background-color:#ec89af;
-    color:white;
-    border:none;
-    border-radius:10px;
-}
-
-.btn-paoou:hover{
-    background-color:#f675d8;
-    color:white;
-}
 
 
 .navbar-nav .nav-link{
@@ -159,6 +148,59 @@ footer{
 .producto-card .btn{
     margin-top:10px;
 }
+/* Botones Ver Producto */
+
+.btn-outline-primary{
+    color:#ec89af;
+    border-color:#ec89af;
+    border-radius:10px;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active{
+    background-color:#ec89af !important;
+    border-color:#ec89af !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
+/* Botón Registrar Producto */
+
+.btn-success{
+    background-color:#ec89af;
+    border-color:#ec89af;
+    color:white;
+    border-radius:10px;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active{
+    background-color:#f675d8 !important;
+    border-color:#f675d8 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
+/* Botón Enviar Mensaje y Explorar Productos */
+
+.btn-primary{
+    background-color:#ec89af;
+    border-color:#ec89af;
+    color:white;
+    border-radius:10px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active{
+    background-color:#f675d8 !important;
+    border-color:#f675d8 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
 #contacto{
     background-color:white;
     padding:30px;
@@ -284,4 +326,90 @@ color: white;
 
 transform: scale(1.12);
 
+}
+/* Botón Facebook */
+
+.btn-facebook{
+    background-color:#1877F2;
+    border-color:#1877F2;
+    color:white;
+}
+
+.btn-facebook:hover{
+    background-color:#166FE5 !important;
+    border-color:#166FE5 !important;
+    color:white !important;
+}
+
+.btn-facebook:focus{
+    background-color:#1877F2 !important;
+    border-color:#1877F2 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(24,119,242,.35);
+}
+
+.btn-facebook:active{
+    background-color:#145DBF !important;
+    border-color:#145DBF !important;
+    color:white !important;
+}
+/* Botón Correo */
+
+.btn-correo{
+    background-color:#D8B08C;
+    border-color:#D8B08C;
+    color:white;
+}
+
+.btn-correo:hover{
+    background-color:#C99A72 !important;
+    border-color:#C99A72 !important;
+    color:white !important;
+}
+
+.btn-correo:focus{
+    background-color:#D8B08C !important;
+    border-color:#D8B08C !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(216,176,140,.35);
+}
+
+.btn-correo:active{
+    background-color:#B8865D !important;
+    border-color:#B8865D !important;
+    color:white !important;
+}
+#spinnerCarga .spinner-border{
+    color: #f091bd;
+}
+.encabezado-exito{
+    background-color: #eb61a6;
+}
+/*==========================
+  MODAL PRODUCTOS
+==========================*/
+
+.encabezado-modal-producto{
+    background-color: #ec6aa7;
+}
+
+.precio-modal{
+    color: #ec6aa7;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.btn-whatsapp-modal{
+    background-color: #ec6aa7;
+    color: white;
+    border: none;
+}
+
+.btn-whatsapp-modal:hover{
+    background-color: #d94d93;
+    color: white;
+}
+
+#modalVestido img{
+    border-radius: 15px;
 }

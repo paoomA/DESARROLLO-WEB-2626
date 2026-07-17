@@ -1,5 +1,6 @@
 const formulario = document.getElementById("formProducto");
 const mensaje = document.getElementById("mensaje");
+const spinnerCarga = document.getElementById("spinnerCarga");
 const listaProductos = document.getElementById("listaProductos");
 const contadorProductos = document.getElementById("contadorProductos");
 const catalogoProductos = document.getElementById("catalogoProductos");
@@ -14,6 +15,8 @@ const campoCantidad = document.getElementById("cantidad");
 const errorNombre = document.getElementById("errorNombre");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorCategoria = document.getElementById("errorCategoria");
+const errorPrecio = document.getElementById("errorPrecio");
+const errorCantidad = document.getElementById("errorCantidad");
 
 const productos = [];
 function renderizarProductos() {
@@ -22,18 +25,28 @@ function renderizarProductos() {
 
     if (productos.length === 0) {
 
-    catalogoProductos.innerHTML = `
-        <div class="col-12 text-center">
-            <div class="alert alert-warning">
-                No hay productos disponibles en este momento.
-            </div>
-        </div>
-    `;
+catalogoProductos.innerHTML = `
+<div class="col-12">
+
+<div class="alert alert-warning d-flex justify-content-center align-items-center text-center" role="alert">
+
+<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img">
+<use xlink:href="#exclamation-triangle-fill"></use>
+</svg>
+
+<div>
+No hay productos disponibles en este momento.
+</div>
+
+</div>
+
+</div>
+`;
 
     return;
 }
 
-    productos.forEach(function(producto){
+    productos.forEach(function(producto, index){
 
         catalogoProductos.innerHTML += `
 
@@ -55,12 +68,33 @@ function renderizarProductos() {
                         <strong>Categoría:</strong> ${producto.categoria}
                     </p>
 
-                    <p class="precio">
-                        ${producto.precio}
-                    </p>
-                    <p>
-                    <strong>Cantidad disponible:</strong> ${producto.cantidad}
-                    </p>
+                  <p class="precio">
+    ${producto.precio}
+</p>
+
+
+<p>
+    <strong>Cantidad disponible:</strong>
+    ${producto.cantidad}
+</p>
+
+<div class="d-grid gap-2 mt-3">
+
+    <button
+        class="btn btn-outline-primary"
+        onclick="verProducto(${index})">
+        Ver información
+    </button>
+
+    <button
+    class="btn btn-outline-danger"
+    onclick="abrirModalEliminar(${index})">
+
+    Eliminar
+
+</button>
+
+</div>
 
                 </div>
 
@@ -76,6 +110,7 @@ function renderizarProductos() {
 function validarNombre(){
 
     const nombre = campoNombre.value.trim();
+    const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
 
     if(nombre === ""){
 
@@ -98,6 +133,16 @@ function validarNombre(){
         return false;
 
     }
+    if(!soloLetras.test(nombre)){
+
+    errorNombre.textContent = "Solo se permiten letras.";
+
+    campoNombre.classList.add("is-invalid");
+    campoNombre.classList.remove("is-valid");
+
+    return false;
+
+}
 
     errorNombre.textContent = "";
 
@@ -133,6 +178,16 @@ function validarDescripcion(){
         return false;
 
     }
+    if(!/[A-Za-zÁÉÍÓÚáéíóúÑñ]/.test(descripcion)){
+
+    errorDescripcion.textContent = "La descripción debe contener texto.";
+
+    campoDescripcion.classList.add("is-invalid");
+    campoDescripcion.classList.remove("is-valid");
+
+    return false;
+
+}
 
     errorDescripcion.textContent = "";
 
@@ -164,6 +219,53 @@ function validarCategoria(){
     return true;
 
 }
+function validarPrecio(){
+
+    const precio = campoPrecio.value.trim();
+
+    if(precio === ""){
+
+        errorPrecio.textContent = "El precio es obligatorio.";
+
+        campoPrecio.classList.add("is-invalid");
+        campoPrecio.classList.remove("is-valid");
+
+        return false;
+
+    }
+
+    errorPrecio.textContent = "";
+
+    campoPrecio.classList.remove("is-invalid");
+    campoPrecio.classList.add("is-valid");
+
+    return true;
+
+}
+
+function validarCantidad(){
+
+    const cantidad = campoCantidad.value.trim();
+
+    if(cantidad === ""){
+
+        errorCantidad.textContent = "La cantidad es obligatoria.";
+
+        campoCantidad.classList.add("is-invalid");
+        campoCantidad.classList.remove("is-valid");
+
+        return false;
+
+    }
+
+    errorCantidad.textContent = "";
+
+    campoCantidad.classList.remove("is-invalid");
+    campoCantidad.classList.add("is-valid");
+
+    return true;
+
+}
 campoNombre.addEventListener("input", validarNombre);
 campoNombre.addEventListener("blur", validarNombre);
 
@@ -172,6 +274,12 @@ campoDescripcion.addEventListener("blur", validarDescripcion);
 
 campoCategoria.addEventListener("change", validarCategoria);
 campoCategoria.addEventListener("blur", validarCategoria);
+
+campoPrecio.addEventListener("input", validarPrecio);
+campoPrecio.addEventListener("blur", validarPrecio);
+
+campoCantidad.addEventListener("input", validarCantidad);
+campoCantidad.addEventListener("blur", validarCantidad);
 
 formulario.addEventListener("submit", function(event){
 
@@ -183,6 +291,31 @@ formulario.addEventListener("submit", function(event){
     const precio = campoPrecio.value.trim();
     const cantidad = campoCantidad.value.trim();
 
+    const formularioValido =
+    validarNombre() &&
+    validarDescripcion() &&
+    validarCategoria() &&
+    validarPrecio() &&
+    validarCantidad();
+
+if(!formularioValido){
+
+mensaje.innerHTML = `
+<div class="alert alert-danger d-flex justify-content-center align-items-center text-center" role="alert">
+
+<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img">
+<use xlink:href="#exclamation-triangle-fill"></use>
+</svg>
+
+<div>
+Corrija los campos antes de registrar el producto.
+</div>
+
+</div>
+`;
+
+    return;
+}
 let imagenProducto = "";
 
 switch(categoria){
@@ -238,22 +371,34 @@ switch(categoria){
     default:
         imagenProducto = "resources/img/moda1.jpeg";
 }
-    if(!validarNombre() || !validarDescripcion() || !validarCategoria()){
+    
 
-    mensaje.innerHTML = `
-        <div class="alert alert-danger">
-            Corrija los campos antes de registrar el producto.
-        </div>
-    `;
+spinnerCarga.style.display = "block";
 
-    return;
-}
+mensaje.innerHTML = "";
 
-    mensaje.innerHTML = `
-    <div class="alert alert-success">
-        Producto registrado correctamente.
-    </div>
-    `;
+setTimeout(function(){
+
+spinnerCarga.style.display = "none";
+
+mensaje.innerHTML = `
+<div class="alert alert-success d-flex justify-content-center align-items-center text-center" role="alert">
+
+<svg class="bi flex-shrink-0 me-2" width="24" height="24">
+<use xlink:href="#check-circle-fill"></use>
+</svg>
+
+<div>
+Producto registrado correctamente.
+</div>
+
+</div>
+`;
+const modalExito = new bootstrap.Modal(
+document.getElementById("modalExito")
+);
+
+modalExito.show();
 productos.push({
 
     nombre: nombre,
@@ -261,52 +406,19 @@ productos.push({
     precio: "$" + precio,
     cantidad: cantidad,
     descripcion: descripcion,
-    imagen: imagenProducto
+    imagen: imagenProducto,
+
+    estado: "Disponible",
+
+    codigo: "PF-" + (productos.length + 1).toString().padStart(3, "0"),
+
+    fecha: new Date().toLocaleDateString("es-EC"),
+
+    observacion: "Producto listo para entrega inmediata."
 
 });
 
 renderizarProductos();
-    const tarjeta = document.createElement("div");
-
-    tarjeta.className = "card p-3 mt-3 shadow";
-
-    tarjeta.innerHTML = `
-        <h5>${nombre}</h5>
-        <p><strong>Descripción:</strong> ${descripcion}</p>
-        <p><strong>Categoría:</strong> ${categoria}</p>
-    `;
-const botonEliminar = document.createElement("button");
-
-botonEliminar.textContent = "Eliminar";
-
-botonEliminar.className = "btn btn-danger mt-2";
-
-botonEliminar.addEventListener("click", function(){
-
-    const indice = productos.findIndex(function(producto){
-
-        return producto.nombre === nombre &&
-               producto.categoria === categoria;
-
-    });
-
-    if(indice !== -1){
-
-        productos.splice(indice, 1);
-
-    }
-
-    renderizarProductos();
-
-    tarjeta.remove();
-
-   contadorProductos.textContent = productos.length;
-
-});
-
-    tarjeta.appendChild(botonEliminar);
-
-    listaProductos.appendChild(tarjeta);
 
    contadorProductos.textContent = productos.length;
 
@@ -315,10 +427,16 @@ botonEliminar.addEventListener("click", function(){
 campoNombre.classList.remove("is-valid");
 campoDescripcion.classList.remove("is-valid");
 campoCategoria.classList.remove("is-valid");
+campoPrecio.classList.remove("is-valid");
+campoCantidad.classList.remove("is-valid");
 
 errorNombre.textContent = "";
 errorDescripcion.textContent = "";
 errorCategoria.textContent = "";
+errorPrecio.textContent = "";
+errorCantidad.textContent = "";
+
+}, 2000);
 
 });
 
@@ -338,6 +456,7 @@ const errorMensajeContacto = document.getElementById("errorMensajeContacto");
 function validarNombreContacto(){
 
     const nombre = campoNombreContacto.value.trim();
+    const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
 
     if(nombre === ""){
 
@@ -360,6 +479,28 @@ function validarNombreContacto(){
         return false;
 
     }
+    if(!soloLetras.test(nombre)){
+
+    errorNombreContacto.textContent = "Solo se permiten letras.";
+
+    campoNombreContacto.classList.add("is-invalid");
+    campoNombreContacto.classList.remove("is-valid");
+
+    return false;
+
+}
+const partesNombre = nombre.split(/\s+/);
+
+if(partesNombre.length < 2){
+
+    errorNombreContacto.textContent = "Ingrese al menos un nombre y un apellido.";
+
+    campoNombreContacto.classList.add("is-invalid");
+    campoNombreContacto.classList.remove("is-valid");
+
+    return false;
+
+}
 
     errorNombreContacto.textContent = "";
 
@@ -454,6 +595,16 @@ function validarMensajeContacto(){
         return false;
 
     }
+    if(!/[A-Za-zÁÉÍÓÚáéíóúÑñ]/.test(mensaje)){
+
+    errorMensajeContacto.textContent = "Ingrese una consulta válida. Ejemplo: 'Quiero información del vestido talla M'.";
+
+    campoMensaje.classList.add("is-invalid");
+    campoMensaje.classList.remove("is-valid");
+
+    return false;
+
+}
 
     errorMensajeContacto.textContent = "";
 
@@ -491,20 +642,36 @@ formContacto.addEventListener("submit", function(event){
     !validarMensajeContacto()
 ){
 
-    mensajeFormulario.innerHTML = `
-    <div class="alert alert-danger mt-3">
+  mensajeFormulario.innerHTML = `
+<div class="alert alert-danger d-flex justify-content-center align-items-center text-center mt-3" role="alert">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+        <use xlink:href="#exclamation-triangle-fill"/>
+    </svg>
+
+    <div>
         Corrija los campos antes de enviar el mensaje.
     </div>
-    `;
 
-    return;
+</div>
+`;
+
+return;
 }
 
-    mensajeFormulario.innerHTML = `
-    <div class="alert alert-success mt-3">
+mensajeFormulario.innerHTML = `
+<div class="alert alert-success d-flex justify-content-center align-items-center text-center mt-3" role="alert">
+
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+        <use xlink:href="#check-circle-fill"/>
+    </svg>
+
+    <div>
         Mensaje preparado correctamente. Será enviado por WhatsApp.
     </div>
-    `;
+
+</div>
+`;
 
     const texto = `Hola, soy ${nombre}.
 Correo: ${correo}
@@ -535,3 +702,83 @@ setTimeout(function(){
 
 }); 
 renderizarProductos();
+function verProducto(indice){
+
+const producto = productos[indice];
+
+document.getElementById("modalImagen").src = producto.imagen;
+
+document.getElementById("modalNombre").textContent = producto.nombre;
+
+document.getElementById("modalCategoria").innerHTML =
+"<strong>Categoría:</strong> " + producto.categoria;
+
+document.getElementById("modalPrecio").innerHTML =
+"<strong>Precio:</strong> " + producto.precio;
+
+document.getElementById("modalCantidad").innerHTML =
+"<strong>Cantidad:</strong> " + producto.cantidad;
+
+document.getElementById("modalDescripcion").innerHTML =
+"<strong>Descripción:</strong><br>" + producto.descripcion;
+document.getElementById("modalEstado").innerHTML =
+"<strong>Estado:</strong> " + producto.estado;
+
+document.getElementById("modalCodigo").innerHTML =
+"<strong>Código:</strong> " + producto.codigo;
+
+document.getElementById("modalFecha").innerHTML =
+"<strong>Fecha de registro:</strong> " + producto.fecha;
+
+document.getElementById("modalObservacion").innerHTML =
+"<strong>Observación:</strong><br>" + producto.observacion;
+
+const modal = new bootstrap.Modal(
+document.getElementById("modalProducto")
+);
+
+modal.show();
+
+}
+// Índice del producto que se desea eliminar
+let indiceEliminar = null;
+function abrirModalEliminar(indice){
+
+    indiceEliminar = indice;
+
+    const modal = new bootstrap.Modal(
+        document.getElementById("modalEliminar")
+    );
+
+    modal.show();
+
+}
+document.getElementById("btnConfirmarEliminar").addEventListener("click", function(){
+
+    productos.splice(indiceEliminar, 1);
+
+    renderizarProductos();
+
+    contadorProductos.textContent = productos.length;
+
+    const modal = bootstrap.Modal.getInstance(
+        document.getElementById("modalEliminar")
+    );
+
+    modal.hide();
+
+});
+
+function eliminarProducto(indice){
+
+    if(confirm("¿Está seguro de eliminar este producto?")){
+
+        productos.splice(indice, 1);
+
+        renderizarProductos();
+
+        contadorProductos.textContent = productos.length;
+
+    }
+
+}
