@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}
+Productos - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <section class="container my-5">
+
+        <h2 class="text-center fw-bold titulo-inicio mb-3">
+            Nuestros Productos
+        </h2>
+
+        <p class="text-center mb-5">
+            Descubre nuestras prendas femeninas diseñadas para resaltar
+            tu belleza, elegancia y estilo.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card producto-card h-100">
+                    <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
+                         class="card-img-top"
+                         alt="Vestido">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">
+                            Vestidos
+                        </h5>
+
+                        <p class="precio">
+                            $25.00
+                        </p>
+
+                        <p class="card-text">
+                            Ideales para eventos y ocasiones especiales.
+                        </p>
+
+                        <button class="btn btn-outline-primary">
+                            Ver Producto
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card producto-card h-100">
+
+                    <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
+                         class="card-img-top"
+                         alt="Blusa">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Blusas
+                        </h5>
+
+                        <p class="precio">
+                            $15.00
+                        </p>
+
+                        <p class="card-text">
+                            Diseños modernos en diferentes estilos y colores.
+                        </p>
+
+                        <button class="btn btn-outline-primary">
+                            Ver Producto
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card producto-card h-100">
+
+                    <img src="{{ url_for('static', filename='img/body.jpg') }}"
+                         class="card-img-top"
+                         alt="Body">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Bodys
+                        </h5>
+
+                        <p class="precio">
+                            $20.00
+                        </p>
+
+                        <p class="card-text">
+                            Perfectos para combinar con cualquier look.
+                        </p>
+
+                        <button class="btn btn-outline-primary">
+                            Ver Producto
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

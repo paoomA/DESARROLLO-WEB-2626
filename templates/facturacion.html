@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}
+Facturación - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <section class="container my-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold titulo-inicio">
+                Facturación
+            </h2>
+
+            <p class="lead text-secondary">
+                Registro y consulta de facturas de PAOOU FASHION.
+            </p>
+
+        </div>
+
+
+        <!-- Factura de ejemplo -->
+
+        <div class="card shadow border-0">
+
+            <div class="card-header bg-dark text-white">
+
+                <h5 class="mb-0">
+                    Factura N.º 001-001-000001
+                </h5>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="row mb-4">
+
+                    <div class="col-md-6">
+
+                        <h5 class="fw-bold">
+                            PAOOU FASHION
+                        </h5>
+
+                        <p class="mb-1">
+                            Ropa femenina moderna y elegante.
+                        </p>
+
+                        <p class="mb-1">
+                            Shushufindi, Sucumbíos - Ecuador
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-md-6 text-md-end">
+
+                        <p class="mb-1">
+                            <strong>Fecha:</strong>
+                            12/08/2026
+                        </p>
+
+                        <p class="mb-1">
+                            <strong>Estado:</strong>
+                            <span class="badge bg-success">
+                                Pagada
+                            </span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Datos del cliente -->
+
+                <div class="alert alert-light">
+
+                    <h6 class="fw-bold">
+                        Datos del Cliente
+                    </h6>
+
+                    <p class="mb-1">
+                        <strong>Cliente:</strong>
+                        María López
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Correo:</strong>
+                        maria.lopez@gmail.com
+                    </p>
+
+                </div>
+
+
+                <!-- Detalle de productos -->
+
+                <h5 class="fw-bold mt-4 mb-3">
+                    Detalle de la compra
+                </h5>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered align-middle">
+
+                        <thead class="table-dark">
+
+                            <tr>
+
+                                <th>
+                                    Producto
+                                </th>
+
+                                <th>
+                                    Cantidad
+                                </th>
+
+                                <th>
+                                    Precio
+                                </th>
+
+                                <th>
+                                    Subtotal
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Vestido Floral Elegante
+                                </td>
+
+                                <td>
+                                    1
+                                </td>
+
+                                <td>
+                                    $25.00
+                                </td>
+
+                                <td>
+                                    $25.00
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Blusa Casual Elegante
+                                </td>
+
+                                <td>
+                                    1
+                                </td>
+
+                                <td>
+                                    $15.00
+                                </td>
+
+                                <td>
+                                    $15.00
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Totales -->
+
+                <div class="row justify-content-end">
+
+                    <div class="col-md-5">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <span>
+                                Subtotal:
+                            </span>
+
+                            <strong>
+                                $40.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <span>
+                                IVA:
+                            </span>
+
+                            <strong>
+                                $0.00
+                            </strong>
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <span class="fw-bold">
+                                Total:
+                            </span>
+
+                            <strong class="fs-4">
+                                $40.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Información -->
+
+        <div class="alert alert-light shadow mt-5 text-center">
+
+            <h5 class="fw-bold">
+                Sistema de Facturación
+            </h5>
+
+            <p class="mb-0">
+                Esta sección presenta una factura de ejemplo.
+                En esta semana no se requiere almacenar información
+                en una base de datos.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

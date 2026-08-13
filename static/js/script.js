@@ -321,55 +321,55 @@ let imagenProducto = "";
 switch(categoria){
 
     case "Vestidos":
-        imagenProducto = "resources/img/vestido.jpeg";
+        imagenProducto = "/static/img/vestido.jpeg";
         break;
 
     case "Blusas":
-        imagenProducto = "resources/img/blusas.jpeg";
+        imagenProducto = "/static/img/blusas.jpeg";
         break;
 
     case "Jeans":
-        imagenProducto = "resources/img/jeans.jpeg";
+        imagenProducto = "/static/img/jeans.jpeg";
         break;
 
     case "Faldas":
-        imagenProducto = "resources/img/faldas.jpg";
+        imagenProducto = "/static/img/faldas.jpg";
         break;
 
     case "Bodys":
-        imagenProducto = "resources/img/body.jpg";
+        imagenProducto = "/static/img/body.jpg";
         break;
 
     case "Conjuntos":
-        imagenProducto = "resources/img/conjuntos.jpg";
+        imagenProducto = "/static/img/conjuntos.jpg";
         break;
 
     case "Chaquetas de mezclilla":
-        imagenProducto = "resources/img/chaquetas.jpg";
+        imagenProducto = "/static/img/chaquetas.jpg";
         break;
 
     case "Blazers":
-        imagenProducto = "resources/img/blazers.jpeg";
+        imagenProducto = "/static/img/blazers.jpeg";
         break;
 
     case "Shorts":
-        imagenProducto = "resources/img/shorts.jpeg";
+        imagenProducto = "/static/img/shorts.jpeg";
         break;
 
     case "Enterizos":
-        imagenProducto = "resources/img/enterizos.jpg";
+        imagenProducto = "/static/img/enterizos.jpg";
         break;
 
     case "Conjuntos Deportivos":
-        imagenProducto = "resources/img/conj_deportivos.png";
+        imagenProducto = "/static/img/conj_deportivos.png";
         break;
 
     case "Crop Tops":
-        imagenProducto = "resources/img/crop_tops.png";
+        imagenProducto = "/static/img/crop_tops.png";
         break;
 
     default:
-        imagenProducto = "resources/img/moda1.jpeg";
+        imagenProducto = "/static/img/modaa.jpeg";
 }
     
 
