@@ -1,0 +1,2637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TIENDA VIRTUAL PAOOU FASHION</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <link rel="stylesheet" href="resource/css/style.css">
+</head>
+
+<body>
+    <!-- Iconos Bootstrap para las alertas -->
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+
+  <symbol id="info-fill" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+
+  <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+
+</svg>
+<!-- Encabezado: esta sección podrá formar parte de la plantilla base.html -->    
+<header class="hero text-center text-white d-flex align-items-center">
+    <div class="container">
+        <h1 class="fw-bold">
+            SISTEMA DE VENTAS PAOOU FASHION
+        </h1>
+
+        <p class="lead">
+            <em>La moda que resalta tu belleza, estilo y elegancia</em>
+        </p>
+
+    </div>
+</header>
+<!-- Menú de navegación: se reutilizará en las demás páginas -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+    <div class="container-fluid px-3">
+    <a class="navbar-brand" href="#">
+        <img src="resource/img/logo.jpeg" width="45" class="me-2 rounded">
+        PAOOU FASHION
+    </a>
+<button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#inicio">Inicio</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#quienes">Quiénes Somos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#servicios">Servicios o Productos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+    </div>
+    </div>
+</nav>
+<!-- Contenido principal: aquí se mostrará el contenido de cada página -->
+<main>
+<!-- Sección Inicio -->
+ <section id="inicio" class="container-fluid text-center p-5 bg-white rounded shadow">
+
+    <h2 class="display-5 fw-bold titulo-inicio mb-3">
+        Bienvenidos a PAOOU FASHION
+    </h2>
+
+    <p class="lead text-secondary mb-4">
+        Bienvenidos a PAOOU FASHION, una tienda virtual dedicada a la venta de ropa femenina moderna, elegante y de calidad. Descubre un mundo de moda femenina donde el estilo, la comodidad y la elegancia se unen para resaltar tu belleza en cada ocasión. Nuestro objetivo es ofrecer prendas que permitan a nuestras clientas expresar su personalidad, confianza y buen gusto, brindando siempre productos acordes con las tendencias actuales y las necesidades de cada mujer.
+    </p>
+    <p class="fw-semibold">
+        Tu estilo, tu esencia, tu moda.
+    </p>
+    <div class="row mt-5 g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Moda Exclusiva</h4>
+                    <p>
+                        Prendas modernas inspiradas en las últimas tendencias para realzar la elegancia y el estilo femenino.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Calidad Garantizada</h4>
+                    <p>
+                        Seleccionamos cuidadosamente cada prenda para ofrecer comodidad, calidad y excelente presentación.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 border-0">
+                <div class="card-body">
+                    <h4 class="titulo-inicio">Atención Personalizada</h4>
+                    <p>
+                        Brindamos una atención cercana y confiable para ofrecer una experiencia de compra satisfactoria.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bg-light rounded shadow p-4 mt-5">
+
+        <h3 class="titulo-inicio">
+            Nuestra Prioridad
+        </h3>
+
+        <p class="mb-0">
+            En PAOOU FASHION trabajamos para ofrecer prendas que reflejen elegancia, calidad y confianza, buscando que cada clienta encuentre el estilo ideal para cada ocasión.
+        </p>
+
+    </div>
+        
+    <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+
+        <a href="#servicios" class="btn btn-primary btn-lg shadow">
+            Explorar Productos
+        </a>
+    </div>
+</section>
+<!-- Sección Quiénes Somos -->
+<section id="quienes" class="container my-5 p-4 bg-white rounded shadow">
+
+  
+    <h2 class="text-center mb-4 fw-bold titulo-inicio">
+        Quiénes Somos
+    </h2>
+
+    <div class="row align-items-center mb-5 g-4">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold mb-3">Nuestra Historia</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    PAOOU FASHION es una tienda virtual dedicada a la comercialización de ropa femenina moderna, elegante y de alta calidad. Este emprendimiento nace con el propósito de ofrecer prendas que permitan a las mujeres expresar su personalidad, seguridad y estilo en cada ocasión. A través de su sistema de ventas en línea, las clientas pueden conocer productos, promociones y novedades de manera rápida, segura y accesible. La tienda trabaja constantemente para incorporar nuevas tendencias de moda y brindar una excelente experiencia de compra, con el compromiso de satisfacer las necesidades de sus clientas y consolidarse como una marca reconocida por su confianza, innovación y responsabilidad. Además, busca ofrecer productos que combinen moda, comodidad, calidad y precios accesibles para cada momento de la vida de la mujer.
+                </p>
+
+                <p style="text-align: justify;">
+                 Este emprendimiento fue creado el 26 de mayo de 2026 por MARÍA PAOLA ACOSTA GARCÍA, una joven emprendedora responsable, creativa y perseverante, quien decidió convertir su pasión por la moda y la tecnología en un proyecto empresarial. Desde sus años de colegio, mientras cursaba la especialidad de Informática, desarrolló un gran interés por el diseño y desarrollo de páginas web, descubriendo en la tecnología una herramienta para crear soluciones innovadoras. Esa pasión fue creciendo con el paso del tiempo y la motivó a integrar sus conocimientos tecnológicos con el emprendimiento, dando origen a PAOOU FASHION como una tienda virtual moderna, funcional y orientada a brindar una experiencia de compra de calidad.                </p>
+                <p style="text-align: justify;">
+                 PAOOU FASHION representa el esfuerzo, la dedicación y el deseo constante de seguir aprendiendo, demostrando que la combinación entre la creatividad, la innovación y la tecnología puede transformar una idea en un proyecto con visión de futuro. Más que una tienda virtual, este emprendimiento refleja el compromiso de ofrecer un servicio confiable, moderno y cercano, fortaleciendo la relación con cada cliente y buscando crecer de manera responsable dentro del comercio electrónico.   
+                </p>            
+                <p style="text-align: justify;">
+                  Como expresó Steve Jobs:
+</p>
+<p style="text-align: justify;">
+<em>"La única forma de hacer un gran trabajo es amar lo que haces."</em>
+</p>
+<p style="text-align: justify;">
+Esta frase inspira el desarrollo de PAOOU FASHION, ya que refleja la importancia de trabajar con pasión, creatividad y compromiso. Cada avance realizado en este proyecto nace del entusiasmo por aprender, innovar y ofrecer un espacio donde la moda y la tecnología se complementan para brindar una mejor experiencia a cada cliente.  
+                </p>            
+                <p style="text-align: justify;">
+                Asimismo, PAOOU FASHION se guía por el siguiente principio bíblico:
+</p>
+<p style="text-align: justify;">
+<em> "Encomienda al Señor tus obras, y tus proyectos se cumplirán."</em>
+Proverbios 16:3 </p>
+<p style="text-align: justify;">
+Este versículo representa la confianza en Dios como guía para cada paso del emprendimiento, recordando que el esfuerzo, la perseverancia, la honestidad y el trabajo realizado con amor son la base para alcanzar las metas y construir un proyecto sólido que genere confianza, inspiración y valor para todas las personas que forman parte de PAOOU FASHION.    
+                </p>            
+
+</article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="resource/img/modaa.jpeg" class="img-fluid img-thumbnail shadow" alt="historia">
+        </div>
+
+    </div>
+
+    <div class="row align-items-center mb-5 p-4 rounded" style="background:#fce4f1;">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold titulo-inicio mb-3">Misión</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    La misión de PAOOU FASHION es ofrecer prendas de vestir femeninas de alta calidad que permitan a las mujeres expresar su identidad, estilo y personalidad con confianza. Nos enfocamos en brindar productos modernos, elegantes y accesibles, alineados con las tendencias actuales de la moda, garantizando siempre una excelente relación entre calidad y precio.
+                </p>
+
+                <p style="text-align: justify;">
+                    Además, buscamos brindar una experiencia de compra cómoda, segura y satisfactoria, donde cada cliente se sienta valorado. Trabajamos constantemente en mejorar nuestros productos y servicios, con el objetivo de consolidarnos como una marca confiable y preferida en el mercado de la moda femenina.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="resource/img/mision.jpg" class="img-fluid img-thumbnail shadow" alt="mision">
+        </div>
+
+    </div>
+
+    <div class="row align-items-center p-4 rounded flex-md-row-reverse" style="background:#f8d7ea;">
+
+        <div class="col-md-6">
+
+            <h4 class="fw-bold titulo-inicio mb-3">Visión</h4>
+
+            <article>
+                <p style="text-align: justify;">
+                    La visión de PAOOU FASHION es convertirse en una marca reconocida a nivel nacional e internacional por su innovación, calidad y compromiso con la moda femenina. Aspiramos a expandir nuestro negocio en el entorno digital, consolidándonos como una empresa líder en la venta de ropa femenina moderna, elegante y accesible.
+                </p>
+
+                <p style="text-align: justify;">
+                    Queremos ser una marca que inspire confianza, seguridad y estilo en cada una de nuestras clientas, destacando siempre por la excelencia en nuestros productos y atención al cliente, logrando así un crecimiento sostenible y una identidad sólida en el mundo de la moda.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="resource/img/vision.jpg" class="img-fluid img-thumbnail shadow" alt="vision">
+        </div>
+
+    </div>
+
+</section>
+<!-- Sección Servicios o Productos -->
+<section id="servicios" class="container my-5">
+
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Servicios o Productos
+    </h2>
+
+    <p class="text-center mb-5">
+        Descubre nuestras prendas femeninas diseñadas para resaltar tu belleza, elegancia y estilo en cualquier ocasión.
+    </p>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/vestido.jpeg" class="card-img-top" alt="Vestido">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Vestidos</h5>
+                    <p class="precio">$25.00</p>
+                    <p class="card-text">
+                        Ideales para eventos y ocasiones especiales.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalVestido">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/blusas.jpeg" class="card-img-top" alt="Blusa">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Blusas</h5>
+                    <p class="precio">$15.00</p>
+                    <p class="card-text">
+                        Diseños modernos en diferentes estilos y colores.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalBlusa">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/body.jpg" class="card-img-top" alt="Body">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Bodys</h5>
+                    <p class="precio">$20.00</p>
+                    <p class="card-text">
+                        Perfectos para combinar con cualquier look.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalBody">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/faldas.jpg" class="card-img-top" alt="Falda">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Faldas Modernas</h5>
+                    <p class="precio">$22.00</p>
+                    <p class="card-text">
+                        Elegancia y estilo para cualquier ocasión.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalFalda">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/jeans.jpeg" class="card-img-top" alt="Jeans">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Jeans</h5>
+                    <p class="precio">$25.00</p>
+                    <p class="card-text">
+                        Comodidad y calidad para el día a día.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalJeans">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card producto-card h-100">
+                <img src="resource/img/conjuntos.jpg" class="card-img-top" alt="Conjunto">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Conjuntos</h5>
+                    <p class="precio">$28.00</p>
+                    <p class="card-text">
+                        Ideales para reuniones y ocasiones especiales.
+                    </p>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#modalConjunto">Ver Producto</button>
+                </div>
+            </div>
+        </div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/chaquetas.jpg" class="card-img-top" alt="Chaquetas">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Chaquetas de mezclilla</h5>
+
+            <p class="precio">$27.00</p>
+
+            <p class="card-text">
+                Ideales para complementar cualquier estilo con elegancia.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalChaqueta">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/blazers.jpeg" class="card-img-top" alt="Blazers">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Blazers</h5>
+
+            <p class="precio">$20.00</p>
+
+            <p class="card-text">
+                Prendas elegantes para un look formal y moderno.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalBlazer">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/shorts.jpeg" class="card-img-top" alt="Shorts">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Shorts</h5>
+
+            <p class="precio">$12.00</p>
+
+            <p class="card-text">
+                Cómodos y frescos para los días soleados.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalShort">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/enterizos.jpg" class="card-img-top" alt="Enterizos">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Enterizos</h5>
+
+            <p class="precio">$20.00</p>
+
+            <p class="card-text">
+                Diseños modernos para lucir un estilo único.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalEnterizo">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/conj_deportivos.png" class="card-img-top" alt="Conjuntos_Deportivos">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Conjuntos Deportivos</h5>
+
+            <p class="precio">$15.00</p>
+
+            <p class="card-text">
+                Diseñados para brindar comodidad, estilo y libertad de movimiento durante tus actividades deportivas.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalDeportivo">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card producto-card h-100">
+        <img src="resource/img/crop_tops.png" class="card-img-top" alt="Crop Tops">
+
+        <div class="card-body text-center">
+
+            <h5 class="card-title">Crop Tops</h5>
+
+            <p class="precio">$10.00</p>
+
+            <p class="card-text">
+                Diseños modernos que combinan con cualquier outfit.
+            </p>
+
+            <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalCrop">
+                Ver Producto
+            </button>
+
+        </div>
+    </div>
+</div>
+    </div>
+<h3 class="text-center mt-5 titulo-inicio">
+        Video de Moda y Tendencia
+    </h3>
+
+    <div class="ratio ratio-16x9">
+    <iframe 
+        src="https://www.youtube.com/embed/zZP8s2V12mM?si=rW0Ml7eizGIdZ7s9"
+        title="YouTube video player" allowfullscreen>
+    </iframe>
+    </div>
+    <div class="row justify-content-center mt-4">
+
+    <div class="col-12 col-md-8 col-lg-5">
+
+        <div class="text-center bg-white p-3 rounded shadow">
+
+            <h5 class="titulo-inicio">
+                Video Promocional PAOOU FASHION
+            </h5>
+
+            <video class="w-100 rounded" controls>
+                <source src="resource/video/promovideo.mp4" type="video/mp4">
+            </video>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+<!-- Sección Registro de Productos -->
+<section id="registro-productos" class="container my-5 bg-white p-4 rounded shadow">
+
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Registro de Nuevos Productos
+    </h2>
+
+    <p class="text-center mb-4">
+        Agrega nuevas prendas para ampliar el catálogo de PAOOU FASHION.
+    </p>
+
+    <div id="mensaje"></div>
+    <div id="spinnerCarga" class="text-center mt-3" style="display: none;">
+
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+    </div>
+
+    <p class="mt-2">
+        Procesando registro del producto...
+    </p>
+
+</div>
+
+    <form id="formProducto" class="row g-3">
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+               <strong>Nombre de la Prenda</strong> 
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                class="form-control"
+                placeholder="Ejemplo: Vestido Elegante">
+
+            <div id="errorNombre" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+               <strong>Categoría</strong> 
+            </label>
+
+            <select id="categoria" class="form-select">
+
+                <option value=""><strong> Seleccione una categoría</strong></option>
+
+                <option>Vestidos</option>
+                <option>Blusas</option>
+                <option>Jeans</option>
+                <option>Faldas</option>
+                <option>Bodys</option>
+                <option>Conjuntos</option>
+                <option>Chaquetas de mezclilla</option>
+                <option>Blazers</option>
+                <option>Shorts</option>
+                <option>Enterizos</option>
+                <option>Conjuntos Deportivos</option>
+                <option>Crop Tops</option>
+
+            </select>
+
+            <div id="errorCategoria" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-12 mb-3">
+
+            <label class="form-label">
+               <strong>Descripción</strong> 
+            </label>
+
+            <textarea
+                id="descripcion"
+                class="form-control"
+                rows="3"
+                placeholder="Ingrese una descripción de la prenda"></textarea>
+
+            <div id="errorDescripcion" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <label for="precio" class="form-label">
+               <strong>Precio</strong> 
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                id="precio"
+                placeholder="Ejemplo: 35"
+                min="0"
+                step="0.01">
+
+            <div id="errorPrecio" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <label for="cantidad" class="form-label">
+               <strong>Cantidad</strong> 
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                id="cantidad"
+                placeholder="Ejemplo: 10"
+                min="1">
+
+            <div id="errorCantidad" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-12 text-center mt-3">
+
+            <button
+                type="submit"
+                class="btn btn-success btn-lg px-5">
+
+                <i class="fas fa-plus-circle me-2"></i>
+                Registrar Producto
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <div class="alert alert-light text-center mt-4">
+
+        Total de productos registrados:
+        <span id="contadorProductos">0</span>
+
+    </div>
+
+    <div id="listaProductos" class="mt-4"></div>
+
+</section>
+
+<!-- Sección Catálogo Dinámico -->
+<section id="catalogo-dinamico" class="container my-5">
+
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Catálogo
+    </h2>
+
+    <p class="text-center mb-4">
+        Los productos registrados mediante el formulario se mostrarán automáticamente en esta sección.
+    </p>
+
+    <div id="catalogoProductos" class="row g-4">
+
+    </div>
+
+</section>
+<!-- Sección Contacto -->
+ <section id="contacto" class="container my-5">
+<h2 class="text-center titulo-inicio mb-5">
+    Contacto
+</h2>
+
+<div class="row">
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="bg-white rounded shadow p-4">
+
+            <h4 class="titulo-inicio text-center mb-4">
+                Redes Sociales
+            </h4>
+
+           <div class="d-grid gap-3">
+
+    <a href="https://www.facebook.com/profile.php?id=61591235836211&sk=directory_links"
+    target="_blank"
+    class="btn btn-primary btn-facebook">
+
+        <i class="fab fa-facebook-f me-2"></i>
+        Facebook
+
+    </a>
+
+    <a href="https://www.tiktok.com/@paoou.fashion_"
+    target="_blank"
+    class="btn btn-dark">
+
+        <i class="fab fa-tiktok me-2"></i>
+        TikTok
+
+    </a>
+
+    <a href="mailto:paooufashion@gmail.com?subject=Consulta sobre Paoou Fashion"
+    class="btn btn-primary btn-correo">
+
+        <i class="fas fa-envelope me-2"></i>
+        Correo Electrónico
+
+    </a>
+
+</div>
+
+            <hr class="my-4">
+
+            <h4 class="titulo-inicio text-center mb-3">
+                Dirección
+            </h4>
+
+            <p class="text-center text-dark">
+
+                Ecuador, Provincia Sucumbíos, Cantón Shushufindi
+
+            </p>
+
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1184.1202182101767!2d-76.64529611163712!3d-0.18545052545107985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTEnMDUuOSJTIDc2wrAzOCczOS45Ilc!5e0!3m2!1ses!2sec!4v1781223060867!5m2!1ses!2sec"
+            class="w-100 rounded mt-3"
+            height="220"
+            style="border:0;"
+            loading="lazy">
+            </iframe>
+
+            <div class="text-center mt-3">
+
+                <a href="https://maps.google.com/?q=-0.1854505,-76.6444138"
+                target="_blank"
+                class="btn btn-primary">
+
+                    Ver ubicación
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-8">
+    <h3 class="text-center titulo-inicio mb-4">
+    Formulario de Contacto
+</h3>
+
+<form id="formContacto" class="bg-white p-4 rounded shadow">
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">Nombre Completo</label>
+
+            <input
+            type="text"
+            id="nombreContacto"
+            class="form-control"
+            placeholder="Ingrese su nombre">
+
+            <div id="errorNombreContacto" class="text-danger small"></div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">Correo Electrónico</label>
+
+            <input
+            type="email"
+            id="correoContacto"
+            class="form-control"
+            placeholder="Ingrese su correo electrónico">
+
+            <div id="errorCorreo" class="text-danger small"></div>
+
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Tipo de Consulta
+        </label>
+
+        <select id="tipoConsulta" class="form-select">
+
+            <option value="">Seleccione una opción</option>
+            <option>Información de productos</option>
+            <option>Consulta de precios</option>
+            <option>Pedidos</option>
+            <option>Sugerencias</option>
+
+        </select>
+
+        <div id="errorTipo" class="text-danger small"></div>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Mensaje
+        </label>
+
+        <textarea
+        id="mensajeContacto"
+        rows="6"
+        class="form-control"
+        placeholder="Escriba su mensaje"></textarea>
+
+        <div id="errorMensajeContacto" class="text-danger small"></div>
+
+    </div>
+
+    <div id="respuestaContacto"></div>
+
+    <button
+    type="submit"
+    class="btn btn-primary">
+
+        Enviar Mensaje
+
+    </button>
+
+</form>
+</div> 
+</div> 
+</main>
+<!-- Información adicional de la página -->
+<aside class="container bg-white p-4 rounded shadow my-5">
+    <h2 class="titulo-inicio fw-bold text-center mb-4">
+    Información Adicional
+    </h2>
+    <p>
+    Promoción especial: Obtén un 10% de descuento en tu primera compra.
+    </p>
+    <p>
+    Realizamos envíos a diferentes ciudades del país.
+    </p>
+    <h3 class="mt-4">
+     Horario de Atención
+    </h3>
+    <p>
+     Lunes a Viernes: 09:00 a.m. - 07:00 p.m.
+    </p>
+
+    <p>
+     Sábados: 09:00 a.m. - 03:00 p.m.
+    </p>
+
+    <p>
+     Domingos: Cerrado.
+    </p>
+</aside>
+<!-- Modal Bootstrap Detalle del Producto -->
+
+<div class="modal fade"
+id="modalProducto"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5 class="modal-title">
+Detalle del Producto
+</h5>
+
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body text-center">
+
+<img
+id="modalImagen"
+src=""
+class="img-fluid rounded mb-3"
+style="max-height:250px;">
+
+<h4 id="modalNombre"></h4>
+
+<p id="modalCategoria"></p>
+
+<p id="modalPrecio"></p>
+
+<p id="modalCantidad"></p>
+
+<p id="modalDescripcion"></p>
+
+<hr>
+
+<p id="modalEstado"></p>
+
+<p id="modalCodigo"></p>
+
+<p id="modalFecha"></p>
+
+<p id="modalObservacion"></p>
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Confirmar Eliminación -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header bg-danger text-white">
+
+                <h5 class="modal-title" id="modalEliminarLabel">
+                    Confirmar eliminación
+                </h5>
+
+                <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"></button>
+
+            </div>
+
+            <div class="modal-body text-center">
+
+                <h1 class="mb-3">⚠️</h1>
+
+                <p class="fs-5">
+                    ¿Está seguro de eliminar este producto?
+                </p>
+
+                <p class="text-muted">
+                    Esta acción no se puede deshacer.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="btnConfirmarEliminar">
+
+                    Eliminar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Modal Producto Registrado -->
+
+<div class="modal fade"
+id="modalExito"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-exito text-white">
+
+<h5 class="modal-title">
+Producto registrado
+</h5>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body text-center">
+
+<h2 class="mb-3">✓</h2>
+
+<p class="fs-5">
+La prenda fue registrada correctamente.
+</p>
+
+<p class="text-muted">
+Ahora ya forma parte del catálogo de PAOOU FASHION.
+</p>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-success"
+data-bs-dismiss="modal">
+
+Aceptar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Vestido -->
+
+<div class="modal fade"
+id="modalVestido"
+tabindex="-1"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header encabezado-modal-producto text-white">
+
+                <h4 class="modal-title">
+
+                    PAOOU FASHION
+
+                </h4>
+
+                <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-5 text-center">
+
+                        <img
+                        src="resource/img/vestido.jpeg"
+                        class="img-fluid rounded shadow">
+
+                    </div>
+
+                    <div class="col-md-7">
+
+                        <h3 class="fw-bold">
+
+                            Vestido Floral Elegante
+
+                        </h3>
+
+                        <hr>
+
+                        <h4 class="precio-modal">
+
+                            $25.00
+
+                        </h4>
+
+                        <p>
+
+                            <strong>Descripción</strong>
+
+                            <br>
+
+                            Vestido floral confeccionado con tela ligera,
+                            ideal para reuniones, eventos especiales y ocasiones casuales.
+
+                        </p>
+
+                        <p>
+
+                            <strong>Observaciones</strong>
+
+                            <br>
+
+                            • Tela de alta calidad.
+
+                            <br>
+
+                            • Diseño moderno.
+
+                            <br>
+
+                            • Disponible en varias tallas.
+
+                            <br>
+
+                            • Lavado recomendado a mano.
+
+                        </p>
+
+                        <p>
+
+                            <strong>Estado:</strong>
+
+                            Disponible
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+
+                    Cerrar
+
+                </button>
+
+                <a
+                href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Vestido%20Floral%20Elegante."
+                target="_blank"
+                class="btn btn-whatsapp-modal">
+
+                    Consultar por WhatsApp
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal Blusa -->
+
+<div class="modal fade"
+id="modalBlusa"
+tabindex="-1"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header encabezado-modal-producto text-white">
+
+                <h4 class="modal-title">
+
+                    PAOOU FASHION
+
+                </h4>
+
+                <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-5 text-center">
+
+                        <img
+                        src="resource/img/blusas.jpeg"
+                        class="img-fluid rounded shadow">
+
+                    </div>
+
+                    <div class="col-md-7">
+
+                        <h3 class="fw-bold">
+
+                            Blusa Casual Elegante
+
+                        </h3>
+
+                        <hr>
+
+                        <h4 class="precio-modal">
+
+                            $15.00
+
+                        </h4>
+
+                        <p>
+
+                            <strong>Descripción</strong>
+
+                            <br>
+
+                            Blusa femenina de diseño moderno, confeccionada con tela fresca y cómoda para uso diario o eventos casuales.
+
+                        </p>
+
+                        <p>
+
+                            <strong>Observaciones</strong>
+
+                            <br>
+
+                            • Tela suave y ligera.
+
+                            <br>
+
+                            • Diseño moderno.
+
+                            <br>
+
+                            • Disponible en varias tallas.
+
+                            <br>
+
+                            • Fácil de combinar con jeans y faldas.
+
+                        </p>
+
+                        <p>
+
+                            <strong>Estado:</strong>
+
+                            Disponible
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+
+                    Cerrar
+
+                </button>
+
+                <a
+                href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20la%20Blusa%20Casual%20Elegante."
+                target="_blank"
+                class="btn btn-whatsapp-modal">
+
+                    Consultar por WhatsApp
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal Bodys -->
+
+<div class="modal fade"
+id="modalBody"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/body.jpg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Body Elegante
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$20.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Body femenino confeccionado con tela elástica y cómoda, ideal para combinar con jeans, faldas o pantalones.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Diseño moderno y elegante.
+
+<br>
+
+• Tela suave y de excelente calidad.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Ideal para uso casual o eventos.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Body%20Elegante."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Faldas -->
+
+<div class="modal fade"
+id="modalFalda"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/faldas.jpg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Falda Moderna
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$22.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Falda moderna confeccionada con tela de alta calidad, perfecta para combinar con blusas y bodys en cualquier ocasión.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Diseño moderno y femenino.
+
+<br>
+
+• Excelente acabado.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Fácil de combinar con diferentes estilos.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20la%20Falda%20Moderna."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Jeans -->
+
+<div class="modal fade"
+id="modalJeans"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/jeans.jpeg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Jeans Femeninos
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$25.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Jeans femeninos confeccionados con mezclilla de alta calidad, cómodos y modernos para cualquier ocasión.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Tela resistente.
+
+<br>
+
+• Corte moderno.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Excelente comodidad para uso diario.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20los%20Jeans%20Femeninos."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Conjuntos -->
+
+<div class="modal fade"
+id="modalConjunto"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/conjuntos.jpg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Conjunto Femenino
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$28.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Conjunto femenino moderno diseñado para brindar elegancia, comodidad y estilo en cualquier ocasión.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Tela premium.
+
+<br>
+
+• Diseño exclusivo.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Ideal para reuniones y eventos.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Conjunto%20Femenino."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div> 
+
+<!-- Modal Chaquetas -->
+
+<div class="modal fade"
+id="modalChaqueta"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/chaquetas.jpg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Chaqueta de Mezclilla
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$27.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Chaqueta de mezclilla confeccionada con materiales resistentes, ideal para complementar cualquier estilo.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Mezclilla de alta calidad.
+
+<br>
+
+• Diseño moderno.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Perfecta para cualquier temporada.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20la%20Chaqueta%20de%20Mezclilla."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Blazer -->
+
+<div class="modal fade"
+id="modalBlazer"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/blazers.jpeg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Blazer Elegante
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$20.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Blazer femenino confeccionado con tela de excelente calidad, ideal para reuniones, oficina y eventos formales.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Corte moderno.
+
+<br>
+
+• Tela resistente.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Ideal para combinar con jeans o pantalón de vestir.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Blazer%20Elegante."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Shorts -->
+
+<div class="modal fade"
+id="modalShort"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/shorts.jpeg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Short Casual
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$12.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Short femenino cómodo y moderno, perfecto para un estilo fresco y casual.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Tela ligera.
+
+<br>
+
+• Diseño moderno.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Ideal para temporadas cálidas.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Short%20Casual."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Enterizo -->
+
+<div class="modal fade"
+id="modalEnterizo"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/enterizos.jpg"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Enterizo Elegante
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$20.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Enterizo femenino diseñado para brindar elegancia y comodidad, ideal para reuniones, fiestas y eventos especiales.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Diseño exclusivo.
+
+<br>
+
+• Tela de excelente calidad.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Fácil de combinar con accesorios.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Enterizo%20Elegante."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Conjunto Deportivo -->
+
+<div class="modal fade"
+id="modalDeportivo"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/conj_deportivos.png"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Conjunto Deportivo
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$15.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Conjunto deportivo femenino elaborado con tela cómoda y transpirable, ideal para entrenamientos, caminatas o uso diario.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Tela flexible.
+
+<br>
+
+• Excelente comodidad.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Ideal para actividades deportivas.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Conjunto%20Deportivo."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal Crop Tops -->
+
+<div class="modal fade"
+id="modalCrop"
+tabindex="-1"
+aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header encabezado-modal-producto text-white">
+
+<h4 class="modal-title">
+
+PAOOU FASHION
+
+</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row align-items-center">
+
+<div class="col-md-5 text-center">
+
+<img
+src="resource/img/crop_tops.png"
+class="img-fluid rounded shadow">
+
+</div>
+
+<div class="col-md-7">
+
+<h3 class="fw-bold">
+
+Crop Top Moderno
+
+</h3>
+
+<hr>
+
+<h4 class="precio-modal">
+
+$10.00
+
+</h4>
+
+<p>
+
+<strong>Descripción</strong>
+
+<br>
+
+Crop Top femenino de diseño moderno, confeccionado con tela suave y fresca para brindar comodidad y estilo.
+
+</p>
+
+<p>
+
+<strong>Observaciones</strong>
+
+<br>
+
+• Diseño juvenil.
+
+<br>
+
+• Tela ligera y cómoda.
+
+<br>
+
+• Disponible en varias tallas.
+
+<br>
+
+• Perfecto para combinar con jeans, shorts y faldas.
+
+</p>
+
+<p>
+
+<strong>Estado:</strong>
+
+Disponible
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+<a
+href="https://wa.me/593968359008?text=Hola,%20estoy%20interesado(a)%20en%20el%20Crop%20Top%20Moderno."
+target="_blank"
+class="btn btn-whatsapp-modal">
+
+Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Pie de página: sección común para todo el sitio web -->
+<footer class="text-center p-4">
+    
+    <p>2026 PAOOU FASHION</p>
+
+    <p>Desarrollado por ACOSTA GARCIA MARIA PAOLA</p>
+    
+    <p>Asignatura: Desarrollo de Aplicaciones Web</p>
+</footer>
+
+<a href="https://wa.me/593968359008?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos."
+class="whatsapp-float"
+target="_blank"
+title="Contáctanos por WhatsApp">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
+<script src="resource/js/script.js"></script>
+</body>
+</html>

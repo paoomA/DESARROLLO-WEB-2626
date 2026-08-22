@@ -25,139 +25,65 @@ Clientes - PAOOU FASHION
 
         <!-- Tarjetas de clientes -->
 
-        <div class="row g-4">
+<div class="row g-4">
 
+    {% for cliente in clientes %}
 
-            <!-- Cliente 1 -->
+    <div class="col-md-6 col-lg-4">
 
-            <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow border-0">
 
-                <div class="card h-100 shadow border-0">
+            <div class="card-body">
 
-                    <div class="card-body">
+                <h5 class="card-title fw-bold">
+                    {{ cliente.nombre }}
+                </h5>
 
-                        <h5 class="card-title fw-bold">
-                            María López
-                        </h5>
+                <hr>
 
-                        <hr>
+                <p>
+                    <strong>Correo:</strong>
+                    {{ cliente.correo }}
+                </p>
 
-                        <p>
-                            <strong>Correo:</strong>
-                            maria.lopez@gmail.com
-                        </p>
+                <p>
+                    <strong>Teléfono:</strong>
+                    {{ cliente.telefono }}
+                </p>
 
-                        <p>
-                            <strong>Teléfono:</strong>
-                            0991234567
-                        </p>
+                <p>
+                    <strong>Ciudad:</strong>
+                    {{ cliente.ciudad }}
+                </p>
 
-                        <p>
-                            <strong>Ciudad:</strong>
-                            Shushufindi
-                        </p>
+                <p>
+                    <strong>Estado:</strong>
 
-                        <p>
-                            <strong>Estado:</strong>
-                            <span class="badge bg-success">
-                                Activo
-                            </span>
-                        </p>
+                    {% if cliente.estado == "Activo" %}
 
-                    </div>
+                        <span class="badge bg-success">
+                            {{ cliente.estado }}
+                        </span>
 
-                </div>
+                    {% else %}
 
-            </div>
+                        <span class="badge bg-danger">
+                            {{ cliente.estado }}
+                        </span>
 
+                    {% endif %}
 
-            <!-- Cliente 2 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow border-0">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title fw-bold">
-                            Andrea Pérez
-                        </h5>
-
-                        <hr>
-
-                        <p>
-                            <strong>Correo:</strong>
-                            andrea.perez@gmail.com
-                        </p>
-
-                        <p>
-                            <strong>Teléfono:</strong>
-                            0987654321
-                        </p>
-
-                        <p>
-                            <strong>Ciudad:</strong>
-                            Lago Agrio
-                        </p>
-
-                        <p>
-                            <strong>Estado:</strong>
-                            <span class="badge bg-success">
-                                Activo
-                            </span>
-                        </p>
-
-                    </div>
-
-                </div>
+                </p>
 
             </div>
-
-
-            <!-- Cliente 3 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow border-0">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title fw-bold">
-                            Carolina Torres
-                        </h5>
-
-                        <hr>
-
-                        <p>
-                            <strong>Correo:</strong>
-                            carolina.torres@gmail.com
-                        </p>
-
-                        <p>
-                            <strong>Teléfono:</strong>
-                            0976543210
-                        </p>
-
-                        <p>
-                            <strong>Ciudad:</strong>
-                            Quito
-                        </p>
-
-                        <p>
-                            <strong>Estado:</strong>
-                            <span class="badge bg-success">
-                                Activo
-                            </span>
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
 
         </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
 
 
         <!-- Información adicional -->

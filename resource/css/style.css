@@ -1,0 +1,415 @@
+body{
+    background-color:#f6e7f4;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+header{
+    background:linear-gradient(90deg,#e198d0,#ec89af);
+    color:rgb(248, 240, 240);
+    padding:30px;
+}
+
+nav{
+    box-shadow:0px 2px 10px rgba(0,0,0,0.2);
+}
+
+section{
+    margin-top:30px;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+aside{
+    background-color:white;
+    padding:20px;
+    margin-top:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background-color:#ec89af;
+    color:white;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    iframe{
+        width:100%;
+        height:auto;
+    }
+}
+.hero{
+    background-image: url("../img/modaa.jpeg"); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero .container{
+    position: relative;
+    z-index: 2;
+}
+.titulo-inicio{
+    color:#ec89af !important;
+}
+
+#inicio{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    border:2px solid #f8c8dc;
+    transition:0.3s;
+}
+#inicio:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.navbar-nav .nav-link{
+    color:white;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s ease;
+    margin:2px;
+}
+
+.navbar-nav .nav-link:hover{
+    background-color:#f8c8dc;
+    color:#000;
+    transform:scale(1.05);
+}
+.navbar-nav .nav-link:focus{
+    background-color:#ec89af;
+    color:white;
+}
+
+#quienes .row{
+    transition:0.3s;
+}
+
+#quienes .row:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 10px 25px rgba(0,0,0,0.15);
+}
+.producto-card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.producto-card:hover{
+    transform:translateY(-8px);
+}
+
+.producto-card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.card-title{
+    color:#ec89af;
+    font-weight:bold;
+}
+
+.precio{
+    color:#ec89af;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.producto-card .btn{
+    margin-top:10px;
+}
+/* Botones Ver Producto */
+
+.btn-outline-primary{
+    color:#ec89af;
+    border-color:#ec89af;
+    border-radius:10px;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active{
+    background-color:#ec89af !important;
+    border-color:#ec89af !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
+/* Botón Registrar Producto */
+
+.btn-success{
+    background-color:#ec89af;
+    border-color:#ec89af;
+    color:white;
+    border-radius:10px;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active{
+    background-color:#f675d8 !important;
+    border-color:#f675d8 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
+/* Botón Enviar Mensaje y Explorar Productos */
+
+.btn-primary{
+    background-color:#ec89af;
+    border-color:#ec89af;
+    color:white;
+    border-radius:10px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active{
+    background-color:#f675d8 !important;
+    border-color:#f675d8 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(236,137,175,.35);
+}
+
+#contacto{
+    background-color:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    margin:30px auto;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.form-control:focus{
+    border-color:#ec89af;
+    box-shadow:0px 0px 8px rgba(236,137,175,0.4);
+}
+aside{
+    transition:0.3s;
+}
+
+aside:hover{
+    transform:translateY(-5px);
+}
+
+aside p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+footer{
+    background-color:#ec89af;
+    color:white;
+    font-size:16px;
+    letter-spacing:1px;
+    margin-top:30px;
+    width:100%;
+    padding:25px;
+}
+
+footer p{
+    margin:5px 0;
+}
+@media(max-width:768px){
+
+.hero{
+height:40vh;
+}
+
+#inicio{
+width:100%;
+}
+
+.producto-card img{
+height:200px;
+}
+
+footer{
+font-size:14px;
+}
+
+}
+#registro-productos{
+    border:2px solid #f8c8dc;
+}
+
+#registro-productos h2{
+    color:#ec89af;
+}
+#catalogo-dinamico{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+/* Botón flotante de WhatsApp */
+
+.whatsapp-float{
+
+position: fixed;
+
+width: 65px;
+
+height: 65px;
+
+right: 25px;
+
+bottom: 25px;
+
+background: #25D366;
+
+color: white;
+
+border-radius: 50%;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+font-size: 35px;
+
+text-decoration: none;
+
+box-shadow: 0 5px 15px rgba(0,0,0,.35);
+
+z-index: 9999;
+
+transition: .3s;
+
+}
+
+.whatsapp-float:hover{
+
+background: #1EBE5D;
+
+color: white;
+
+transform: scale(1.12);
+
+}
+/* Botón Facebook */
+
+.btn-facebook{
+    background-color:#1877F2;
+    border-color:#1877F2;
+    color:white;
+}
+
+.btn-facebook:hover{
+    background-color:#166FE5 !important;
+    border-color:#166FE5 !important;
+    color:white !important;
+}
+
+.btn-facebook:focus{
+    background-color:#1877F2 !important;
+    border-color:#1877F2 !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(24,119,242,.35);
+}
+
+.btn-facebook:active{
+    background-color:#145DBF !important;
+    border-color:#145DBF !important;
+    color:white !important;
+}
+/* Botón Correo */
+
+.btn-correo{
+    background-color:#D8B08C;
+    border-color:#D8B08C;
+    color:white;
+}
+
+.btn-correo:hover{
+    background-color:#C99A72 !important;
+    border-color:#C99A72 !important;
+    color:white !important;
+}
+
+.btn-correo:focus{
+    background-color:#D8B08C !important;
+    border-color:#D8B08C !important;
+    color:white !important;
+    box-shadow:0 0 0 .25rem rgba(216,176,140,.35);
+}
+
+.btn-correo:active{
+    background-color:#B8865D !important;
+    border-color:#B8865D !important;
+    color:white !important;
+}
+#spinnerCarga .spinner-border{
+    color: #f091bd;
+}
+.encabezado-exito{
+    background-color: #eb61a6;
+}
+/*==========================
+  MODAL PRODUCTOS
+==========================*/
+
+.encabezado-modal-producto{
+    background-color: #ec6aa7;
+}
+
+.precio-modal{
+    color: #ec6aa7;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.btn-whatsapp-modal{
+    background-color: #ec6aa7;
+    color: white;
+    border: none;
+}
+
+.btn-whatsapp-modal:hover{
+    background-color: #d94d93;
+    color: white;
+}
+
+#modalVestido img{
+    border-radius: 15px;
+}

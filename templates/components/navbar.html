@@ -1,0 +1,110 @@
+<!-- MENÚ DE NAVEGACIÓN -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+        <!-- LOGO -->
+        <a class="navbar-brand"
+           href="{{ url_for('inicio') }}">
+
+            <img src="{{ url_for('static', filename='img/logo.jpeg') }}"
+                 width="45"
+                 class="me-2 rounded"
+                 alt="Logo de PAOOU FASHION">
+
+            PAOOU FASHION
+
+        </a>
+
+
+        <!-- BOTÓN PARA CELULAR -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Mostrar menú">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- OPCIONES DEL MENÚ -->
+        <div class="collapse navbar-collapse"
+             id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <!-- INICIO -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('inicio') }}">
+
+                        Inicio
+
+                    </a>
+
+                </li>
+
+
+                <!-- PRODUCTOS -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('productos') }}">
+
+                        Productos
+
+                    </a>
+
+                </li>
+
+
+                <!-- CLIENTES -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('clientes') }}">
+
+                        Clientes
+
+                    </a>
+
+                </li>
+
+
+                <!-- PROVEEDORES -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('proveedores') }}">
+
+                        Proveedores
+
+                    </a>
+
+                </li>
+
+
+                <!-- FACTURACIÓN -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('facturacion') }}">
+
+                        Facturación
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

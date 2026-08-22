@@ -14,98 +14,96 @@ Productos - PAOOU FASHION
             Nuestros Productos
         </h2>
 
+        <p class="text-center">
+            Bienvenida a {{ nombre_tienda|upper }}
+        </p>
+
         <p class="text-center mb-5">
             Descubre nuestras prendas femeninas diseñadas para resaltar
             tu belleza, elegancia y estilo.
         </p>
 
+
+        <!-- PRODUCTOS GENERADOS DINÁMICAMENTE -->
+
         <div class="row g-4">
 
+            {% for producto in productos %}
+
             <div class="col-md-4">
+
                 <div class="card producto-card h-100">
+
+                    <!-- IMAGEN DEL PRODUCTO -->
+
+                    {% if producto.nombre == "Vestidos" %}
+
                     <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
                          class="card-img-top"
                          alt="Vestido">
 
-                    <div class="card-body text-center">
-                        <h5 class="card-title">
-                            Vestidos
-                        </h5>
-
-                        <p class="precio">
-                            $25.00
-                        </p>
-
-                        <p class="card-text">
-                            Ideales para eventos y ocasiones especiales.
-                        </p>
-
-                        <button class="btn btn-outline-primary">
-                            Ver Producto
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card producto-card h-100">
+                    {% elif producto.nombre == "Blusas" %}
 
                     <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
                          class="card-img-top"
-                         alt="Blusa">
+                         alt="Blusas">
 
-                    <div class="card-body text-center">
-
-                        <h5 class="card-title">
-                            Blusas
-                        </h5>
-
-                        <p class="precio">
-                            $15.00
-                        </p>
-
-                        <p class="card-text">
-                            Diseños modernos en diferentes estilos y colores.
-                        </p>
-
-                        <button class="btn btn-outline-primary">
-                            Ver Producto
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card producto-card h-100">
+                    {% else %}
 
                     <img src="{{ url_for('static', filename='img/body.jpg') }}"
                          class="card-img-top"
                          alt="Body">
 
+                    {% endif %}
+
+
+                    <!-- INFORMACIÓN DEL PRODUCTO -->
+
                     <div class="card-body text-center">
 
                         <h5 class="card-title">
-                            Bodys
+                            {{ producto.nombre }}
                         </h5>
 
                         <p class="precio">
-                            $20.00
+                            ${{ producto.precio }}
                         </p>
 
                         <p class="card-text">
-                            Perfectos para combinar con cualquier look.
+                            Prenda femenina moderna y elegante.
                         </p>
+
+
+                        <!-- CONDICIONAL DE STOCK -->
+
+                        {% if producto.stock > 0 %}
+
+                            <span class="badge bg-success mb-3">
+                                Disponible
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger mb-3">
+                                Agotado
+                            </span>
+
+                        {% endif %}
+
+
+                        <br>
 
                         <button class="btn btn-outline-primary">
                             Ver Producto
                         </button>
 
                     </div>
+
                 </div>
+
             </div>
+
+            {% endfor %}
 
         </div>
 
