@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registrar Producto - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<section class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center fw-bold mb-2">
+                        {% if editar %}
+                            Editar Producto
+                        {% else %}
+                            Registrar Producto
+                        {% endif %}
+                    </h2>
+
+                    <p class="text-center text-muted mb-4">
+                        PAOOU FASHION
+                    </p>
+
+
+                    <form method="POST" id="formProducto">
+
+                        {{ form.hidden_tag() }}
+
+
+                        <!-- nombre -->
+
+                        <div class="mb-3">
+
+                            {{ form.nombre.label(class="form-label fw-bold") }}
+
+                            {{ form.nombre(
+                                class="form-control",
+                                id="nombre"
+                            ) }}
+
+                            <div id="errorNombre" class="text-danger small mt-1"></div>
+
+                            {% for error in form.nombre.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- categoria -->
+
+                        <div class="mb-3">
+
+                            {{ form.categoria.label(class="form-label fw-bold") }}
+
+                            {{ form.categoria(
+                                class="form-select",
+                                id="categoria"
+                            ) }}
+
+                            <div id="errorCategoria" class="text-danger small mt-1"></div>
+
+                            {% for error in form.categoria.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- descripcion -->
+
+                        <div class="mb-3">
+
+                            {{ form.descripcion.label(class="form-label fw-bold") }}
+
+                            {{ form.descripcion(
+                                class="form-control",
+                                rows="4",
+                                id="descripcion"
+                            ) }}
+
+                            <div id="errorDescripcion" class="text-danger small mt-1"></div>
+
+                            {% for error in form.descripcion.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- precio -->
+
+                        <div class="mb-3">
+
+                            {{ form.precio.label(class="form-label fw-bold") }}
+
+                            {{ form.precio(
+                                class="form-control",
+                                type="number",
+                                step="0.01",
+                                min="0.01",
+                                id="precio"
+                            ) }}
+
+                            <div id="errorPrecio" class="text-danger small mt-1"></div>
+
+                            {% for error in form.precio.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- cantidad -->
+
+                        <div class="mb-4">
+
+                            {{ form.cantidad.label(class="form-label fw-bold") }}
+
+                            {{ form.cantidad(
+                                class="form-control",
+                                type="number",
+                                min="0",
+                                id="cantidad"
+                            ) }}
+
+                            <div id="errorCantidad" class="text-danger small mt-1"></div>
+
+                            {% for error in form.cantidad.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- boton -->
+
+                        <div class="text-center">
+
+                            {{ form.enviar(
+                                class="btn btn-primary px-5"
+                            ) }}
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const nombre = document.getElementById("nombre");
+const categoria = document.getElementById("categoria");
+const descripcion = document.getElementById("descripcion");
+const precio = document.getElementById("precio");
+const cantidad = document.getElementById("cantidad");
+
+const errorNombre = document.getElementById("errorNombre");
+const errorCategoria = document.getElementById("errorCategoria");
+const errorDescripcion = document.getElementById("errorDescripcion");
+const errorPrecio = document.getElementById("errorPrecio");
+const errorCantidad = document.getElementById("errorCantidad");
+
+
+nombre.addEventListener("input", function () {
+
+    if (nombre.value.trim() === "") {
+
+        errorNombre.textContent = "El nombre es obligatorio.";
+
+    } else if (nombre.value.trim().length < 3) {
+
+        errorNombre.textContent = "El nombre debe tener mínimo 3 caracteres.";
+
+    } else {
+
+        errorNombre.textContent = "";
+
+    }
+
+});
+
+
+categoria.addEventListener("change", function () {
+
+    if (categoria.value === "") {
+
+        errorCategoria.textContent = "Debe seleccionar una categoría.";
+
+    } else {
+
+        errorCategoria.textContent = "";
+
+    }
+
+});
+
+
+descripcion.addEventListener("input", function () {
+
+    if (descripcion.value.trim() === "") {
+
+        errorDescripcion.textContent = "La descripción es obligatoria.";
+
+    } else if (descripcion.value.trim().length < 5) {
+
+        errorDescripcion.textContent = "La descripción debe tener mínimo 5 caracteres.";
+
+    } else {
+
+        errorDescripcion.textContent = "";
+
+    }
+
+});
+
+
+precio.addEventListener("input", function () {
+
+    if (precio.value === "") {
+
+        errorPrecio.textContent = "El precio es obligatorio.";
+
+    } else if (parseFloat(precio.value) <= 0) {
+
+        errorPrecio.textContent = "El precio debe ser mayor que 0.";
+
+    } else {
+
+        errorPrecio.textContent = "";
+
+    }
+
+});
+
+
+cantidad.addEventListener("input", function () {
+
+    if (cantidad.value === "") {
+
+        errorCantidad.textContent = "La cantidad es obligatoria.";
+
+    } else if (parseInt(cantidad.value) < 0) {
+
+        errorCantidad.textContent = "La cantidad no puede ser negativa.";
+
+    } else {
+
+        errorCantidad.textContent = "";
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

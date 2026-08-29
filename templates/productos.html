@@ -6,109 +6,267 @@ Productos - PAOOU FASHION
 
 {% block content %}
 
-<main>
+<section class="container my-5">
 
-    <section class="container my-5">
+    <h2 class="text-center fw-bold titulo-inicio mb-3">
+        Nuestros Productos
+    </h2>
 
-        <h2 class="text-center fw-bold titulo-inicio mb-3">
-            Nuestros Productos
-        </h2>
+    <p class="text-center">
+        Bienvenida a {{ nombre_tienda|upper }}
+    </p>
 
-        <p class="text-center">
-            Bienvenida a {{ nombre_tienda|upper }}
-        </p>
-
-        <p class="text-center mb-5">
-            Descubre nuestras prendas femeninas diseñadas para resaltar
-            tu belleza, elegancia y estilo.
-        </p>
+    <p class="text-center mb-4">
+        Descubre nuestras prendas femeninas diseñadas para resaltar
+        tu belleza, elegancia y estilo.
+    </p>
 
 
-        <!-- PRODUCTOS GENERADOS DINÁMICAMENTE -->
+    <!-- boton registrar -->
 
-        <div class="row g-4">
+    <div class="text-center mb-5">
 
-            {% for producto in productos %}
+        <a href="{{ url_for('formulario_producto') }}"
+           class="btn btn-primary">
 
-            <div class="col-md-4">
+            Registrar Producto
 
-                <div class="card producto-card h-100">
+        </a>
 
-                    <!-- IMAGEN DEL PRODUCTO -->
+    </div>
 
-                    {% if producto.nombre == "Vestidos" %}
 
-                    <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
-                         class="card-img-top"
-                         alt="Vestido">
+    <!-- productos dinamicos -->
 
-                    {% elif producto.nombre == "Blusas" %}
+    <div class="row g-4">
 
-                    <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
-                         class="card-img-top"
-                         alt="Blusas">
+        {% for producto in productos %}
+
+        <div class="col-md-4">
+
+            <div class="card producto-card h-100 shadow border-0">
+
+
+<!-- imagen del producto -->
+
+{% if producto.categoria == "Vestidos" %}
+
+    <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
+         class="card-img-top"
+         alt="Vestidos">
+
+{% elif producto.categoria == "Blusas" %}
+
+    <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
+         class="card-img-top"
+         alt="Blusas">
+
+{% elif producto.categoria == "Bodys" %}
+
+    <img src="{{ url_for('static', filename='img/body.jpg') }}"
+         class="card-img-top"
+         alt="Bodys">
+
+{% elif producto.categoria == "Jeans" %}
+
+    <img src="{{ url_for('static', filename='img/jeans.jpeg') }}"
+         class="card-img-top"
+         alt="Jeans">
+
+{% elif producto.categoria == "Faldas" %}
+
+    <img src="{{ url_for('static', filename='img/faldas.jpg') }}"
+         class="card-img-top"
+         alt="Faldas">
+
+{% elif producto.categoria == "Conjuntos" %}
+
+    <img src="{{ url_for('static', filename='img/conjuntos.jpg') }}"
+         class="card-img-top"
+         alt="Conjuntos">
+
+{% elif producto.categoria == "Chaquetas de mezclilla" %}
+
+    <img src="{{ url_for('static', filename='img/chaquetas.jpg') }}"
+         class="card-img-top"
+         alt="Chaquetas de mezclilla">
+
+{% elif producto.categoria == "Blazers" %}
+
+    <img src="{{ url_for('static', filename='img/blazers.jpeg') }}"
+         class="card-img-top"
+         alt="Blazers">
+
+{% elif producto.categoria == "Shorts" %}
+
+    <img src="{{ url_for('static', filename='img/shorts.jpeg') }}"
+         class="card-img-top"
+         alt="Shorts">
+
+{% elif producto.categoria == "Enterizos" %}
+
+    <img src="{{ url_for('static', filename='img/enterizos.jpg') }}"
+         class="card-img-top"
+         alt="Enterizos">
+
+{% elif producto.categoria == "Conjuntos Deportivos" %}
+
+    <img src="{{ url_for('static', filename='img/conjuntos-deportivos.png') }}"
+         class="card-img-top"
+         alt="Conjuntos Deportivos">
+
+{% elif producto.categoria == "Crop Tops" %}
+
+    <img src="{{ url_for('static', filename='img/crop-tops.png') }}"
+         class="card-img-top"
+         alt="Crop Tops">
+
+{% else %}
+
+    <div class="d-flex align-items-center justify-content-center bg-light"
+         style="height: 250px;">
+        <span class="text-muted">
+            Imagen no disponible
+        </span>
+    </div>
+
+{% endif %}
+
+
+                <!-- informacion -->
+
+                <div class="card-body text-center">
+
+                    <h5 class="card-title">
+                        {{ producto.nombre }}
+                    </h5>
+
+                    <p class="precio">
+                        ${{ "%.2f"|format(producto.precio) }}
+                    </p>
+
+                    <p class="card-text">
+                        {{ producto.descripcion }}
+                    </p>
+
+
+                    <!-- stock -->
+
+                    {% if producto.stock > 0 %}
+
+                        <span class="badge bg-success mb-3">
+                            Disponible
+                        </span>
 
                     {% else %}
 
-                    <img src="{{ url_for('static', filename='img/body.jpg') }}"
-                         class="card-img-top"
-                         alt="Body">
+                        <span class="badge bg-danger mb-3">
+                            Agotado
+                        </span>
 
                     {% endif %}
 
 
-                    <!-- INFORMACIÓN DEL PRODUCTO -->
-
-                    <div class="card-body text-center">
-
-                        <h5 class="card-title">
-                            {{ producto.nombre }}
-                        </h5>
-
-                        <p class="precio">
-                            ${{ producto.precio }}
-                        </p>
-
-                        <p class="card-text">
-                            Prenda femenina moderna y elegante.
-                        </p>
+                    <br>
 
 
-                        <!-- CONDICIONAL DE STOCK -->
+<!-- editar y eliminar -->
 
-                        {% if producto.stock > 0 %}
+<div class="mt-3">
 
-                            <span class="badge bg-success mb-3">
-                                Disponible
-                            </span>
+    <a href="{{ url_for('editar_producto', indice=loop.index0) }}"
+       class="btn btn-warning">
+        Editar
+    </a>
 
-                        {% else %}
+    <button type="button"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#modalEliminarProducto{{ loop.index0 }}">
+        Eliminar
+    </button>
 
-                            <span class="badge bg-danger mb-3">
-                                Agotado
-                            </span>
+</div>
 
-                        {% endif %}
+</div>
+<!-- cierre de card-body -->
 
 
-                        <br>
+</div>
+<!-- cierre de card -->
 
-                        <button class="btn btn-outline-primary">
-                            Ver Producto
-                        </button>
 
-                    </div>
+</div>
+<!-- cierre de col-md-4 -->
 
-                </div>
+
+<!-- Modal de confirmación para eliminar producto -->
+
+<div class="modal fade"
+     id="modalEliminarProducto{{ loop.index0 }}"
+     tabindex="-1"
+     aria-labelledby="tituloModalProducto{{ loop.index0 }}"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title fw-bold"
+                    id="tituloModalProducto{{ loop.index0 }}">
+                    ¿Eliminar producto?
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar">
+                </button>
 
             </div>
 
-            {% endfor %}
+            <div class="modal-body text-center">
+
+                <p>
+                    ¿Está seguro de que desea eliminar este producto?
+                </p>
+
+                <strong>
+                    {{ producto.nombre }}
+                </strong>
+
+            </div>
+
+            <div class="modal-footer justify-content-center">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <a href="{{ url_for('eliminar_producto', indice=loop.index0) }}"
+                   class="btn btn-danger">
+                    Sí, eliminar
+                </a>
+
+            </div>
 
         </div>
 
-    </section>
+    </div>
 
-</main>
+</div>
+
+
+{% endfor %}
+ 
+
+    </div>
+
+</section>
+
 
 {% endblock %}

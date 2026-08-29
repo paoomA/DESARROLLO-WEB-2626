@@ -10,6 +10,8 @@ Facturación - PAOOU FASHION
 
     <section class="container my-5">
 
+        <!-- ENCABEZADO -->
+
         <div class="text-center mb-5">
 
             <h2 class="fw-bold titulo-inicio">
@@ -23,233 +25,363 @@ Facturación - PAOOU FASHION
         </div>
 
 
-        <!-- Factura de ejemplo -->
+        <!-- BOTÓN REGISTRAR -->
 
-        <div class="card shadow border-0">
+        <div class="text-center mb-5">
 
-            <div class="card-header bg-dark text-white">
+            <a href="{{ url_for('formulario_facturacion') }}"
+               class="btn btn-primary">
 
-                <h5 class="mb-0">
-                    Factura N.º 001-001-000001
-                </h5>
+                Registrar Factura
 
-            </div>
-
-
-            <div class="card-body">
-
-                <div class="row mb-4">
-
-                    <div class="col-md-6">
-
-                        <h5 class="fw-bold">
-                            PAOOU FASHION
-                        </h5>
-
-                        <p class="mb-1">
-                            Ropa femenina moderna y elegante.
-                        </p>
-
-                        <p class="mb-1">
-                            Shushufindi, Sucumbíos - Ecuador
-                        </p>
-
-                    </div>
-
-
-                    <div class="col-md-6 text-md-end">
-
-                        <p class="mb-1">
-                            <strong>Fecha:</strong>
-                            12/08/2026
-                        </p>
-
-                        <p class="mb-1">
-                            <strong>Estado:</strong>
-                            <span class="badge bg-success">
-                                Pagada
-                            </span>
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Datos del cliente -->
-
-                <div class="alert alert-light">
-
-                    <h6 class="fw-bold">
-                        Datos del Cliente
-                    </h6>
-
-                    <p class="mb-1">
-                        <strong>Cliente:</strong>
-                        María López
-                    </p>
-
-                    <p class="mb-0">
-                        <strong>Correo:</strong>
-                        maria.lopez@gmail.com
-                    </p>
-
-                </div>
-
-
-                <!-- Detalle de productos -->
-
-                <h5 class="fw-bold mt-4 mb-3">
-                    Detalle de la compra
-                </h5>
-
-                <div class="table-responsive">
-
-                    <table class="table table-bordered align-middle">
-
-                        <thead class="table-dark">
-
-                            <tr>
-
-                                <th>
-                                    Producto
-                                </th>
-
-                                <th>
-                                    Cantidad
-                                </th>
-
-                                <th>
-                                    Precio
-                                </th>
-
-                                <th>
-                                    Subtotal
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    Vestido Floral Elegante
-                                </td>
-
-                                <td>
-                                    1
-                                </td>
-
-                                <td>
-                                    $25.00
-                                </td>
-
-                                <td>
-                                    $25.00
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Blusa Casual Elegante
-                                </td>
-
-                                <td>
-                                    1
-                                </td>
-
-                                <td>
-                                    $15.00
-                                </td>
-
-                                <td>
-                                    $15.00
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-
-                <!-- Totales -->
-
-                <div class="row justify-content-end">
-
-                    <div class="col-md-5">
-
-                        <div class="d-flex justify-content-between mb-2">
-
-                            <span>
-                                Subtotal:
-                            </span>
-
-                            <strong>
-                                $40.00
-                            </strong>
-
-                        </div>
-
-
-                        <div class="d-flex justify-content-between mb-2">
-
-                            <span>
-                                IVA:
-                            </span>
-
-                            <strong>
-                                $0.00
-                            </strong>
-
-                        </div>
-
-
-                        <hr>
-
-
-                        <div class="d-flex justify-content-between">
-
-                            <span class="fw-bold">
-                                Total:
-                            </span>
-
-                            <strong class="fs-4">
-                                $40.00
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            </a>
 
         </div>
 
 
-        <!-- Información -->
+        <!-- FACTURAS DINÁMICAS -->
+
+        <div class="row g-4">
+
+            {% for factura in facturas %}
+
+            <div class="col-md-6 col-lg-6">
+
+                <div class="card shadow border-0 h-100">
+
+                    <!-- CABECERA -->
+
+                    <div class="card-header bg-dark text-white">
+
+                        <h5 class="mb-0">
+
+                            Factura N.º
+                            {{ factura.numero_factura }}
+
+                        </h5>
+
+                    </div>
+
+
+                    <!-- CUERPO -->
+
+                    <div class="card-body">
+
+                        <!-- INFORMACIÓN DE LA FACTURA -->
+
+                        <div class="row mb-4">
+
+                            <div class="col-md-6">
+
+                                <h5 class="fw-bold">
+                                    PAOOU FASHION
+                                </h5>
+
+                                <p class="mb-1">
+                                    Ropa femenina moderna y elegante.
+                                </p>
+
+                                <p class="mb-1">
+                                    Shushufindi, Sucumbíos - Ecuador
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-md-6 text-md-end">
+
+                                <p class="mb-1">
+
+                                    <strong>Fecha:</strong>
+                                    {{ factura.fecha }}
+
+                                </p>
+
+
+                                <p class="mb-1">
+
+                                    <strong>Estado:</strong>
+
+                                    {% if factura.estado == "Pagada" %}
+
+                                        <span class="badge bg-success">
+                                            {{ factura.estado }}
+                                        </span>
+
+                                    {% elif factura.estado == "Pendiente" %}
+
+                                        <span class="badge bg-warning text-dark">
+                                            {{ factura.estado }}
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge bg-danger">
+                                            {{ factura.estado }}
+                                        </span>
+
+                                    {% endif %}
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DATOS DEL CLIENTE -->
+
+                        <div class="alert alert-light">
+
+                            <h6 class="fw-bold">
+                                Datos del Cliente
+                            </h6>
+
+                            <p class="mb-1">
+
+                                <strong>Cliente:</strong>
+                                {{ factura.cliente }}
+
+                            </p>
+
+                            <p class="mb-0">
+
+                                <strong>Correo:</strong>
+                                {{ factura.correo }}
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- DETALLE DE LA COMPRA -->
+
+                        <h5 class="fw-bold mt-4 mb-3">
+                            Detalle de la compra
+                        </h5>
+
+
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered align-middle">
+
+                                <thead class="table-dark">
+
+                                    <tr>
+
+                                        <th>
+                                            Producto
+                                        </th>
+
+                                        <th>
+                                            Cantidad
+                                        </th>
+
+                                        <th>
+                                            Precio
+                                        </th>
+
+                                        <th>
+                                            Subtotal
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>
+                                            {{ factura.producto }}
+                                        </td>
+
+                                        <td>
+                                            {{ factura.cantidad }}
+                                        </td>
+
+                                        <td>
+                                            ${{ "%.2f"|format(factura.precio) }}
+                                        </td>
+
+                                        <td>
+
+                                            ${{ "%.2f"|format(
+                                                factura.cantidad * factura.precio
+                                            ) }}
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+                        <!-- TOTAL -->
+
+                        <div class="row justify-content-end">
+
+                            <div class="col-md-6">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <span class="fw-bold">
+                                        Total:
+                                    </span>
+
+                                    <strong class="fs-4">
+
+                                        ${{ "%.2f"|format(
+                                            factura.cantidad * factura.precio
+                                        ) }}
+
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTONES EDITAR Y ELIMINAR -->
+
+                        <div class="mt-4 text-end">
+
+                            <a href="{{ url_for(
+                                'editar_facturacion',
+                                indice=loop.index0
+                            ) }}"
+                               class="btn btn-warning">
+
+                                Editar
+
+                            </a>
+
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalEliminarFactura{{ loop.index0 }}">
+
+                                Eliminar
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MODAL DE CONFIRMACIÓN -->
+
+            <div class="modal fade"
+                 id="modalEliminarFactura{{ loop.index0 }}"
+                 tabindex="-1"
+                 aria-labelledby="tituloModalFactura{{ loop.index0 }}"
+                 aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h5 class="modal-title fw-bold"
+                                id="tituloModalFactura{{ loop.index0 }}">
+
+                                ¿Eliminar factura?
+
+                            </h5>
+
+
+                            <button type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Cerrar">
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="modal-body text-center">
+
+                            <p>
+                                ¿Está seguro de que desea eliminar esta factura?
+                            </p>
+
+                            <strong>
+
+                                Factura N.º
+                                {{ factura.numero_factura }}
+
+                            </strong>
+
+                            <p class="mt-2 mb-0">
+
+                                Cliente:
+                                {{ factura.cliente }}
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="modal-footer justify-content-center">
+
+                            <button type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal">
+
+                                Cancelar
+
+                            </button>
+
+
+                            <a href="{{ url_for(
+                                'eliminar_facturacion',
+                                indice=loop.index0
+                            ) }}"
+                               class="btn btn-danger">
+
+                                Sí, eliminar
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- TOTAL DE FACTURAS -->
 
         <div class="alert alert-light shadow mt-5 text-center">
 
             <h5 class="fw-bold">
-                Sistema de Facturación
+                Total de facturas registradas
             </h5>
 
-            <p class="mb-0">
-                Esta sección presenta una factura de ejemplo.
-                En esta semana no se requiere almacenar información
-                en una base de datos.
+            <p class="fs-4 mb-0">
+                {{ facturas|length }}
             </p>
 
         </div>

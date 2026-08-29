@@ -1,0 +1,579 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if editar %}
+Editar Proveedor - PAOOU FASHION
+{% else %}
+Registrar Proveedor - PAOOU FASHION
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center fw-bold mb-2">
+
+                        {% if editar %}
+                            Editar Proveedor
+                        {% else %}
+                            Registrar Proveedor
+                        {% endif %}
+
+                    </h2>
+
+                    <p class="text-center text-muted mb-4">
+
+                        {% if editar %}
+                            Actualiza la información del proveedor.
+                        {% else %}
+                            Registra un nuevo proveedor de PAOOU FASHION.
+                        {% endif %}
+
+                    </p>
+
+
+                    <form method="POST" id="formProveedor">
+
+                        {{ form.hidden_tag() }}
+
+
+                        <!-- Nombre -->
+
+                        <div class="mb-3">
+
+                            {{ form.nombre.label(class="form-label fw-bold") }}
+
+                            {{ form.nombre(
+                                class="form-control",
+                                id="nombre",
+                                placeholder="Ingrese el nombre del proveedor"
+                            ) }}
+
+                            <div id="errorNombre"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.nombre.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Persona de contacto -->
+
+                        <div class="mb-3">
+
+                            {{ form.contacto.label(class="form-label fw-bold") }}
+
+                            {{ form.contacto(
+                                class="form-control",
+                                id="contacto",
+                                placeholder="Ingrese el nombre del contacto"
+                            ) }}
+
+                            <div id="errorContacto"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.contacto.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Correo -->
+
+                        <div class="mb-3">
+
+                            {{ form.correo.label(class="form-label fw-bold") }}
+
+                            {{ form.correo(
+                                class="form-control",
+                                id="correo",
+                                placeholder="Ingrese el correo electrónico"
+                            ) }}
+
+                            <div id="errorCorreo"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.correo.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Teléfono -->
+
+                        <div class="mb-3">
+
+                            {{ form.telefono.label(class="form-label fw-bold") }}
+
+                            {{ form.telefono(
+                                class="form-control",
+                                id="telefono",
+                                maxlength="10",
+                                inputmode="numeric",
+                                placeholder="Ingrese 10 números"
+                            ) }}
+
+                            <div id="errorTelefono"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.telefono.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Producto -->
+
+                        <div class="mb-3">
+
+                            {{ form.producto.label(class="form-label fw-bold") }}
+
+                            {{ form.producto(
+                                class="form-control",
+                                id="producto",
+                                placeholder="Ingrese el producto suministrado"
+                            ) }}
+
+                            <div id="errorProducto"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.producto.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Estado -->
+
+                        <div class="mb-4">
+
+                            {{ form.estado.label(class="form-label fw-bold") }}
+
+                            {{ form.estado(
+                                class="form-select",
+                                id="estado"
+                            ) }}
+
+                            <div id="errorEstado"
+                                 class="text-danger small mt-1">
+                            </div>
+
+                            {% for error in form.estado.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- Botón -->
+
+                        <div class="text-center">
+
+                            {{ form.enviar(
+                                class="btn btn-primary px-5"
+                            ) }}
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const nombre = document.getElementById("nombre");
+const contacto = document.getElementById("contacto");
+const correo = document.getElementById("correo");
+const telefono = document.getElementById("telefono");
+const producto = document.getElementById("producto");
+const estado = document.getElementById("estado");
+
+const errorNombre = document.getElementById("errorNombre");
+const errorContacto = document.getElementById("errorContacto");
+const errorCorreo = document.getElementById("errorCorreo");
+const errorTelefono = document.getElementById("errorTelefono");
+const errorProducto = document.getElementById("errorProducto");
+const errorEstado = document.getElementById("errorEstado");
+
+
+/* Solo letras */
+
+function soloLetras(valor) {
+
+    return /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(valor);
+
+}
+
+
+/* Nombre */
+
+nombre.addEventListener("input", function () {
+
+    const valor = nombre.value.trim();
+
+    if (valor === "") {
+
+        errorNombre.textContent =
+            "El nombre del proveedor es obligatorio.";
+
+    } else if (valor.length < 3) {
+
+        errorNombre.textContent =
+            "El nombre debe tener mínimo 3 caracteres.";
+
+    } else if (!soloLetras(valor)) {
+
+        errorNombre.textContent =
+            "El nombre solo debe contener letras.";
+
+    } else {
+
+        errorNombre.textContent = "";
+
+    }
+
+});
+
+
+/* Contacto */
+
+contacto.addEventListener("input", function () {
+
+    const valor = contacto.value.trim();
+
+    if (valor === "") {
+
+        errorContacto.textContent =
+            "La persona de contacto es obligatoria.";
+
+    } else if (valor.length < 3) {
+
+        errorContacto.textContent =
+            "El contacto debe tener mínimo 3 caracteres.";
+
+    } else if (!soloLetras(valor)) {
+
+        errorContacto.textContent =
+            "El contacto solo debe contener letras.";
+
+    } else {
+
+        errorContacto.textContent = "";
+
+    }
+
+});
+
+
+/* Correo */
+
+correo.addEventListener("input", function () {
+
+    const valor = correo.value.trim();
+
+    const correoValido =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
+
+    if (valor === "") {
+
+        errorCorreo.textContent =
+            "El correo es obligatorio.";
+
+    } else if (!correoValido) {
+
+        errorCorreo.textContent =
+            "Ingrese un correo electrónico válido.";
+
+    } else {
+
+        errorCorreo.textContent = "";
+
+    }
+
+});
+
+
+/* Teléfono */
+
+telefono.addEventListener("input", function () {
+
+    /* Eliminar letras automáticamente */
+
+    telefono.value =
+        telefono.value.replace(/\D/g, "");
+
+    const valor = telefono.value;
+
+    if (valor === "") {
+
+        errorTelefono.textContent =
+            "El teléfono es obligatorio.";
+
+    } else if (valor.length < 10) {
+
+        errorTelefono.textContent =
+            "El teléfono debe contener exactamente 10 números.";
+
+    } else if (valor.length === 10) {
+
+        errorTelefono.textContent = "";
+
+    }
+
+});
+
+
+/* Producto */
+
+producto.addEventListener("input", function () {
+
+    const valor = producto.value.trim();
+
+    if (valor === "") {
+
+        errorProducto.textContent =
+            "El producto suministrado es obligatorio.";
+
+    } else if (valor.length < 3) {
+
+        errorProducto.textContent =
+            "El producto debe tener mínimo 3 caracteres.";
+
+    } else {
+
+        errorProducto.textContent = "";
+
+    }
+
+});
+
+
+/* Estado */
+
+estado.addEventListener("change", function () {
+
+    if (estado.value === "") {
+
+        errorEstado.textContent =
+            "Seleccione un estado.";
+
+    } else {
+
+        errorEstado.textContent = "";
+
+    }
+
+});
+
+
+/* Validación antes de guardar */
+
+document.getElementById("formProveedor")
+.addEventListener("submit", function (event) {
+
+    let valido = true;
+
+    const valorNombre =
+        nombre.value.trim();
+
+    const valorContacto =
+        contacto.value.trim();
+
+    const valorCorreo =
+        correo.value.trim();
+
+    const valorTelefono =
+        telefono.value.trim();
+
+    const valorProducto =
+        producto.value.trim();
+
+
+    /* Nombre */
+
+    if (valorNombre === "") {
+
+        errorNombre.textContent =
+            "El nombre del proveedor es obligatorio.";
+
+        valido = false;
+
+    } else if (valorNombre.length < 3) {
+
+        errorNombre.textContent =
+            "El nombre debe tener mínimo 3 caracteres.";
+
+        valido = false;
+
+    } else if (!soloLetras(valorNombre)) {
+
+        errorNombre.textContent =
+            "El nombre solo debe contener letras.";
+
+        valido = false;
+
+    }
+
+
+    /* Contacto */
+
+    if (valorContacto === "") {
+
+        errorContacto.textContent =
+            "La persona de contacto es obligatoria.";
+
+        valido = false;
+
+    } else if (valorContacto.length < 3) {
+
+        errorContacto.textContent =
+            "El contacto debe tener mínimo 3 caracteres.";
+
+        valido = false;
+
+    } else if (!soloLetras(valorContacto)) {
+
+        errorContacto.textContent =
+            "El contacto solo debe contener letras.";
+
+        valido = false;
+
+    }
+
+
+    /* Correo */
+
+    const correoValido =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valorCorreo);
+
+    if (valorCorreo === "") {
+
+        errorCorreo.textContent =
+            "El correo es obligatorio.";
+
+        valido = false;
+
+    } else if (!correoValido) {
+
+        errorCorreo.textContent =
+            "Ingrese un correo electrónico válido.";
+
+        valido = false;
+
+    }
+
+
+    /* Teléfono */
+
+    if (valorTelefono === "") {
+
+        errorTelefono.textContent =
+            "El teléfono es obligatorio.";
+
+        valido = false;
+
+    } else if (!/^\d{10}$/.test(valorTelefono)) {
+
+        errorTelefono.textContent =
+            "El teléfono debe contener exactamente 10 números.";
+
+        valido = false;
+
+    }
+
+
+    /* Producto */
+
+    if (valorProducto === "") {
+
+        errorProducto.textContent =
+            "El producto suministrado es obligatorio.";
+
+        valido = false;
+
+    } else if (valorProducto.length < 3) {
+
+        errorProducto.textContent =
+            "El producto debe tener mínimo 3 caracteres.";
+
+        valido = false;
+
+    }
+
+
+    /* Estado */
+
+    if (estado.value === "") {
+
+        errorEstado.textContent =
+            "Seleccione un estado.";
+
+        valido = false;
+
+    }
+
+
+    if (!valido) {
+
+        event.preventDefault();
+
+    }
+
+});
+
+</script>
+
+{% endblock %}
