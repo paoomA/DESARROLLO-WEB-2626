@@ -35,89 +35,180 @@ Productos - PAOOU FASHION
 
     </div>
 
+<!-- tabla de productos almacenados en SQLite -->
 
-    <!-- productos dinamicos -->
+<div class="mt-5 mb-5">
 
-    <div class="row g-4">
+    <h3 class="text-center fw-bold mb-4">
+        Productos Registrados
+    </h3>
+
+    <div class="table-responsive shadow-sm">
+
+        <table class="table table-bordered table-hover align-middle">
+
+            <thead style="background-color: #e889ad; color: white;">
+
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for producto in productos %}
+
+                <tr>
+
+                    <td>
+                        {{ producto[0] }}
+                    </td>
+
+                    <td>
+                        {{ producto[1] }}
+                    </td>
+
+                    <td>
+                        {{ producto[2] }}
+                    </td>
+
+                    <td>
+                        {{ producto[3] }}
+                    </td>
+
+                    <td>
+                        ${{ "%.2f"|format(producto[4]) }}
+                    </td>
+
+                    <td>
+
+                        {% if producto[5] > 0 %}
+
+                            <span class="badge bg-success">
+                                {{ producto[5] }}
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger">
+                                0
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% else %}
+
+                <tr>
+
+                    <td colspan="6" class="text-muted py-4">
+                        No existen productos registrados.
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- tarjetas de productos -->
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 
         {% for producto in productos %}
 
-        <div class="col-md-4">
+        <div class="col">
 
             <div class="card producto-card h-100 shadow border-0">
 
 
 <!-- imagen del producto -->
 
-{% if producto.categoria == "Vestidos" %}
+{% if producto[2] == "Vestidos" %}
 
     <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
          class="card-img-top"
          alt="Vestidos">
 
-{% elif producto.categoria == "Blusas" %}
+{% elif producto[2] == "Blusas" %}
 
     <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
          class="card-img-top"
          alt="Blusas">
 
-{% elif producto.categoria == "Bodys" %}
+{% elif producto[2] == "Bodys" %}
 
     <img src="{{ url_for('static', filename='img/body.jpg') }}"
          class="card-img-top"
          alt="Bodys">
 
-{% elif producto.categoria == "Jeans" %}
+{% elif producto[2] == "Jeans" %}
 
     <img src="{{ url_for('static', filename='img/jeans.jpeg') }}"
          class="card-img-top"
          alt="Jeans">
 
-{% elif producto.categoria == "Faldas" %}
+{% elif producto[2] == "Faldas" %}
 
     <img src="{{ url_for('static', filename='img/faldas.jpg') }}"
          class="card-img-top"
          alt="Faldas">
 
-{% elif producto.categoria == "Conjuntos" %}
+{% elif producto[2] == "Conjuntos" %}
 
     <img src="{{ url_for('static', filename='img/conjuntos.jpg') }}"
          class="card-img-top"
          alt="Conjuntos">
 
-{% elif producto.categoria == "Chaquetas de mezclilla" %}
+{% elif producto[2] == "Chaquetas de mezclilla" %}
 
     <img src="{{ url_for('static', filename='img/chaquetas.jpg') }}"
          class="card-img-top"
          alt="Chaquetas de mezclilla">
 
-{% elif producto.categoria == "Blazers" %}
+{% elif producto[2] == "Blazers" %}
 
     <img src="{{ url_for('static', filename='img/blazers.jpeg') }}"
          class="card-img-top"
          alt="Blazers">
 
-{% elif producto.categoria == "Shorts" %}
+{% elif producto[2] == "Shorts" %}
 
     <img src="{{ url_for('static', filename='img/shorts.jpeg') }}"
          class="card-img-top"
          alt="Shorts">
 
-{% elif producto.categoria == "Enterizos" %}
+{% elif producto[2] == "Enterizos" %}
 
     <img src="{{ url_for('static', filename='img/enterizos.jpg') }}"
          class="card-img-top"
          alt="Enterizos">
 
-{% elif producto.categoria == "Conjuntos Deportivos" %}
+{% elif producto[2] == "Conjuntos Deportivos" %}
 
-    <img src="{{ url_for('static', filename='img/conjuntos-deportivos.png') }}"
+    <img src="{{ url_for('static', filename='img/conj_deportivos.png') }}"
          class="card-img-top"
          alt="Conjuntos Deportivos">
 
-{% elif producto.categoria == "Crop Tops" %}
+{% elif producto[2] == "Crop Tops" %}
 
-    <img src="{{ url_for('static', filename='img/crop-tops.png') }}"
+    <img src="{{ url_for('static', filename='img/crop_tops.png') }}"
          class="card-img-top"
          alt="Crop Tops">
 
@@ -138,21 +229,21 @@ Productos - PAOOU FASHION
                 <div class="card-body text-center">
 
                     <h5 class="card-title">
-                        {{ producto.nombre }}
+                        {{ producto[1] }}
                     </h5>
 
                     <p class="precio">
-                        ${{ "%.2f"|format(producto.precio) }}
+                        ${{ "%.2f"|format(producto[4]) }}
                     </p>
 
                     <p class="card-text">
-                        {{ producto.descripcion }}
+                        {{ producto[3] }}
                     </p>
 
 
                     <!-- stock -->
 
-                    {% if producto.stock > 0 %}
+                    {% if producto[5] > 0 %}
 
                         <span class="badge bg-success mb-3">
                             Disponible
@@ -174,7 +265,7 @@ Productos - PAOOU FASHION
 
 <div class="mt-3">
 
-    <a href="{{ url_for('editar_producto', indice=loop.index0) }}"
+    <a href="{{ url_for('editar_producto', id=producto[0]) }}"
        class="btn btn-warning">
         Editar
     </a>
@@ -234,7 +325,7 @@ Productos - PAOOU FASHION
                 </p>
 
                 <strong>
-                    {{ producto.nombre }}
+                    {{ producto[1] }}
                 </strong>
 
             </div>
@@ -247,7 +338,7 @@ Productos - PAOOU FASHION
                     Cancelar
                 </button>
 
-                <a href="{{ url_for('eliminar_producto', indice=loop.index0) }}"
+                <a href="{{ url_for('eliminar_producto', id=producto[0]) }}"
                    class="btn btn-danger">
                     Sí, eliminar
                 </a>

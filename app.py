@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 from forms.producto_form import ProductoForm
 from forms.cliente_form import ClienteForm
 from forms.proveedor_form import ProveedorForm
@@ -8,6 +9,33 @@ app = Flask(__name__)
 
 # clave secreta para flask-wtf
 app.config["SECRET_KEY"] = "paoou-fashion-clave-secreta"
+
+# conexión con la base de datos SQLite
+def conectar_bd():
+    conn = sqlite3.connect("data/paoou_fashion.db")
+    return conn
+
+# crear tabla de productos
+def crear_tabla_productos():
+
+    conn = conectar_bd()
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS productos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            categoria TEXT NOT NULL,
+            descripcion TEXT NOT NULL,
+            precio REAL NOT NULL,
+            cantidad INTEGER NOT NULL
+        )
+    """)
+
+    conn.commit()
+
+    conn.close()
 
 # datos temporales de productos
 productos_lista = [
@@ -128,10 +156,22 @@ def productos():
 
     nombre_tienda = "Paoou Fashion"
 
+    conn = conectar_bd()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id, nombre, categoria, descripcion, precio, cantidad
+        FROM productos
+    """)
+
+    productos = cursor.fetchall()
+
+    conn.close()
+
     return render_template(
         "productos.html",
         nombre_tienda=nombre_tienda,
-        productos=productos_lista
+        productos=productos
     )
 # formulario para registrar productos
 @app.route("/formulario-producto", methods=["GET", "POST"])
@@ -142,15 +182,23 @@ def formulario_producto():
 
     if form.validate_on_submit():
 
-        nuevo_producto = {
-            "nombre": form.nombre.data,
-            "categoria": form.categoria.data,
-            "descripcion": form.descripcion.data,
-            "precio": float(form.precio.data),
-            "stock": form.cantidad.data
-        }
+        conn = conectar_bd()
+        cursor = conn.cursor()
 
-        productos_lista.append(nuevo_producto)
+        cursor.execute("""
+            INSERT INTO productos
+            (nombre, categoria, descripcion, precio, cantidad)
+            VALUES (?, ?, ?, ?, ?)
+        """, (
+            form.nombre.data,
+            form.categoria.data,
+            form.descripcion.data,
+            float(form.precio.data),
+            form.cantidad.data
+        ))
+
+        conn.commit()
+        conn.close()
 
         return redirect(url_for("productos"))
 
@@ -160,32 +208,60 @@ def formulario_producto():
         editar=editar
     )
 
-
 # formulario para editar productos
-@app.route("/editar-producto/<int:indice>", methods=["GET", "POST"])
-def editar_producto(indice):
+@app.route("/editar-producto/<int:id>", methods=["GET", "POST"])
+def editar_producto(id):
 
-    if indice < 0 or indice >= len(productos_lista):
+    conn = conectar_bd()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id, nombre, categoria, descripcion, precio, cantidad
+        FROM productos
+        WHERE id = ?
+    """, (id,))
+
+    producto = cursor.fetchone()
+
+    conn.close()
+
+    if producto is None:
         return redirect(url_for("productos"))
 
-    producto = productos_lista[indice]
     form = ProductoForm()
     editar = True
 
     if request.method == "GET":
-        form.nombre.data = producto["nombre"]
-        form.categoria.data = producto["categoria"]
-        form.descripcion.data = producto["descripcion"]
-        form.precio.data = producto["precio"]
-        form.cantidad.data = producto["stock"]
+        form.nombre.data = producto[1]
+        form.categoria.data = producto[2]
+        form.descripcion.data = producto[3]
+        form.precio.data = producto[4]
+        form.cantidad.data = producto[5]
 
     if form.validate_on_submit():
 
-        producto["nombre"] = form.nombre.data
-        producto["categoria"] = form.categoria.data
-        producto["descripcion"] = form.descripcion.data
-        producto["precio"] = float(form.precio.data)
-        producto["stock"] = form.cantidad.data
+        conn = conectar_bd()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            UPDATE productos
+            SET nombre = ?,
+                categoria = ?,
+                descripcion = ?,
+                precio = ?,
+                cantidad = ?
+            WHERE id = ?
+        """, (
+            form.nombre.data,
+            form.categoria.data,
+            form.descripcion.data,
+            float(form.precio.data),
+            form.cantidad.data,
+            id
+        ))
+
+        conn.commit()
+        conn.close()
 
         return redirect(url_for("productos"))
 
@@ -197,13 +273,19 @@ def editar_producto(indice):
 
 
 # eliminar producto
-@app.route("/eliminar-producto/<int:indice>")
-def eliminar_producto(indice):
+@app.route("/eliminar-producto/<int:id>")
+def eliminar_producto(id):
 
-    if indice < 0 or indice >= len(productos_lista):
-        return redirect(url_for("productos"))
+    conn = conectar_bd()
+    cursor = conn.cursor()
 
-    productos_lista.pop(indice)
+    cursor.execute(
+        "DELETE FROM productos WHERE id = ?",
+        (id,)
+    )
+
+    conn.commit()
+    conn.close()
 
     return redirect(url_for("productos"))
 
@@ -490,6 +572,8 @@ def eliminar_facturacion(indice):
 
     return redirect(url_for("facturacion"))
 
+# inicializar base de datos
+crear_tabla_productos()
 
 # ejecutar aplicación
 if __name__ == "__main__":
