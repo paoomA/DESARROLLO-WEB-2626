@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}
+Panel de Administrador - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <!-- ENCABEZADO -->
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            Panel de Administrador
+        </h2>
+
+        <p class="lead text-secondary">
+            Bienvenida, {{ current_user.usuario }}
+        </p>
+
+        <p class="text-secondary">
+            Desde este panel puedes administrar la información de PAOOU FASHION.
+        </p>
+
+    </div>
+
+
+    <!-- OPCIONES DE ADMINISTRACIÓN -->
+
+    <div class="row g-4">
+
+
+        <!-- PRODUCTOS -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        👗
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Productos
+                    </h5>
+
+                    <p class="text-secondary">
+                        Administra los productos de la tienda.
+                    </p>
+
+                    <a href="{{ url_for('productos') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver productos
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CLIENTES -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        👥
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Clientes
+                    </h5>
+
+                    <p class="text-secondary">
+                        Consulta y administra los clientes.
+                    </p>
+
+                    <a href="{{ url_for('clientes') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver clientes
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROVEEDORES -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        🚚
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Proveedores
+                    </h5>
+
+                    <p class="text-secondary">
+                        Gestiona la información de proveedores.
+                    </p>
+
+                    <a href="{{ url_for('proveedores') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver proveedores
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PEDIDOS -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        📦
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Pedidos
+                    </h5>
+
+                    <p class="text-secondary">
+                        Consulta y administra los pedidos realizados.
+                    </p>
+
+                    <a href="{{ url_for('pedidos') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver pedidos
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FACTURACIÓN -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        🧾
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Facturación
+                    </h5>
+
+                    <p class="text-secondary">
+                        Consulta y administra las facturas.
+                    </p>
+
+                    <a href="{{ url_for('facturacion') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver facturación
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- USUARIOS -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3"
+                         style="font-size: 45px;">
+
+                        👤
+
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Usuarios
+                    </h5>
+
+                    <p class="text-secondary">
+                        Administra las cuentas y roles del sistema.
+                    </p>
+
+                    <a href="{{ url_for('usuarios') }}"
+                       class="btn w-100"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ver usuarios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- INFORMACIÓN -->
+
+    <div class="alert alert-light shadow mt-5 text-center">
+
+        <h5 class="fw-bold">
+            Administración de PAOOU FASHION
+        </h5>
+
+        <p class="mb-0 text-secondary">
+            Has iniciado sesión como administrador y tienes acceso a las
+            funciones de gestión del sistema.
+        </p>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

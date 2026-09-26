@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mi perfil - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-5">
+
+<!-- AVATAR -->
+<div class="text-center mb-4">
+
+    {% if current_user.rol == "admin" %}
+
+        <!-- FOTO DEL ADMIN -->
+        <img 
+            src="{{ url_for('static', filename='img/perfil.admin.png') }}"
+            alt="Foto de perfil"
+            class="rounded-circle shadow"
+            style="
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border: 4px solid #e889ad;
+            "
+        >
+
+    {% else %}
+
+        <!-- AVATAR DEL CLIENTE -->
+        <div 
+            class="mx-auto d-flex align-items-center justify-content-center" 
+            style="
+                width: 120px; 
+                height: 120px; 
+                border-radius: 50%; 
+                background-color: #f8d7e6; 
+                font-size: 55px; 
+            "
+        >
+            👤
+        </div>
+
+    {% endif %}
+
+    <h2 class="fw-bold mt-3 mb-1">
+        Mi perfil
+    </h2>
+
+    <p class="text-secondary mb-0">
+        Información de mi cuenta
+    </p>
+
+</div>
+
+
+                    <!-- INFORMACIÓN -->
+                    <div class="mt-4">
+
+                        <div class="mb-3">
+
+                            <label class="fw-bold">
+                                Usuario
+                            </label>
+
+                            <div class="form-control bg-light">
+                                {{ current_user.usuario }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="fw-bold">
+                                Correo electrónico
+                            </label>
+
+                            <div class="form-control bg-light">
+                                {{ current_user.correo }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="fw-bold">
+                                Tipo de cuenta
+                            </label>
+
+                            <div>
+
+                                {% if current_user.rol == "admin" %}
+
+                                    <span class="badge bg-dark fs-6">
+                                        Administrador
+                                    </span>
+
+                                {% else %}
+
+                                    <span
+                                        class="badge fs-6"
+                                        style="
+                                            background-color: #e889ad;
+                                        "
+                                    >
+                                        Cliente
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CAMBIAR CONTRASEÑA -->
+
+                        <div class="text-center mt-4">
+
+                            <a
+                                href="{{ url_for('cambiar_password') }}"
+                                class="btn"
+                                style="
+                                    background-color: #e889ad;
+                                    color: white;
+                                    border: none;
+                                "
+                            >
+                                🔐 Cambiar contraseña
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

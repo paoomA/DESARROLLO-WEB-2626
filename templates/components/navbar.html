@@ -1,11 +1,13 @@
 <!-- MENÚ DE NAVEGACIÓN -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="container">
 
         <!-- LOGO -->
+
         <a class="navbar-brand"
-           href="{{ url_for('inicio') }}">
+           href="{{ url_for('dashboard_cliente') }}">
 
             <img src="{{ url_for('static', filename='img/logo.jpeg') }}"
                  width="45"
@@ -17,89 +19,149 @@
         </a>
 
 
-        <!-- BOTÓN PARA CELULAR -->
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#menu"
-                aria-controls="menu"
-                aria-expanded="false"
-                aria-label="Mostrar menú">
+                data-bs-target="#menu">
 
             <span class="navbar-toggler-icon"></span>
 
         </button>
 
 
-        <!-- OPCIONES DEL MENÚ -->
-        <div class="collapse navbar-collapse"
-             id="menu">
+        <div class="collapse navbar-collapse" id="menu">
 
             <ul class="navbar-nav ms-auto">
 
-                <!-- INICIO -->
-                <li class="nav-item">
+                {% if current_user.is_authenticated %}
 
-                    <a class="nav-link"
-                       href="{{ url_for('inicio') }}">
+                    <!-- INICIO -->
 
-                        Inicio
+                    <li class="nav-item">
 
-                    </a>
+                        <a class="nav-link"
+                           href="{{ url_for('dashboard_cliente') }}">
 
-                </li>
+                            Inicio
 
+                        </a>
 
-                <!-- PRODUCTOS -->
-                <li class="nav-item">
-
-                    <a class="nav-link"
-                       href="{{ url_for('productos') }}">
-
-                        Productos
-
-                    </a>
-
-                </li>
+                    </li>
 
 
-                <!-- CLIENTES -->
-                <li class="nav-item">
+                    <!-- BUSCADOR / CATÁLOGO -->
 
-                    <a class="nav-link"
-                       href="{{ url_for('clientes') }}">
+                    <li class="nav-item">
 
-                        Clientes
+                        <a class="nav-link"
+                           href="{{ url_for('buscar') }}">
 
-                    </a>
+                            🔎 Buscar
 
-                </li>
+                        </a>
 
-
-                <!-- PROVEEDORES -->
-                <li class="nav-item">
-
-                    <a class="nav-link"
-                       href="{{ url_for('proveedores') }}">
-
-                        Proveedores
-
-                    </a>
-
-                </li>
+                    </li>
 
 
-                <!-- FACTURACIÓN -->
-                <li class="nav-item">
+                    <!-- MI CARRITO -->
 
-                    <a class="nav-link"
-                       href="{{ url_for('facturacion') }}">
+                    <li class="nav-item">
 
-                        Facturación
+                        <a class="nav-link"
+                           href="{{ url_for('carrito') }}">
 
-                    </a>
+                            🛒 Mi carrito
 
-                </li>
+                        </a>
+
+                    </li>
+
+
+                    <!-- MI PERFIL -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('perfil') }}">
+
+                            Mi perfil
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- CERRAR SESIÓN -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('logout') }}">
+
+                            Cerrar sesión
+
+                        </a>
+
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('inicio') }}">
+
+                            Inicio
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('inicio') }}#quienes">
+
+                            Quiénes Somos
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('inicio') }}#servicios">
+
+                            Productos
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('inicio') }}#contacto">
+
+                            Contacto
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="{{ url_for('login') }}">
+
+                            Ingresar al sistema
+
+                        </a>
+
+                    </li>
+
+                {% endif %}
 
             </ul>
 

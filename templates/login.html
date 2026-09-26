@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}
+Iniciar sesión - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center fw-bold mb-4">
+                        Iniciar sesión
+                    </h2>
+
+                    <p class="text-center text-secondary mb-4">
+                        Ingresa a PAOOU FASHION
+                    </p>
+
+
+                    {% if error %}
+
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+
+                    {% endif %}
+
+
+                    <form method="POST">
+
+                        <!-- USUARIO -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Usuario
+                            </label>
+
+                            <input type="text"
+                                   name="usuario"
+                                   class="form-control"
+                                   placeholder="Ingresa tu usuario"
+                                   required>
+
+                        </div>
+
+
+                        <!-- CONTRASEÑA -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Contraseña
+                            </label>
+
+                            <div style="position: relative;">
+
+                                <input type="password"
+                                       name="password"
+                                       id="password"
+                                       class="form-control"
+                                       placeholder="Ingresa tu contraseña"
+                                       style="padding-right: 50px;"
+                                       required>
+
+
+                                <!-- BOTÓN OJITO -->
+
+                                <button type="button"
+                                        id="mostrarPassword"
+                                        title="Mostrar contraseña"
+                                        aria-label="Mostrar contraseña"
+                                        style="
+                                            position: absolute;
+                                            right: 10px;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            border: none;
+                                            background: transparent;
+                                            padding: 5px;
+                                            cursor: pointer;
+                                            color: #e889ad;
+                                        ">
+
+                                    <!-- OJO TACHADO INICIAL -->
+
+                                    <svg id="iconoOjo"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         width="23"
+                                         height="23"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2"
+                                         stroke-linecap="round"
+                                         stroke-linejoin="round">
+
+                                        <path d="M3 3l18 18"></path>
+
+                                        <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8">
+                                        </path>
+
+                                        <path d="M9.9 5.1A10.5 10.5 0 0 1 12 5
+                                                 c6.5 0 10 7 10 7
+                                                 a18.4 18.4 0 0 1-3.1 3.8">
+                                        </path>
+
+                                        <path d="M6.6 6.6C3.8 8.3 2 12 2 12
+                                                 s3.5 7 10 7
+                                                 c1.8 0 3.4-.5 4.7-1.2">
+                                        </path>
+
+                                    </svg>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTÓN INGRESAR -->
+
+                        <div class="d-grid">
+
+                            <button type="submit"
+                                    class="btn btn-lg"
+                                    style="
+                                        background-color: #e889ad;
+                                        color: white;
+                                        border: none;
+                                    ">
+
+                                Ingresar
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- REGISTRO -->
+
+                        <div class="text-center mt-3">
+
+                            <span class="text-secondary">
+                                ¿No tienes una cuenta?
+                            </span>
+
+                            <a href="{{ url_for('registro') }}"
+                               class="text-primary fw-bold text-decoration-none">
+
+                                Regístrate
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FUNCION DEL OJITO -->
+
+<script>
+
+    const botonPassword =
+        document.getElementById("mostrarPassword");
+
+    const campoPassword =
+        document.getElementById("password");
+
+    const iconoOjo =
+        document.getElementById("iconoOjo");
+
+
+    botonPassword.addEventListener("click", function () {
+
+        /* ==================================
+           SI LA CONTRASEÑA ESTÁ OCULTA
+           ================================== */
+
+        if (campoPassword.type === "password") {
+
+            /* MOSTRAR CONTRASEÑA */
+
+            campoPassword.type = "text";
+
+            botonPassword.title = "Ocultar contraseña";
+
+            botonPassword.setAttribute(
+                "aria-label",
+                "Ocultar contraseña"
+            );
+
+
+            /* CAMBIAR A OJO NORMAL */
+
+            iconoOjo.innerHTML = `
+
+                <path d="M2 12s3.5-7 10-7
+                         10 7 10 7-3.5 7-10 7S2 12 2 12Z">
+                </path>
+
+                <circle cx="12"
+                        cy="12"
+                        r="3">
+                </circle>
+
+            `;
+
+        }
+
+
+        /* ==================================
+           SI LA CONTRASEÑA ESTÁ VISIBLE
+           ================================== */
+
+        else {
+
+            /* OCULTAR CONTRASEÑA */
+
+            campoPassword.type = "password";
+
+            botonPassword.title = "Mostrar contraseña";
+
+            botonPassword.setAttribute(
+                "aria-label",
+                "Mostrar contraseña"
+            );
+
+
+            /* CAMBIAR A OJO TACHADO */
+
+            iconoOjo.innerHTML = `
+
+                <path d="M3 3l18 18"></path>
+
+                <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8">
+                </path>
+
+                <path d="M9.9 5.1A10.5 10.5 0 0 1 12 5
+                         c6.5 0 10 7 10 7
+                         a18.4 18.4 0 0 1-3.1 3.8">
+                </path>
+
+                <path d="M6.6 6.6C3.8 8.3 2 12 2 12
+                         s3.5 7 10 7
+                         c1.8 0 3.4-.5 4.7-1.2">
+                </path>
+
+            `;
+
+        }
+
+    });
+
+</script>
+
+
+{% endblock %}

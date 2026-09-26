@@ -17,11 +17,13 @@ Registrar Producto - PAOOU FASHION
                 <div class="card-body p-4">
 
                     <h2 class="text-center fw-bold mb-2">
+
                         {% if editar %}
                             Editar Producto
                         {% else %}
                             Registrar Producto
                         {% endif %}
+
                     </h2>
 
                     <p class="text-center text-muted mb-4">
@@ -165,7 +167,8 @@ Registrar Producto - PAOOU FASHION
                         <div class="text-center">
 
                             {{ form.enviar(
-                                class="btn btn-primary px-5"
+                                class="btn btn-primary px-5",
+                                value="Actualizar Producto" if editar else "Guardar Producto"
                             ) }}
 
                         </div>

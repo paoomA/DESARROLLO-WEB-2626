@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mi carrito - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            🛒 Mi carrito
+        </h2>
+
+        <p class="lead text-secondary">
+            Revisa los productos que has seleccionado.
+        </p>
+
+    </div>
+
+
+    {% if productos_carrito %}
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered shadow-sm align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>Producto</th>
+
+                        <th>Categoría</th>
+
+                        <th>Cantidad</th>
+
+                        <th>Precio</th>
+
+                        <th>Subtotal</th>
+
+                        <th>Acción</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for producto in productos_carrito %}
+
+                    <tr>
+
+                        <td>
+                            {{ producto[1] }}
+                        </td>
+
+
+                        <td>
+                            {{ producto[2] }}
+                        </td>
+
+
+                        <!-- CANTIDAD -->
+
+                        <td>
+
+<input
+    type="number"
+    value="{{ producto[3] }}"
+    min="1"
+    max="{{ producto[6] }}"
+    class="form-control cantidad-carrito"
+    data-detalle-id="{{ producto[0] }}"
+    data-precio="{{ producto[4] }}"
+    data-stock="{{ producto[6] }}"
+    style="width: 90px;"
+                            >
+
+                        </td>
+
+
+                        <!-- PRECIO -->
+
+                        <td>
+                            ${{ "%.2f"|format(producto[4]) }}
+                        </td>
+
+
+                        <!-- SUBTOTAL -->
+
+                        <td class="subtotal-producto">
+
+                            ${{ "%.2f"|format(producto[5]) }}
+
+                        </td>
+
+
+                        <!-- ELIMINAR -->
+
+                        <td>
+
+                            <a
+                                href="{{ url_for('eliminar_carrito', detalle_id=producto[0]) }}"
+                                class="btn btn-danger btn-sm"
+                            >
+                                Eliminar
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="card shadow border-0 mt-4">
+
+            <div class="card-body text-end">
+
+                <h4 class="fw-bold">
+
+                    Total:
+                    $<span id="totalCarrito">
+                        {{ "%.2f"|format(total) }}
+                    </span>
+
+                </h4>
+
+
+                <!-- SEGUIR COMPRANDO -->
+
+                <a
+                    href="{{ url_for('catalogo') }}"
+                    class="btn"
+                    style="
+                        background-color: #e889ad;
+                        color: white;
+                        border: none;
+                    "
+                >
+                    ← Seguir comprando
+                </a>
+
+
+                <!-- REALIZAR PEDIDO -->
+
+                <a
+                    href="{{ url_for('realizar_pedido') }}"
+                    class="btn btn-success ms-2"
+                >
+                    ✅ Realizar pedido
+                </a>
+
+            </div>
+
+        </div>
+
+
+    {% else %}
+
+
+        <!-- CARRITO VACÍO -->
+
+        <div class="alert alert-light shadow text-center">
+
+            <div style="font-size: 55px;">
+                🛒
+            </div>
+
+
+            <h4 class="fw-bold mt-3">
+                Tu carrito está vacío
+            </h4>
+
+
+            <p class="text-secondary">
+                Agrega productos desde nuestro catálogo.
+            </p>
+
+
+            <a
+                href="{{ url_for('catalogo') }}"
+                class="btn"
+                style="
+                    background-color: #e889ad;
+                    color: white;
+                    border: none;
+                "
+            >
+                Ver catálogo
+            </a>
+
+        </div>
+
+
+    {% endif %}
+
+</div>
+
+
+<!-- ACTUALIZAR CANTIDAD AUTOMÁTICAMENTE -->
+
+<script>
+
+    const cantidades =
+        document.querySelectorAll(".cantidad-carrito");
+
+
+    cantidades.forEach(function (input) {
+
+        input.addEventListener("change", function () {
+
+            const detalleId =
+                this.dataset.detalleId;
+
+            const stock =
+                parseInt(this.dataset.stock);
+
+            let cantidad =
+                parseInt(this.value);
+
+
+            if (isNaN(cantidad) || cantidad < 1) {
+
+                this.value = 1;
+
+                cantidad = 1;
+
+            }
+
+
+            if (cantidad > stock) {
+
+                alert(
+                    "La cantidad máxima disponible de este producto es "
+                    + stock
+                    + "."
+                );
+
+                this.value = stock;
+
+                cantidad = stock;
+
+            }
+
+
+            fetch(
+                `/actualizar-carrito/${detalleId}`,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        `cantidad=${cantidad}`
+                }
+            )
+            .then(function (respuesta) {
+
+                if (respuesta.ok) {
+
+                    location.reload();
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
+
+
+{% endblock %}

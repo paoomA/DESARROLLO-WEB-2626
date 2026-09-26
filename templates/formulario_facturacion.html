@@ -1,282 +1,225 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% if editar %}
-Editar Factura - PAOOU FASHION
-{% else %}
-Registrar Factura - PAOOU FASHION
-{% endif %}
+    {% if editar %}
+        Editar Factura - PAOOU FASHION
+    {% else %}
+        Registrar Factura - PAOOU FASHION
+    {% endif %}
 {% endblock %}
 
 {% block content %}
 
-<section class="container my-5">
+<main>
 
-    <div class="row justify-content-center">
+    <section class="container my-5">
 
-        <div class="col-md-8 col-lg-7">
+        <!-- ENCABEZADO -->
 
-            <div class="card shadow border-0">
+        <div class="text-center mb-5">
 
-                <div class="card-body p-4">
+            <h2 class="fw-bold titulo-inicio">
 
-                    <h2 class="text-center fw-bold mb-2">
+                {% if editar %}
+                    Editar Factura
+                {% else %}
+                    Registrar Factura
+                {% endif %}
 
-                        {% if editar %}
-                            Editar Factura
-                        {% else %}
-                            Registrar Factura
-                        {% endif %}
+            </h2>
 
-                    </h2>
+            <p class="lead text-secondary">
+                Completa la información de la factura de PAOOU FASHION.
+            </p>
 
-                    <p class="text-center text-muted mb-4">
-
-                        {% if editar %}
-                            Actualiza la información de la factura.
-                        {% else %}
-                            Registra una nueva factura de PAOOU FASHION.
-                        {% endif %}
-
-                    </p>
+        </div>
 
 
-                    <form method="POST" id="formFactura">
+        <!-- FORMULARIO -->
 
-                        {{ form.hidden_tag() }}
+        <div class="row justify-content-center">
+
+            <div class="col-md-8 col-lg-7">
+
+                <div class="card shadow border-0">
+
+                    <div class="card-body p-4">
+
+                        <form method="POST">
+
+                            {{ form.hidden_tag() }}
 
 
-                        <!-- Número de factura -->
+                            <!-- ID DEL PEDIDO -->
 
-                        <div class="mb-3">
+                            <div class="mb-3">
 
-                            {{ form.numero_factura.label(class="form-label fw-bold") }}
+                                {{ form.pedido_id.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
-                            {{ form.numero_factura(
-                                class="form-control",
-                                id="numero_factura",
-                                placeholder="Ejemplo: 001-001-000001"
-                            ) }}
+                                {{ form.pedido_id(
+                                    class="form-control",
+                                    placeholder="Ingrese el ID del pedido"
+                                ) }}
 
-                            <div id="errorNumero"
-                                 class="text-danger small mt-1">
+                                {% for error in form.pedido_id.errors %}
+
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
+
+                                {% endfor %}
+
                             </div>
 
-                            {% for error in form.numero_factura.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- NÚMERO DE FACTURA -->
 
-                            {% endfor %}
+                            <div class="mb-3">
 
-                        </div>
+                                {{ form.numero_factura.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
+                                {{ form.numero_factura(
+                                    class="form-control",
+                                    placeholder="Ejemplo: FAC-001"
+                                ) }}
 
-                        <!-- Fecha -->
+                                {% for error in form.numero_factura.errors %}
 
-                        <div class="mb-3">
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
 
-                            {{ form.fecha.label(class="form-label fw-bold") }}
+                                {% endfor %}
 
-                            {{ form.fecha(
-                                class="form-control",
-                                type="date",
-                                id="fecha"
-                            ) }}
-
-                            <div id="errorFecha"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.fecha.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- FECHA -->
 
-                            {% endfor %}
+                            <div class="mb-3">
 
-                        </div>
+                                {{ form.fecha.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
+                                {{ form.fecha(
+                                    class="form-control",
+                                    type="date"
+                                ) }}
 
-                        <!-- Cliente -->
+                                {% for error in form.fecha.errors %}
 
-                        <div class="mb-3">
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
 
-                            {{ form.cliente.label(class="form-label fw-bold") }}
+                                {% endfor %}
 
-                            {{ form.cliente(
-                                class="form-control",
-                                id="cliente",
-                                placeholder="Ingrese el nombre del cliente"
-                            ) }}
-
-                            <div id="errorCliente"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.cliente.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- ESTADO -->
 
-                            {% endfor %}
+                            <div class="mb-3">
 
-                        </div>
+                                {{ form.estado.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
+                                {{ form.estado(
+                                    class="form-select"
+                                ) }}
 
-                        <!-- Correo -->
+                                {% for error in form.estado.errors %}
 
-                        <div class="mb-3">
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
 
-                            {{ form.correo.label(class="form-label fw-bold") }}
+                                {% endfor %}
 
-                            {{ form.correo(
-                                class="form-control",
-                                id="correo",
-                                placeholder="Ingrese el correo electrónico"
-                            ) }}
-
-                            <div id="errorCorreo"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.correo.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- SUBTOTAL -->
 
-                            {% endfor %}
+                            <div class="mb-3">
 
-                        </div>
+                                {{ form.subtotal.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
+                                {{ form.subtotal(
+                                    class="form-control",
+                                    placeholder="Ejemplo: 25.00",
+                                    step="0.01",
+                                    min="0"
+                                ) }}
 
-                        <!-- Producto -->
+                                {% for error in form.subtotal.errors %}
 
-                        <div class="mb-3">
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
 
-                            {{ form.producto.label(class="form-label fw-bold") }}
+                                {% endfor %}
 
-                            {{ form.producto(
-                                class="form-control",
-                                id="producto",
-                                placeholder="Ingrese el producto"
-                            ) }}
-
-                            <div id="errorProducto"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.producto.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- TOTAL -->
 
-                            {% endfor %}
+                            <div class="mb-4">
 
-                        </div>
+                                {{ form.total.label(
+                                    class="form-label fw-bold"
+                                ) }}
 
+                                {{ form.total(
+                                    class="form-control",
+                                    placeholder="Ejemplo: 25.00",
+                                    step="0.01",
+                                    min="0"
+                                ) }}
 
-                        <!-- Cantidad -->
+                                {% for error in form.total.errors %}
 
-                        <div class="mb-3">
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
 
-                            {{ form.cantidad.label(class="form-label fw-bold") }}
+                                {% endfor %}
 
-                            {{ form.cantidad(
-                                class="form-control",
-                                type="number",
-                                min="1",
-                                id="cantidad",
-                                placeholder="Ingrese la cantidad"
-                            ) }}
-
-                            <div id="errorCantidad"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.cantidad.errors %}
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
+                            <!-- BOTONES -->
 
-                            {% endfor %}
+                            <div class="d-flex justify-content-between">
 
-                        </div>
+                                <a href="{{ url_for('facturacion') }}"
+                                   class="btn btn-secondary">
+
+                                    Cancelar
+
+                                </a>
 
 
-                        <!-- Precio -->
+    {{ form.enviar(
+        class="btn btn-primary",
+        value="Actualizar Factura" if editar else "Guardar Factura"
+    ) }}
 
-                        <div class="mb-3">
 
-                            {{ form.precio.label(class="form-label fw-bold") }}
-
-                            {{ form.precio(
-                                class="form-control",
-                                type="number",
-                                step="0.01",
-                                min="0.01",
-                                id="precio",
-                                placeholder="Ingrese el precio"
-                            ) }}
-
-                            <div id="errorPrecio"
-                                 class="text-danger small mt-1">
                             </div>
 
-                            {% for error in form.precio.errors %}
+                        </form>
 
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
-
-                            {% endfor %}
-
-                        </div>
-
-
-                        <!-- Estado -->
-
-                        <div class="mb-4">
-
-                            {{ form.estado.label(class="form-label fw-bold") }}
-
-                            {{ form.estado(
-                                class="form-select",
-                                id="estado"
-                            ) }}
-
-                            <div id="errorEstado"
-                                 class="text-danger small mt-1">
-                            </div>
-
-                            {% for error in form.estado.errors %}
-
-                                <div class="text-danger small mt-1">
-                                    {{ error }}
-                                </div>
-
-                            {% endfor %}
-
-                        </div>
-
-
-                        <!-- Botón -->
-
-                        <div class="text-center">
-
-                            {{ form.enviar(
-                                class="btn btn-primary px-5"
-                            ) }}
-
-                        </div>
-
-                    </form>
+                    </div>
 
                 </div>
 
@@ -284,392 +227,8 @@ Registrar Factura - PAOOU FASHION
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-
-
-<script>
-
-const numeroFactura = document.getElementById("numero_factura");
-const fecha = document.getElementById("fecha");
-const cliente = document.getElementById("cliente");
-const correo = document.getElementById("correo");
-const producto = document.getElementById("producto");
-const cantidad = document.getElementById("cantidad");
-const precio = document.getElementById("precio");
-const estado = document.getElementById("estado");
-
-const errorNumero = document.getElementById("errorNumero");
-const errorFecha = document.getElementById("errorFecha");
-const errorCliente = document.getElementById("errorCliente");
-const errorCorreo = document.getElementById("errorCorreo");
-const errorProducto = document.getElementById("errorProducto");
-const errorCantidad = document.getElementById("errorCantidad");
-const errorPrecio = document.getElementById("errorPrecio");
-const errorEstado = document.getElementById("errorEstado");
-
-
-/* Número de factura */
-
-numeroFactura.addEventListener("input", function () {
-
-    const valor = numeroFactura.value.trim();
-
-    if (valor === "") {
-
-        errorNumero.textContent =
-            "El número de factura es obligatorio.";
-
-    } else if (!/^\d{3}-\d{3}-\d{6}$/.test(valor)) {
-
-        errorNumero.textContent =
-            "Use el formato 001-001-000001.";
-
-    } else {
-
-        errorNumero.textContent = "";
-
-    }
-
-});
-
-
-/* Fecha */
-
-fecha.addEventListener("change", function () {
-
-    if (fecha.value === "") {
-
-        errorFecha.textContent =
-            "La fecha es obligatoria.";
-
-    } else {
-
-        errorFecha.textContent = "";
-
-    }
-
-});
-
-
-/* Cliente */
-
-cliente.addEventListener("input", function () {
-
-    const valor = cliente.value.trim();
-
-    if (valor === "") {
-
-        errorCliente.textContent =
-            "El nombre del cliente es obligatorio.";
-
-    } else if (valor.length < 3) {
-
-        errorCliente.textContent =
-            "El cliente debe tener mínimo 3 caracteres.";
-
-    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(valor)) {
-
-        errorCliente.textContent =
-            "El cliente solo debe contener letras.";
-
-    } else {
-
-        errorCliente.textContent = "";
-
-    }
-
-});
-
-
-/* Correo */
-
-correo.addEventListener("input", function () {
-
-    const valor = correo.value.trim();
-
-    const correoValido =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
-
-    if (valor === "") {
-
-        errorCorreo.textContent =
-            "El correo electrónico es obligatorio.";
-
-    } else if (!correoValido) {
-
-        errorCorreo.textContent =
-            "Ingrese un correo electrónico válido.";
-
-    } else {
-
-        errorCorreo.textContent = "";
-
-    }
-
-});
-
-
-/* Producto */
-
-producto.addEventListener("input", function () {
-
-    const valor = producto.value.trim();
-
-    if (valor === "") {
-
-        errorProducto.textContent =
-            "El producto es obligatorio.";
-
-    } else if (valor.length < 3) {
-
-        errorProducto.textContent =
-            "El producto debe tener mínimo 3 caracteres.";
-
-    } else {
-
-        errorProducto.textContent = "";
-
-    }
-
-});
-
-
-/* Cantidad */
-
-cantidad.addEventListener("input", function () {
-
-    const valor = cantidad.value;
-
-    if (valor === "") {
-
-        errorCantidad.textContent =
-            "La cantidad es obligatoria.";
-
-    } else if (parseInt(valor) < 1) {
-
-        errorCantidad.textContent =
-            "La cantidad debe ser mínimo 1.";
-
-    } else {
-
-        errorCantidad.textContent = "";
-
-    }
-
-});
-
-
-/* Precio */
-
-precio.addEventListener("input", function () {
-
-    const valor = precio.value;
-
-    if (valor === "") {
-
-        errorPrecio.textContent =
-            "El precio es obligatorio.";
-
-    } else if (parseFloat(valor) <= 0) {
-
-        errorPrecio.textContent =
-            "El precio debe ser mayor que 0.";
-
-    } else {
-
-        errorPrecio.textContent = "";
-
-    }
-
-});
-
-
-/* Estado */
-
-estado.addEventListener("change", function () {
-
-    if (estado.value === "") {
-
-        errorEstado.textContent =
-            "Seleccione un estado.";
-
-    } else {
-
-        errorEstado.textContent = "";
-
-    }
-
-});
-
-
-/* Validación antes de guardar */
-
-document.getElementById("formFactura").addEventListener(
-    "submit",
-    function (event) {
-
-        let formularioValido = true;
-
-        const valorNumero =
-            numeroFactura.value.trim();
-
-        const valorCliente =
-            cliente.value.trim();
-
-        const valorCorreo =
-            correo.value.trim();
-
-        const valorProducto =
-            producto.value.trim();
-
-
-        if (valorNumero === "") {
-
-            errorNumero.textContent =
-                "El número de factura es obligatorio.";
-
-            formularioValido = false;
-
-        } else if (
-            !/^\d{3}-\d{3}-\d{6}$/.test(valorNumero)
-        ) {
-
-            errorNumero.textContent =
-                "Use el formato 001-001-000001.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (fecha.value === "") {
-
-            errorFecha.textContent =
-                "La fecha es obligatoria.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (valorCliente === "") {
-
-            errorCliente.textContent =
-                "El nombre del cliente es obligatorio.";
-
-            formularioValido = false;
-
-        } else if (valorCliente.length < 3) {
-
-            errorCliente.textContent =
-                "El cliente debe tener mínimo 3 caracteres.";
-
-            formularioValido = false;
-
-        } else if (
-            !/^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/.test(valorCliente)
-        ) {
-
-            errorCliente.textContent =
-                "El cliente solo debe contener letras.";
-
-            formularioValido = false;
-
-        }
-
-
-        const correoValido =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valorCorreo);
-
-        if (valorCorreo === "") {
-
-            errorCorreo.textContent =
-                "El correo electrónico es obligatorio.";
-
-            formularioValido = false;
-
-        } else if (!correoValido) {
-
-            errorCorreo.textContent =
-                "Ingrese un correo electrónico válido.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (valorProducto === "") {
-
-            errorProducto.textContent =
-                "El producto es obligatorio.";
-
-            formularioValido = false;
-
-        } else if (valorProducto.length < 3) {
-
-            errorProducto.textContent =
-                "El producto debe tener mínimo 3 caracteres.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (cantidad.value === "") {
-
-            errorCantidad.textContent =
-                "La cantidad es obligatoria.";
-
-            formularioValido = false;
-
-        } else if (parseInt(cantidad.value) < 1) {
-
-            errorCantidad.textContent =
-                "La cantidad debe ser mínimo 1.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (precio.value === "") {
-
-            errorPrecio.textContent =
-                "El precio es obligatorio.";
-
-            formularioValido = false;
-
-        } else if (parseFloat(precio.value) <= 0) {
-
-            errorPrecio.textContent =
-                "El precio debe ser mayor que 0.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (estado.value === "") {
-
-            errorEstado.textContent =
-                "Seleccione un estado.";
-
-            formularioValido = false;
-
-        }
-
-
-        if (!formularioValido) {
-
-            event.preventDefault();
-
-        }
-
-    }
-);
-
-</script>
+</main>
 
 {% endblock %}

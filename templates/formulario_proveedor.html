@@ -214,7 +214,8 @@ Registrar Proveedor - PAOOU FASHION
                         <div class="text-center">
 
                             {{ form.enviar(
-                                class="btn btn-primary px-5"
+                                class="btn btn-primary px-5",
+                                value="Actualizar Proveedor" if editar else "Guardar Proveedor"
                             ) }}
 
                         </div>

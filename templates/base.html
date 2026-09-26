@@ -20,25 +20,27 @@
 
 <body>
 
-   <!-- ENCABEZADO -->
-<header class="hero">
-    <div class="container text-center">
+    <!-- ENCABEZADO -->
+    <header class="hero">
 
-        <h1>PAOOU FASHION</h1>
+        <div class="container text-center">
 
-        <p>
-            Elegancia que inspira, estilo que enamora.
-        </p>
+            <h1>PAOOU FASHION</h1>
 
-    </div>
-</header>
+            <p>
+                Elegancia que inspira, estilo que enamora.
+            </p>
+
+        </div>
+
+    </header>
 
 
-    <!-- COMPONENTE NAVBAR -->
+    <!-- NAVBAR -->
     {% include "components/navbar.html" %}
 
 
-    <!-- CONTENIDO DE CADA PÁGINA -->
+    <!-- CONTENIDO -->
     <main>
 
         {% block content %}
@@ -48,7 +50,7 @@
     </main>
 
 
-    <!-- COMPONENTE FOOTER -->
+    <!-- FOOTER -->
     {% include "components/footer.html" %}
 
 

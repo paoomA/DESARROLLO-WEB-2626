@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}
+Factura {{ factura[1] }} - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-4">
+
+        <h2 class="fw-bold titulo-inicio">
+            🧾 Factura de venta
+        </h2>
+
+        <p class="text-secondary">
+            PAOOU FASHION
+        </p>
+
+    </div>
+
+
+    <div class="card shadow border-0">
+
+        <div class="card-body p-4">
+
+
+            <!-- ENCABEZADO -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <h3 class="fw-bold">
+                        PAOOU FASHION
+                    </h3>
+
+                    <p class="text-secondary mb-0">
+                        La moda que resalta tu belleza,
+                        estilo y elegancia.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-6 text-md-end">
+
+                    <h5 class="fw-bold">
+                        FACTURA
+                    </h5>
+
+                    <p class="mb-1">
+                        <strong>Número:</strong>
+                        {{ factura[1] }}
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Fecha:</strong>
+                        {{ factura[2] }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <!-- DATOS DEL CLIENTE -->
+
+            <div class="mb-4">
+
+                <h5 class="fw-bold">
+                    Datos del cliente
+                </h5>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p class="mb-1">
+                            <strong>Nombre:</strong>
+                            {{ factura[8] }}
+                        </p>
+
+                        <p class="mb-1">
+                            <strong>Correo:</strong>
+                            {{ factura[9] }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <p class="mb-1">
+                            <strong>Teléfono:</strong>
+                            {{ factura[10] }}
+                        </p>
+
+                        <p class="mb-1">
+                            <strong>Ciudad:</strong>
+                            {{ factura[11] }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTOS -->
+
+            <h5 class="fw-bold mb-3">
+                Productos
+            </h5>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Subtotal</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for detalle in detalles %}
+
+                        <tr>
+
+                            <td>
+                                {{ detalle[0] }}
+                            </td>
+
+                            <td>
+                                {{ detalle[1] }}
+                            </td>
+
+                            <td>
+                                {{ detalle[2] }}
+                            </td>
+
+                            <td>
+                                ${{ "%.2f"|format(detalle[3]) }}
+                            </td>
+
+                            <td>
+                                ${{ "%.2f"|format(detalle[4]) }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- TOTALES -->
+
+            <div class="row justify-content-end">
+
+                <div class="col-md-5">
+
+                    <div class="border rounded p-3">
+
+                        <p class="mb-2">
+
+                            <strong>Subtotal:</strong>
+
+                            <span class="float-end">
+                                ${{ "%.2f"|format(factura[4]) }}
+                            </span>
+
+                        </p>
+
+
+                        <hr>
+
+
+                        <h5 class="fw-bold">
+
+                            Total:
+
+                            <span class="float-end">
+                                ${{ "%.2f"|format(factura[5]) }}
+                            </span>
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAGO -->
+
+            <div class="mt-4">
+
+                <p class="mb-2">
+
+                    <strong>Método de pago:</strong>
+
+                    {{ factura[6] }}
+
+                </p>
+
+
+                <p>
+
+                    <strong>Estado:</strong>
+
+                    {% if factura[3] == "Pagada" %}
+
+                        <span class="badge bg-success">
+                            {{ factura[3] }}
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-warning text-dark">
+                            {{ factura[3] }}
+                        </span>
+
+                    {% endif %}
+
+                </p>
+
+            </div>
+
+
+            <hr>
+
+
+            <!-- BOTONES -->
+
+            <div class="d-flex gap-2 justify-content-center flex-wrap">
+
+                <a
+                    href="{{ url_for('mis_facturas') }}"
+                    class="btn btn-secondary"
+                >
+                    ← Volver a mis facturas
+                </a>
+
+
+                <a
+                    href="{{ url_for(
+                        'descargar_factura_pdf',
+                        factura_id=factura[0]
+                    ) }}"
+                    class="btn btn-danger"
+                >
+                    📄 Descargar PDF
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

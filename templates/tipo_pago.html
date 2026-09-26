@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+Tipo de pago - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            💳 Confirmar compra
+        </h2>
+
+        <p class="lead text-secondary">
+            Selecciona el método de pago para continuar.
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('confirmar_pedido') }}"
+                    >
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Método de pago
+                            </label>
+
+                            <select
+                                name="metodo_pago"
+                                class="form-select form-select-lg"
+                                required
+                            >
+
+                                <option value="">
+                                    Seleccione un método
+                                </option>
+
+                                <option value="Efectivo">
+                                    💵 Efectivo
+                                </option>
+
+                                <option value="Transferencia">
+                                    🏦 Transferencia
+                                </option>
+
+                                <option value="Tarjeta">
+                                    💳 Tarjeta
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn w-100"
+                            style="
+                                background-color:#e889ad;
+                                color:white;
+                                border:none;
+                            "
+                        >
+                            ✅ Confirmar pedido
+                        </button>
+
+
+                        <a
+                            href="{{ url_for('carrito') }}"
+                            class="btn btn-secondary w-100 mt-2"
+                        >
+                            ← Volver al carrito
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

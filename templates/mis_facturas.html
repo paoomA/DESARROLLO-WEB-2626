@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mis facturas - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            🧾 Mis facturas
+        </h2>
+
+        <p class="lead text-secondary">
+            Consulta las facturas de tus compras.
+        </p>
+
+    </div>
+
+
+    {% if facturas %}
+
+    <div class="row g-4">
+
+        {% for factura in facturas %}
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold">
+                        🧾 Factura {{ factura[1] }}
+                    </h5>
+
+                    <hr>
+
+                    <p>
+                        <strong>Pedido:</strong>
+                        #{{ factura[7] }}
+                    </p>
+
+                    <p>
+                        <strong>Fecha:</strong>
+                        {{ factura[2] }}
+                    </p>
+
+                    <p>
+                        <strong>Estado:</strong>
+
+                        {% if factura[3] == "Pagada" %}
+
+                            <span class="badge bg-success">
+                                {{ factura[3] }}
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-warning text-dark">
+                                {{ factura[3] }}
+                            </span>
+
+                        {% endif %}
+
+                    </p>
+
+                    <p>
+                        <strong>Método de pago:</strong>
+                        {{ factura[6] }}
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        <strong>Subtotal:</strong>
+                        ${{ "%.2f"|format(factura[4]) }}
+                    </p>
+
+                    <h5 class="fw-bold">
+                        Total:
+                        ${{ "%.2f"|format(factura[5]) }}
+                    </h5>
+
+                    <a
+                        href="{{ url_for(
+                            'detalle_factura',
+                            factura_id=factura[0]
+                        ) }}"
+                        class="btn w-100 mt-3"
+                        style="
+                            background-color:#e889ad;
+                            color:white;
+                            border:none;
+                        "
+                    >
+                        Ver factura
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    {% else %}
+
+    <div class="alert alert-light shadow text-center">
+
+        <div style="font-size:55px;">
+            🧾
+        </div>
+
+        <h4 class="fw-bold mt-3">
+            No tienes facturas todavía.
+        </h4>
+
+        <p class="text-secondary">
+            Cuando realices una compra aparecerá aquí.
+        </p>
+
+        <a
+            href="{{ url_for('catalogo') }}"
+            class="btn"
+            style="
+                background-color:#e889ad;
+                color:white;
+                border:none;
+            "
+        >
+            Ver catálogo
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

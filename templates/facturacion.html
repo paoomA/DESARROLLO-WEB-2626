@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Facturación - PAOOU FASHION
+    Facturación - PAOOU FASHION
 {% endblock %}
 
 {% block content %}
@@ -19,88 +19,92 @@ Facturación - PAOOU FASHION
             </h2>
 
             <p class="lead text-secondary">
-                Registro y consulta de facturas de PAOOU FASHION.
+                Consulta las facturas registradas en PAOOU FASHION.
             </p>
 
         </div>
 
 
-        <!-- BOTÓN REGISTRAR -->
+<!-- BOTONES DE NAVEGACIÓN Y REGISTRO -->
 
-        <div class="text-center mb-5">
+<div class="d-flex justify-content-center gap-3 mb-5">
 
-            <a href="{{ url_for('formulario_facturacion') }}"
-               class="btn btn-primary">
+    <a href="{{ url_for('dashboard') }}"
+       class="btn btn-outline-secondary">
 
-                Registrar Factura
+        ← Volver al panel
 
-            </a>
+    </a>
 
-        </div>
+    <a href="{{ url_for('formulario_facturacion') }}"
+       class="btn btn-primary">
 
+        Registrar Factura
 
-        <!-- FACTURAS DINÁMICAS -->
+    </a>
 
-        <div class="row g-4">
+</div>
 
-            {% for factura in facturas %}
+        <!-- TABLA DE FACTURAS -->
 
-            <div class="col-md-6 col-lg-6">
+        <div class="card shadow border-0">
 
-                <div class="card shadow border-0 h-100">
+            <div class="card-body">
 
-                    <!-- CABECERA -->
+                <h4 class="fw-bold mb-4">
+                    Facturas Registradas
+                </h4>
 
-                    <div class="card-header bg-dark text-white">
+                <div class="table-responsive">
 
-                        <h5 class="mb-0">
+                    <table class="table table-bordered table-hover align-middle">
 
-                            Factura N.º
-                            {{ factura.numero_factura }}
+                        <thead class="table-dark">
 
-                        </h5>
+                            <tr>
+                                <th>ID</th>
 
-                    </div>
+                                <th>ID del Pedido</th>
 
+                                <th>Número de Factura</th>
 
-                    <!-- CUERPO -->
+                                <th>Fecha</th>
 
-                    <div class="card-body">
+                                <th>Estado</th>
 
-                        <!-- INFORMACIÓN DE LA FACTURA -->
+                                <th>Subtotal</th>
 
-                        <div class="row mb-4">
+                                <th>Total</th>
 
-                            <div class="col-md-6">
+                                <th>Acciones</th>
 
-                                <h5 class="fw-bold">
-                                    PAOOU FASHION
-                                </h5>
+                            </tr>
 
-                                <p class="mb-1">
-                                    Ropa femenina moderna y elegante.
-                                </p>
+                        </thead>
 
-                                <p class="mb-1">
-                                    Shushufindi, Sucumbíos - Ecuador
-                                </p>
+                        <tbody>
 
-                            </div>
+                            {% for factura in facturas %}
 
+                            <tr>
 
-                            <div class="col-md-6 text-md-end">
+                                <td>
+                                    {{ factura.id }}
+                                </td>
 
-                                <p class="mb-1">
+                                <td>
+                                    {{ factura.pedido_id }}
+                                </td>
 
-                                    <strong>Fecha:</strong>
+                                <td>
+                                    {{ factura.numero_factura }}
+                                </td>
+
+                                <td>
                                     {{ factura.fecha }}
+                                </td>
 
-                                </p>
-
-
-                                <p class="mb-1">
-
-                                    <strong>Estado:</strong>
+                                <td>
 
                                     {% if factura.estado == "Pagada" %}
 
@@ -122,252 +126,103 @@ Facturación - PAOOU FASHION
 
                                     {% endif %}
 
-                                </p>
+                                </td>
 
-                            </div>
+                                <td>
+                                    ${{ "%.2f"|format(factura.subtotal) }}
+                                </td>
 
-                        </div>
+                                <td>
+                                    ${{ "%.2f"|format(factura.total) }}
+                                </td>
 
+                                <td>
 
-                        <!-- DATOS DEL CLIENTE -->
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
 
-                        <div class="alert alert-light">
+        <!-- MARCAR COMO PAGADA -->
+        {% if factura.estado == "Pendiente" %}
 
-                            <h6 class="fw-bold">
-                                Datos del Cliente
-                            </h6>
+            <form action="{{ url_for(
+                'marcar_factura_pagada',
+                id=factura.id
+            ) }}"
+                  method="POST">
 
-                            <p class="mb-1">
+                <button type="submit"
+                        class="btn btn-success btn-sm">
 
-                                <strong>Cliente:</strong>
-                                {{ factura.cliente }}
+                    💳 Marcar como pagada
 
-                            </p>
+                </button>
 
-                            <p class="mb-0">
+            </form>
 
-                                <strong>Correo:</strong>
-                                {{ factura.correo }}
+        {% else %}
 
-                            </p>
+            <span class="badge bg-success align-self-center p-2">
 
-                        </div>
+                ✓ Factura pagada
 
+            </span>
 
-                        <!-- DETALLE DE LA COMPRA -->
+        {% endif %}
 
-                        <h5 class="fw-bold mt-4 mb-3">
-                            Detalle de la compra
-                        </h5>
 
+        <!-- EDITAR -->
+        <a href="{{ url_for(
+            'editar_facturacion',
+            id=factura.id
+        ) }}"
+           class="btn btn-warning btn-sm">
 
-                        <div class="table-responsive">
+            Editar
 
-                            <table class="table table-bordered align-middle">
+        </a>
 
-                                <thead class="table-dark">
 
-                                    <tr>
+        <!-- ELIMINAR -->
+        <a href="{{ url_for(
+            'eliminar_facturacion',
+            id=factura.id
+        ) }}"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm(
+               '¿Está seguro de eliminar esta factura?'
+           );">
 
-                                        <th>
-                                            Producto
-                                        </th>
+            Eliminar
 
-                                        <th>
-                                            Cantidad
-                                        </th>
+        </a>
 
-                                        <th>
-                                            Precio
-                                        </th>
+    </div>
 
-                                        <th>
-                                            Subtotal
-                                        </th>
+</td>
 
-                                    </tr>
+                            </tr>
 
-                                </thead>
+                            {% else %}
 
+                            <tr>
 
-                                <tbody>
+                                <td colspan="8"
+                                    class="text-center text-secondary">
 
-                                    <tr>
+                                    No existen facturas registradas.
 
-                                        <td>
-                                            {{ factura.producto }}
-                                        </td>
+                                </td>
 
-                                        <td>
-                                            {{ factura.cantidad }}
-                                        </td>
+                            </tr>
 
-                                        <td>
-                                            ${{ "%.2f"|format(factura.precio) }}
-                                        </td>
+                            {% endfor %}
 
-                                        <td>
+                        </tbody>
 
-                                            ${{ "%.2f"|format(
-                                                factura.cantidad * factura.precio
-                                            ) }}
-
-                                        </td>
-
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-
-                        <!-- TOTAL -->
-
-                        <div class="row justify-content-end">
-
-                            <div class="col-md-6">
-
-                                <div class="d-flex justify-content-between">
-
-                                    <span class="fw-bold">
-                                        Total:
-                                    </span>
-
-                                    <strong class="fs-4">
-
-                                        ${{ "%.2f"|format(
-                                            factura.cantidad * factura.precio
-                                        ) }}
-
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- BOTONES EDITAR Y ELIMINAR -->
-
-                        <div class="mt-4 text-end">
-
-                            <a href="{{ url_for(
-                                'editar_facturacion',
-                                indice=loop.index0
-                            ) }}"
-                               class="btn btn-warning">
-
-                                Editar
-
-                            </a>
-
-
-                            <button type="button"
-                                    class="btn btn-danger"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalEliminarFactura{{ loop.index0 }}">
-
-                                Eliminar
-
-                            </button>
-
-                        </div>
-
-                    </div>
+                    </table>
 
                 </div>
 
             </div>
-
-
-            <!-- MODAL DE CONFIRMACIÓN -->
-
-            <div class="modal fade"
-                 id="modalEliminarFactura{{ loop.index0 }}"
-                 tabindex="-1"
-                 aria-labelledby="tituloModalFactura{{ loop.index0 }}"
-                 aria-hidden="true">
-
-                <div class="modal-dialog modal-dialog-centered">
-
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-
-                            <h5 class="modal-title fw-bold"
-                                id="tituloModalFactura{{ loop.index0 }}">
-
-                                ¿Eliminar factura?
-
-                            </h5>
-
-
-                            <button type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Cerrar">
-
-                            </button>
-
-                        </div>
-
-
-                        <div class="modal-body text-center">
-
-                            <p>
-                                ¿Está seguro de que desea eliminar esta factura?
-                            </p>
-
-                            <strong>
-
-                                Factura N.º
-                                {{ factura.numero_factura }}
-
-                            </strong>
-
-                            <p class="mt-2 mb-0">
-
-                                Cliente:
-                                {{ factura.cliente }}
-
-                            </p>
-
-                        </div>
-
-
-                        <div class="modal-footer justify-content-center">
-
-                            <button type="button"
-                                    class="btn btn-secondary"
-                                    data-bs-dismiss="modal">
-
-                                Cancelar
-
-                            </button>
-
-
-                            <a href="{{ url_for(
-                                'eliminar_facturacion',
-                                indice=loop.index0
-                            ) }}"
-                               class="btn btn-danger">
-
-                                Sí, eliminar
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            {% endfor %}
 
         </div>
 

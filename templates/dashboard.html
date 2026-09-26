@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block title %}
+Panel de Administración - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<section class="container my-5">
+
+    <!-- Encabezado -->
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            Panel de Administración
+        </h2>
+
+        <p class="lead text-secondary">
+            ¡Hola, {{ current_user.usuario }}!
+        </p>
+
+        <p class="text-secondary">
+            Gestiona la información de PAOOU FASHION desde este panel.
+        </p>
+
+    </div>
+
+
+    <!-- Tarjetas -->
+
+    <div class="row g-4 justify-content-center">
+
+
+        <!-- PRODUCTOS -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-tshirt fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Productos
+                    </h4>
+
+                    <a href="{{ url_for('productos') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CLIENTES -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-users fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Clientes
+                    </h4>
+
+                    <a href="{{ url_for('clientes') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROVEEDORES -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-building fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Proveedores
+                    </h4>
+
+                    <a href="{{ url_for('proveedores') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FACTURACIÓN -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-file-invoice fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Facturación
+                    </h4>
+
+                    <a href="{{ url_for('facturacion') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PEDIDOS -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-shopping-bag fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Pedidos
+                    </h4>
+
+                    <a href="{{ url_for('pedidos') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DETALLE DE PEDIDO -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow border-0 text-center">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3">
+                        <i class="fas fa-list fa-3x"
+                           style="color: #e889ad;">
+                        </i>
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Detalle de Pedido
+                    </h4>
+
+                    <a href="{{ url_for('detalle_pedido') }}"
+                       class="btn mt-3"
+                       style="background-color: #e889ad; color: white; border: none;">
+
+                        Ingresar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

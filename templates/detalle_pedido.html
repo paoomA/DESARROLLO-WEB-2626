@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}
+Detalle de Pedidos - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <section class="container my-5">
+
+        <div class="text-center mb-4">
+
+            <h2 class="fw-bold titulo-inicio">
+                Detalle de Pedidos
+            </h2>
+
+            <p class="lead text-secondary">
+                Consulta los productos incluidos en cada pedido.
+            </p>
+
+        </div>
+
+        <!-- BOTONES DE NAVEGACIÓN Y REGISTRO -->
+
+<div class="d-flex justify-content-center gap-3 mb-5">
+
+    <a href="{{ url_for('dashboard') }}"
+       class="btn btn-outline-secondary">
+
+        ← Volver al panel
+
+    </a>
+
+    <a href="{{ url_for('formulario_detalle_pedido') }}"
+       class="btn btn-lg"
+       style="background-color: #e889ad; color: white; border: none;">
+
+        Registrar Detalle
+
+    </a>
+
+</div>
+
+        <div class="card shadow border-0">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>ID del Pedido</th>
+                                <th>ID del Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Subtotal</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for detalle in detalles %}
+
+                            <tr>
+
+                                <td>
+                                    {{ detalle.id }}
+                                </td>
+
+                                <td>
+                                    {{ detalle.pedido_id }}
+                                </td>
+
+                                <td>
+                                    {{ detalle.producto_id }}
+                                </td>
+
+                                <td>
+                                    {{ detalle.cantidad }}
+                                </td>
+
+                                <td>
+                                    ${{ "%.2f"|format(detalle.precio_unitario) }}
+                                </td>
+
+                                <td>
+                                    ${{ "%.2f"|format(detalle.subtotal) }}
+                                </td>
+
+                            </tr>
+
+                            {% else %}
+
+                            <tr>
+
+                                <td colspan="6"
+                                    class="text-center text-secondary">
+
+                                    No existen detalles de pedidos registrados.
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="alert alert-light shadow mt-5 text-center">
+
+            <h5 class="fw-bold">
+                Total de detalles registrados
+            </h5>
+
+            <p class="fs-4 mb-0">
+                {{ detalles|length }}
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

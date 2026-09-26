@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}
+Catálogo - PAOOU FASHION
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold titulo-inicio">
+            Catálogo
+        </h2>
+
+        <p class="lead text-secondary">
+            Explora nuestros productos disponibles.
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORÍA -->
+
+    <div class="row justify-content-center mb-5">
+
+        <div class="col-md-5">
+
+            <label
+                for="filtroCategoria"
+                class="form-label fw-bold"
+            >
+                Categoría
+            </label>
+
+            <select
+                id="filtroCategoria"
+                class="form-select form-select-lg"
+            >
+
+                <option value="">
+                    Todas las categorías
+                </option>
+
+                <option value="Vestidos">
+                    Vestidos
+                </option>
+
+                <option value="Blusas">
+                    Blusas
+                </option>
+
+                <option value="Jeans">
+                    Jeans
+                </option>
+
+                <option value="Faldas">
+                    Faldas
+                </option>
+
+                <option value="Bodys">
+                    Bodys
+                </option>
+
+                <option value="Conjuntos">
+                    Conjuntos
+                </option>
+
+                <option value="Chaquetas de mezclilla">
+                    Chaquetas de mezclilla
+                </option>
+
+                <option value="Blazers">
+                    Blazers
+                </option>
+
+                <option value="Shorts">
+                    Shorts
+                </option>
+
+                <option value="Enterizos">
+                    Enterizos
+                </option>
+
+                <option value="Conjunto Deportivo">
+                    Conjunto Deportivo
+                </option>
+
+                <option value="Crop Tops">
+                    Crop Tops
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- TARJETAS -->
+<!-- TARJETAS -->
+
+<div
+    class="row g-4"
+    id="listaCatalogo"
+    style="display: none;"
+>
+
+    {% for producto in productos %}
+
+    <div class="col-md-6 col-lg-4 producto-item">
+
+        <div class="card h-100 shadow border-0">
+
+            <div class="card-body">
+
+                <h5 class="fw-bold">
+                    {{ producto[1] }}
+                </h5>
+
+                <p class="text-secondary">
+                    {{ producto[2] }}
+                </p>
+
+                <p>
+                    {{ producto[3] }}
+                </p>
+
+                <h5 class="fw-bold">
+                    ${{ "%.2f"|format(producto[4]) }}
+                </h5>
+
+                <p>
+                    <strong>Stock:</strong>
+                    {{ producto[5] }}
+                </p>
+
+                <form
+                    method="POST"
+                    action="{{ url_for('agregar_carrito', producto_id=producto[0]) }}"
+                >
+
+                    <button
+                        type="submit"
+                        class="btn w-100"
+                        style="
+                            background-color:#dc3545;
+                            color:white;
+                            border:none;
+                        "
+                    >
+                        🛒 Añadir al carrito
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+    <!-- SIN RESULTADOS -->
+
+    <div
+        id="sinResultados"
+        class="alert alert-light shadow text-center mt-4"
+        style="display:none;"
+    >
+
+        <p class="mb-0 text-secondary">
+            No se encontraron productos en esta categoría.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- FILTRO POR CATEGORÍA -->
+
+<script>
+
+    const filtroCategoria =
+        document.getElementById("filtroCategoria");
+
+    const listaCatalogo =
+        document.getElementById("listaCatalogo");
+
+    const productos =
+        document.querySelectorAll(".producto-item");
+
+    const sinResultados =
+        document.getElementById("sinResultados");
+
+
+    filtroCategoria.addEventListener("change", function () {
+
+        const categoria =
+            filtroCategoria.value.toLowerCase();
+
+
+        /* Si no ha escogido ninguna categoría */
+
+        if (categoria === "") {
+
+            listaCatalogo.style.display = "none";
+
+            sinResultados.style.display = "none";
+
+            return;
+
+        }
+
+
+        /* Mostrar las tarjetas */
+
+        listaCatalogo.style.display = "flex";
+
+        let encontrados = 0;
+
+
+        productos.forEach(function (producto) {
+
+            const texto =
+                producto.textContent.toLowerCase();
+
+
+            if (texto.includes(categoria)) {
+
+                producto.style.display = "";
+
+                encontrados++;
+
+            } else {
+
+                producto.style.display = "none";
+
+            }
+
+        });
+
+
+        if (encontrados === 0) {
+
+            sinResultados.style.display = "block";
+
+        } else {
+
+            sinResultados.style.display = "none";
+
+        }
+
+    });
+
+</script>
+{% endblock %}

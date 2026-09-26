@@ -22,9 +22,16 @@ Productos - PAOOU FASHION
     </p>
 
 
-    <!-- boton registrar -->
+    <!-- botones de navegación y registro -->
 
-    <div class="text-center mb-5">
+    <div class="d-flex justify-content-center gap-3 mb-5">
+
+        <a href="{{ url_for('dashboard') }}"
+           class="btn btn-outline-secondary">
+
+            ← Volver al panel
+
+        </a>
 
         <a href="{{ url_for('formulario_producto') }}"
            class="btn btn-primary">
@@ -35,329 +42,219 @@ Productos - PAOOU FASHION
 
     </div>
 
-<!-- tabla de productos almacenados en SQLite -->
 
-<div class="mt-5 mb-5">
+    <!-- tabla de productos -->
 
-    <h3 class="text-center fw-bold mb-4">
-        Productos Registrados
-    </h3>
+    <div class="mt-5 mb-5">
 
-    <div class="table-responsive shadow-sm">
+        <h3 class="text-center fw-bold mb-4">
+            Productos Registrados
+        </h3>
 
-        <table class="table table-bordered table-hover align-middle">
+        <div class="table-responsive shadow-sm">
 
-            <thead style="background-color: #e889ad; color: white;">
+            <table class="table table-bordered table-hover align-middle">
 
-                <tr class="text-center">
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                </tr>
+                <thead style="background-color: #e889ad; color: white;">
 
-            </thead>
+                    <tr class="text-center">
 
-            <tbody>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
 
-                {% for producto in productos %}
+                    </tr>
 
-                <tr>
+                </thead>
 
-                    <td>
-                        {{ producto[0] }}
-                    </td>
 
-                    <td>
-                        {{ producto[1] }}
-                    </td>
+                <tbody>
 
-                    <td>
-                        {{ producto[2] }}
-                    </td>
+                    {% for producto in productos %}
 
-                    <td>
-                        {{ producto[3] }}
-                    </td>
+                    <tr>
 
-                    <td>
-                        ${{ "%.2f"|format(producto[4]) }}
-                    </td>
+                        <td>
+                            {{ producto[0] }}
+                        </td>
 
-                    <td>
+                        <td>
+                            {{ producto[1] }}
+                        </td>
 
-                        {% if producto[5] > 0 %}
+                        <td>
+                            {{ producto[2] }}
+                        </td>
 
-                            <span class="badge bg-success">
-                                {{ producto[5] }}
-                            </span>
+                        <td>
+                            {{ producto[3] }}
+                        </td>
 
-                        {% else %}
+                        <td>
+                            ${{ "%.2f"|format(producto[4]) }}
+                        </td>
 
-                            <span class="badge bg-danger">
-                                0
-                            </span>
+                        <td>
 
-                        {% endif %}
+                            {% if producto[5] > 0 %}
 
-                    </td>
+                                <span class="badge bg-success">
+                                    {{ producto[5] }}
+                                </span>
 
-                </tr>
+                            {% else %}
 
-                {% else %}
+                                <span class="badge bg-danger">
+                                    0
+                                </span>
 
-                <tr>
+                            {% endif %}
 
-                    <td colspan="6" class="text-muted py-4">
-                        No existen productos registrados.
-                    </td>
+                        </td>
 
-                </tr>
 
-                {% endfor %}
+                        <!-- acciones -->
 
-            </tbody>
+                        <td class="text-center">
 
-        </table>
+                            <div class="d-flex justify-content-center gap-2">
 
-    </div>
+                                <a href="{{ url_for('editar_producto', id=producto[0]) }}"
+                                   class="btn btn-warning btn-sm">
 
-</div>
+                                    Editar
 
+                                </a>
 
-<!-- tarjetas de productos -->
+                                <button type="button"
+                                        class="btn btn-danger btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEliminarProducto{{ loop.index0 }}">
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                    Eliminar
 
-        {% for producto in productos %}
+                                </button>
 
-        <div class="col">
+                            </div>
 
-            <div class="card producto-card h-100 shadow border-0">
+                        </td>
 
+                    </tr>
 
-<!-- imagen del producto -->
 
-{% if producto[2] == "Vestidos" %}
+                    <!-- Modal de confirmación para eliminar -->
 
-    <img src="{{ url_for('static', filename='img/vestido.jpeg') }}"
-         class="card-img-top"
-         alt="Vestidos">
+                    <div class="modal fade"
+                         id="modalEliminarProducto{{ loop.index0 }}"
+                         tabindex="-1"
+                         aria-labelledby="tituloModalProducto{{ loop.index0 }}"
+                         aria-hidden="true">
 
-{% elif producto[2] == "Blusas" %}
+                        <div class="modal-dialog modal-dialog-centered">
 
-    <img src="{{ url_for('static', filename='img/blusas.jpeg') }}"
-         class="card-img-top"
-         alt="Blusas">
+                            <div class="modal-content">
 
-{% elif producto[2] == "Bodys" %}
+                                <div class="modal-header">
 
-    <img src="{{ url_for('static', filename='img/body.jpg') }}"
-         class="card-img-top"
-         alt="Bodys">
+                                    <h5 class="modal-title fw-bold"
+                                        id="tituloModalProducto{{ loop.index0 }}">
 
-{% elif producto[2] == "Jeans" %}
+                                        ¿Eliminar producto?
 
-    <img src="{{ url_for('static', filename='img/jeans.jpeg') }}"
-         class="card-img-top"
-         alt="Jeans">
+                                    </h5>
 
-{% elif producto[2] == "Faldas" %}
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Cerrar">
 
-    <img src="{{ url_for('static', filename='img/faldas.jpg') }}"
-         class="card-img-top"
-         alt="Faldas">
+                                    </button>
 
-{% elif producto[2] == "Conjuntos" %}
+                                </div>
 
-    <img src="{{ url_for('static', filename='img/conjuntos.jpg') }}"
-         class="card-img-top"
-         alt="Conjuntos">
 
-{% elif producto[2] == "Chaquetas de mezclilla" %}
+                                <div class="modal-body text-center">
 
-    <img src="{{ url_for('static', filename='img/chaquetas.jpg') }}"
-         class="card-img-top"
-         alt="Chaquetas de mezclilla">
+                                    <p>
+                                        ¿Está seguro de que desea eliminar este producto?
+                                    </p>
 
-{% elif producto[2] == "Blazers" %}
+                                    <strong>
+                                        {{ producto[1] }}
+                                    </strong>
 
-    <img src="{{ url_for('static', filename='img/blazers.jpeg') }}"
-         class="card-img-top"
-         alt="Blazers">
+                                </div>
 
-{% elif producto[2] == "Shorts" %}
 
-    <img src="{{ url_for('static', filename='img/shorts.jpeg') }}"
-         class="card-img-top"
-         alt="Shorts">
+                                <div class="modal-footer justify-content-center">
 
-{% elif producto[2] == "Enterizos" %}
+                                    <button type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
 
-    <img src="{{ url_for('static', filename='img/enterizos.jpg') }}"
-         class="card-img-top"
-         alt="Enterizos">
+                                        Cancelar
 
-{% elif producto[2] == "Conjuntos Deportivos" %}
+                                    </button>
 
-    <img src="{{ url_for('static', filename='img/conj_deportivos.png') }}"
-         class="card-img-top"
-         alt="Conjuntos Deportivos">
 
-{% elif producto[2] == "Crop Tops" %}
+                                    <a href="{{ url_for('eliminar_producto', id=producto[0]) }}"
+                                       class="btn btn-danger">
 
-    <img src="{{ url_for('static', filename='img/crop_tops.png') }}"
-         class="card-img-top"
-         alt="Crop Tops">
+                                        Sí, eliminar
 
-{% else %}
+                                    </a>
 
-    <div class="d-flex align-items-center justify-content-center bg-light"
-         style="height: 250px;">
-        <span class="text-muted">
-            Imagen no disponible
-        </span>
-    </div>
+                                </div>
 
-{% endif %}
+                            </div>
 
+                        </div>
 
-                <!-- informacion -->
+                    </div>
 
-                <div class="card-body text-center">
-
-                    <h5 class="card-title">
-                        {{ producto[1] }}
-                    </h5>
-
-                    <p class="precio">
-                        ${{ "%.2f"|format(producto[4]) }}
-                    </p>
-
-                    <p class="card-text">
-                        {{ producto[3] }}
-                    </p>
-
-
-                    <!-- stock -->
-
-                    {% if producto[5] > 0 %}
-
-                        <span class="badge bg-success mb-3">
-                            Disponible
-                        </span>
 
                     {% else %}
 
-                        <span class="badge bg-danger mb-3">
-                            Agotado
-                        </span>
+                    <tr>
 
-                    {% endif %}
+                        <td colspan="7"
+                            class="text-muted py-4 text-center">
 
+                            No existen productos registrados.
 
-                    <br>
+                        </td>
 
+                    </tr>
 
-<!-- editar y eliminar -->
+                    {% endfor %}
 
-<div class="mt-3">
+                </tbody>
 
-    <a href="{{ url_for('editar_producto', id=producto[0]) }}"
-       class="btn btn-warning">
-        Editar
-    </a>
-
-    <button type="button"
-            class="btn btn-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEliminarProducto{{ loop.index0 }}">
-        Eliminar
-    </button>
-
-</div>
-
-</div>
-<!-- cierre de card-body -->
-
-
-</div>
-<!-- cierre de card -->
-
-
-</div>
-<!-- cierre de col-md-4 -->
-
-
-<!-- Modal de confirmación para eliminar producto -->
-
-<div class="modal fade"
-     id="modalEliminarProducto{{ loop.index0 }}"
-     tabindex="-1"
-     aria-labelledby="tituloModalProducto{{ loop.index0 }}"
-     aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title fw-bold"
-                    id="tituloModalProducto{{ loop.index0 }}">
-                    ¿Eliminar producto?
-                </h5>
-
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Cerrar">
-                </button>
-
-            </div>
-
-            <div class="modal-body text-center">
-
-                <p>
-                    ¿Está seguro de que desea eliminar este producto?
-                </p>
-
-                <strong>
-                    {{ producto[1] }}
-                </strong>
-
-            </div>
-
-            <div class="modal-footer justify-content-center">
-
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-
-                <a href="{{ url_for('eliminar_producto', id=producto[0]) }}"
-                   class="btn btn-danger">
-                    Sí, eliminar
-                </a>
-
-            </div>
+            </table>
 
         </div>
 
     </div>
 
-</div>
 
+    <!-- total de productos -->
 
-{% endfor %}
- 
+    <div class="alert alert-light shadow mt-5 text-center">
+
+        <h5 class="fw-bold">
+            Total de productos registrados
+        </h5>
+
+        <p class="fs-4 mb-0">
+            {{ productos|length }}
+        </p>
 
     </div>
 
 </section>
-
 
 {% endblock %}

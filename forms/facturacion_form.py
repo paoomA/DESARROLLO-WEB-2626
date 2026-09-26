@@ -1,16 +1,35 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, IntegerField, DecimalField, SubmitField
+
+from wtforms import (
+    StringField,
+    SelectField,
+    IntegerField,
+    DecimalField,
+    SubmitField
+)
+
 from wtforms.validators import (
     DataRequired,
     InputRequired,
     Length,
-    NumberRange,
-    Email,
-    Regexp
+    NumberRange
 )
 
 
 class FacturacionForm(FlaskForm):
+
+    pedido_id = IntegerField(
+        "ID del Pedido",
+        validators=[
+            InputRequired(
+                message="El ID del pedido es obligatorio."
+            ),
+            NumberRange(
+                min=1,
+                message="El ID del pedido debe ser mayor que 0."
+            )
+        ]
+    )
 
     numero_factura = StringField(
         "Número de Factura",
@@ -35,77 +54,6 @@ class FacturacionForm(FlaskForm):
         ]
     )
 
-    cliente = StringField(
-        "Cliente",
-        validators=[
-            DataRequired(
-                message="El nombre del cliente es obligatorio."
-            ),
-            Length(
-                min=3,
-                max=80,
-                message="El nombre del cliente debe tener entre 3 y 80 caracteres."
-            ),
-            Regexp(
-                r"^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$",
-                message="El nombre del cliente solo debe contener letras."
-            )
-        ]
-    )
-
-    correo = StringField(
-        "Correo Electrónico",
-        validators=[
-            DataRequired(
-                message="El correo electrónico es obligatorio."
-            ),
-            Email(
-                message="Ingrese un correo electrónico válido."
-            )
-        ]
-    )
-
-    producto = StringField(
-        "Producto",
-        validators=[
-            DataRequired(
-                message="El producto es obligatorio."
-            ),
-            Length(
-                min=3,
-                max=100,
-                message="El producto debe tener entre 3 y 100 caracteres."
-            )
-        ]
-    )
-
-    cantidad = IntegerField(
-        "Cantidad",
-        validators=[
-            InputRequired(
-                message="La cantidad es obligatoria."
-            ),
-            NumberRange(
-                min=1,
-                message="La cantidad debe ser mínimo 1."
-            )
-        ]
-    )
-
-    precio = DecimalField(
-        "Precio",
-        places=2,
-        validators=[
-            DataRequired(
-                message="El precio es obligatorio."
-            ),
-            NumberRange(
-                min=0.01,
-                message="El precio debe ser mayor que 0."
-            )
-        ]
-    )
-
     estado = SelectField(
         "Estado",
         choices=[
@@ -117,6 +65,34 @@ class FacturacionForm(FlaskForm):
         validators=[
             DataRequired(
                 message="Seleccione un estado."
+            )
+        ]
+    )
+
+    subtotal = DecimalField(
+        "Subtotal",
+        places=2,
+        validators=[
+            DataRequired(
+                message="El subtotal es obligatorio."
+            ),
+            NumberRange(
+                min=0,
+                message="El subtotal no puede ser negativo."
+            )
+        ]
+    )
+
+    total = DecimalField(
+        "Total",
+        places=2,
+        validators=[
+            DataRequired(
+                message="El total es obligatorio."
+            ),
+            NumberRange(
+                min=0,
+                message="El total no puede ser negativo."
             )
         ]
     )
