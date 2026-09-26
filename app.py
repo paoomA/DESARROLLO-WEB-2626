@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
 from datetime import date
 
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -46,11 +45,6 @@ login_manager.init_app(app)
 
 login_manager.login_view = "login"
 
-# conexión con la base de datos SQLite
-def conectar_bd():
-    conn = sqlite3.connect("data/paoou_fashion.db")
-    return conn
-
 # modelo de usuario para Flask-Login
 class Usuario(UserMixin):
 
@@ -90,27 +84,6 @@ def load_user(user_id):
 
     return None
 
-# crear tabla de productos
-def crear_tabla_productos():
-
-    conn = conectar_bd()
-
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS productos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre TEXT NOT NULL,
-            categoria TEXT NOT NULL,
-            descripcion TEXT NOT NULL,
-            precio REAL NOT NULL,
-            cantidad INTEGER NOT NULL
-        )
-    """)
-
-    conn.commit()
-
-    conn.close()
 
 # datos temporales de productos
 productos_lista = [
@@ -2619,9 +2592,6 @@ def test_db():
         if conexion is not None:
             conexion.close()
 
-
-# inicializar base de datos
-crear_tabla_productos()
 
 # ejecutar aplicación
 if __name__ == "__main__":
