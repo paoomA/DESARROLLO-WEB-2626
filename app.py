@@ -401,7 +401,7 @@ def registro():
         conexion = obtener_conexion()
         cursor = conexion.cursor()
 
-        # GUARDAR LA CUENTA DE USUARIO
+        # Guardar cuenta de usuario
         cursor.execute("""
             INSERT INTO usuarios
             (usuario, correo, password, rol)
@@ -413,17 +413,17 @@ def registro():
             "cliente"
         ))
 
-        # GUARDAR AUTOMÁTICAMENTE COMO CLIENTE
+        # Guardar información del cliente
         cursor.execute("""
             INSERT INTO clientes
             (nombre, apellido, correo, telefono, ciudad, estado)
             VALUES (%s, %s, %s, %s, %s, %s)
         """, (
-            form.usuario.data,
-            "",
+            form.nombre.data,
+            form.apellido.data,
             form.correo.data,
             form.telefono.data,
-            "",
+            form.ciudad.data,
             "Activo"
         ))
 
@@ -438,6 +438,7 @@ def registro():
         "registro.html",
         form=form
     )
+    
 # =========================
 # BUSCAR PRODUCTOS
 # =========================

@@ -56,6 +56,51 @@ Crear cuenta - PAOOU FASHION
 
                         </div>
 
+                        <!-- NOMBRE -->
+<div class="mb-3">
+
+    {{ form.nombre.label(
+        class="form-label fw-bold"
+    ) }}
+
+    {{ form.nombre(
+        class="form-control form-control-lg",
+        placeholder="Ingresa tu nombre"
+    ) }}
+
+    {% for error in form.nombre.errors %}
+
+        <div class="text-danger small mt-1">
+            {{ error }}
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- APELLIDO -->
+<div class="mb-3">
+
+    {{ form.apellido.label(
+        class="form-label fw-bold"
+    ) }}
+
+    {{ form.apellido(
+        class="form-control form-control-lg",
+        placeholder="Ingresa tu apellido"
+    ) }}
+
+    {% for error in form.apellido.errors %}
+
+        <div class="text-danger small mt-1">
+            {{ error }}
+        </div>
+
+    {% endfor %}
+
+</div>
+
 
                         <!-- CORREO -->
                         <div class="mb-3">
@@ -96,6 +141,28 @@ Crear cuenta - PAOOU FASHION
     ) }}
 
     {% for error in form.telefono.errors %}
+
+        <div class="text-danger small mt-1">
+            {{ error }}
+        </div>
+
+    {% endfor %}
+
+</div>
+
+<!-- CIUDAD -->
+<div class="mb-3">
+
+    {{ form.ciudad.label(
+        class="form-label fw-bold"
+    ) }}
+
+    {{ form.ciudad(
+        class="form-control form-control-lg",
+        placeholder="Ingresa tu ciudad"
+    ) }}
+
+    {% for error in form.ciudad.errors %}
 
         <div class="text-danger small mt-1">
             {{ error }}

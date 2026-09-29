@@ -8,35 +8,62 @@ class UsuarioForm(FlaskForm):
     usuario = StringField(
         "Usuario",
         validators=[
-            DataRequired(message="El usuario es obligatorio."),
-            Length(
-                min=3,
-                max=50,
-                message="El usuario debe tener entre 3 y 50 caracteres."
+            DataRequired(),
+            Length(min=3, max=50)
+        ]
+    )
+
+    nombre = StringField(
+        "Nombre",
+        validators=[
+            DataRequired(),
+            Length(min=3, max=30),
+            Regexp(
+                r"^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$",
+                message="El nombre solo debe contener letras."
+            )
+        ]
+    )
+
+    apellido = StringField(
+        "Apellido",
+        validators=[
+            DataRequired(),
+            Length(min=3, max=30),
+            Regexp(
+                r"^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$",
+                message="El apellido solo debe contener letras."
             )
         ]
     )
 
     correo = StringField(
-        "Correo",
+        "Correo electrónico",
         validators=[
-            DataRequired(message="El correo es obligatorio."),
-            Email(message="Ingrese un correo electrónico válido.")
+            DataRequired(),
+            Email()
         ]
     )
 
     telefono = StringField(
         "Teléfono",
         validators=[
-            DataRequired(message="El teléfono es obligatorio."),
-            Length(
-                min=7,
-                max=10,
-                message="El teléfono debe tener entre 7 y 10 números."
-            ),
+            DataRequired(),
             Regexp(
-                r"^[0-9]+$",
-                message="El teléfono solo puede contener números."
+                r"^\d{10}$",
+                message="El teléfono debe contener exactamente 10 números."
+            )
+        ]
+    )
+
+    ciudad = StringField(
+        "Ciudad",
+        validators=[
+            DataRequired(),
+            Length(min=3, max=50),
+            Regexp(
+                r"^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$",
+                message="La ciudad solo debe contener letras."
             )
         ]
     )
@@ -44,19 +71,15 @@ class UsuarioForm(FlaskForm):
     password = PasswordField(
         "Contraseña",
         validators=[
-            DataRequired(message="La contraseña es obligatoria."),
-            Length(
-                min=6,
-                max=255,
-                message="La contraseña debe tener al menos 6 caracteres."
-            )
+            DataRequired(),
+            Length(min=6, max=255)
         ]
     )
 
     repetir_password = PasswordField(
-        "Repetir contraseña",
+        "Repite tu contraseña",
         validators=[
-            DataRequired(message="Debe repetir la contraseña."),
+            DataRequired(),
             EqualTo(
                 "password",
                 message="Las contraseñas no coinciden."
