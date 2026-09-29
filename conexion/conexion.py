@@ -15,7 +15,7 @@ def obtener_conexion():
             user=os.getenv("MYSQL_USER"),
             password=os.getenv("MYSQL_PASSWORD"),
             database=os.getenv("MYSQL_DATABASE"),
-            ssl_disabled=False
+            # ssl_disabled=False
         )
 
     # En tu computadora seguimos usando MySQL Workbench
@@ -24,7 +24,7 @@ def obtener_conexion():
             host="localhost",
             user="root",
             password=os.getenv("MYSQL_PASSWORD"),
-            database="paoou_fashion"
+            database=os.getenv("MYSQL_DATABASE"),
         )
 
     return conexion
